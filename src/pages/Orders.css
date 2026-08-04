@@ -1,0 +1,19 @@
+.ordersTitles{
+    display: flex;
+    font-size: 20px;
+}
+.ordersTitle{
+    flex: 1 ;
+}
+
+.ordersDetails{
+    margin-top: 15px;
+}
+.orderRow{
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+.orderRow div{
+    flex: 1;
+}

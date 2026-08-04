@@ -1,0 +1,81 @@
+.order-detail-modal{
+    position: fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+}
+.order-detail-pop{
+    background: white;
+
+    width:50%;
+    max-width:600px;
+    padding: 30px;
+    font-size: 20px;
+    color: black;
+    border-radius: 10px;
+}
+
+.order-detail-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-detail-infoList{
+    
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+
+.order-detail-product{
+    display: flex;
+    gap: 50px;
+    margin: 30px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+}
+.leftPhoto img{
+    width:200px;
+    height:150px;
+    
+    object-fit:contain;
+}
+.rightInfo{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+.order-detail-bottom{
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+    padding: 10px;
+}
+.order-detail-bottom > button{
+    width: 50px;
+    
+    padding: 6px;
+    background-color: #fff;
+}
+    
+.order-detail-bottom select{
+    height: 36px;
+    border-radius:6px;
+    padding: 0 12px;
+    border:1px solid #ddd;
+}
+
+    

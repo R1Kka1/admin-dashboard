@@ -1,0 +1,43 @@
+.product-edit-modal{
+    position: fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+}
+
+.editProductStock {
+    background: white;
+
+    width:50%;
+    max-width:600px;
+    padding: 30px;
+
+    border-radius: 10px;
+}
+.product-edit-popHeader{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.product-edit-contentDetails div{
+    margin: 20px;
+}
+.product-edit-Input{
+    width: 20%;
+    height: 30px;
+}
+
+
+.product-edit-Btns{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 15px;
+    margin-top: 20px;
+}
+.product-edit-Btns button{
+    padding: 4px;
+}

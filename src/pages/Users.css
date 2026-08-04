@@ -1,0 +1,52 @@
+.userControl{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 30px;
+}
+.addUserBtn{
+    padding: 5px;
+    
+}
+.usersTitles{
+    display: flex;
+    font-size: 20px;
+}
+.usersTitle{
+    flex: 1;
+}
+
+.usersDetails{
+    margin-top: 15px;
+}
+.userRow{
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    
+}
+.usersTitles,
+.userRow{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 120px 100px 100px 100px;
+    align-items: center;
+}
+.usersTitles{
+    padding: 15px;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+}
+
+.userRow{
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.usersTitles > div,
+.userRow > div{
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+.userRow > div > button{
+    width:60px;
+    height:30px;
+}

@@ -1,0 +1,45 @@
+.productsTitles{
+    display: flex;
+    font-size: 20px;
+}
+.productsTitle{
+    flex: 1;
+}
+
+
+
+.productsDetails{
+    margin-top: 15px;
+}
+
+.productRow {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.productRow div {
+    flex: 1;
+}
+.searchProduct{
+    margin-bottom: 20px;
+     flex:1;
+}
+.searchInput{
+    width: 300px;
+    padding: 8px 12px;
+    font-size: 16px;
+}
+.pageTitle{
+    display: flex;
+    align-items:center;
+    gap:20px;
+}
+.addNewProductBtn{
+    width:300px;
+    
+}
+.addNewProductBtn button{
+    height:40px;
+    margin-bottom: 20px;
+}
