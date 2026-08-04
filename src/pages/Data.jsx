@@ -10,11 +10,23 @@ import {
 import { Loading } from '../components/Loading';
 import { useEffect,useState } from 'react';
 import { getList } from '../api/api';
+import { formatCurrency } from '../untils/money';
 
 export function Data() {
     const [loading,setLoading] = useState(true);
     const [sevenSales,setSevenSales] = useState ([]);
     const [salesTop,setSalesTop] = useState([]);
+    const [orders,setOrders] = useState([]);
+
+    async function loadOrders () {
+        try{
+            const response = await getList("/orders");
+            setOrders(response.data);
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
 
     async function loadSales() {
         setLoading(true);
@@ -46,11 +58,18 @@ export function Data() {
     useEffect(() => { 
         loadSales();
         loadSalesTop();
+        loadOrders();
     },[]);
 
     if(loading){
         return <Loading />;
     }
+    
+    const totalSales = orders.reduce((sum,order) => {
+        return sum+order.totalCostCents;
+    },0)
+
+
 
     return (
         <>
@@ -58,12 +77,12 @@ export function Data() {
             <div className="todaysData">
                 <div className="card">
                     <div className="title">今日销售额</div>
-                    <div className="number">￥12530</div>
+                    <div className="number">{formatCurrency(totalSales)}</div>
                 </div>
 
                 <div className="card">
                     <div className="title">今日订单</div>
-                    <div className="number">58单</div>
+                    <div className="number">{orders.length}单</div>
                 </div>
 
                 <div className="card">
