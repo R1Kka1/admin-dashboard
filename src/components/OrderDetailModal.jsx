@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import { formatCurrency } from "../untils/money";
 import { useState,useEffect } from "react";
-import { getList,patchObject} from "../api/api";
+import { getList,patchObject,delObject} from "../api/api";
 import "./OrderDetailModal.css";
 
 export function OrderDetailModal({close,selectOrder,loadOrders,setSelectOrder,showToast}) {
@@ -40,14 +40,24 @@ export function OrderDetailModal({close,selectOrder,loadOrders,setSelectOrder,sh
             close();
         }
         catch(error){
-            showToast("❌保存失败失败");
+            showToast("❌保存失败");
             console.log(error);
         }
 
     }
 
-
-
+    async function handleOrderDelete(){
+        try{
+            await delObject(`/orders/${selectOrder.id}`)
+            showToast("✅️删除成功");
+            loadOrders();
+            close();
+        }
+        catch(error){
+            showToast("❌删除失败");
+            console.log(error);
+        }
+    }
 
     return (
         <div className="order-detail-modal">
@@ -117,7 +127,7 @@ export function OrderDetailModal({close,selectOrder,loadOrders,setSelectOrder,sh
                         </div>
 
                         <div><button onClick={handleOrderStatus}>保存订单</button></div>
-                        <div><button>删除订单</button></div>
+                        <div><button onClick={handleOrderDelete}>删除订单</button></div>
                 </div>
             </div>
         </div>

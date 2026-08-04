@@ -913,21 +913,6 @@
           "estimatedDeliveryTimeMs": 1786350645000
         }
       ]
-    },
-    {
-      "id": "order-10004",
-      "createdAt": "2026-08-03T15:18:55.000Z",
-      "updatedAt": "2026-08-03T15:18:55.000Z",
-      "orderTimeMs": 1785770335000,
-      "status": "配送中",
-      "totalCostCents": 5600,
-      "products": [
-        {
-          "productId": "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-          "quantity": 2,
-          "estimatedDeliveryTimeMs": 1786375135000
-        }
-      ]
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
