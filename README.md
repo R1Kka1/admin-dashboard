@@ -1,16 +1,35 @@
-# React + Vite
+# Admin Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+基于 React + Vite 开发的后台管理系统。
 
-Currently, two official plugins are available:
+## 技术栈
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- JavaScript / TypeScript
+- React Router
+- Axios
+- JSON Server
+- Recharts
+- Dayjs
 
-## React Compiler
+## 功能
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 用户登录
+- 路由权限控制
+- 商品管理 CRUD
+- 用户管理 CRUD
+- 商品搜索
+- 数据统计
+- 弹窗表单
+- 删除确认
+- Axios 封装
 
-## Expanding the ESLint configuration
+## 运行
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+安装依赖：
+
+npm install
+
+启动：
+
+npm run dev
