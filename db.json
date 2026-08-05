@@ -947,7 +947,7 @@
       "createdAt": "2026-08-03T08:30:45.000Z",
       "updatedAt": "2026-08-03T08:30:45.000Z",
       "orderTimeMs": 1785745845000,
-      "status": "已完成",
+      "status": "已取消",
       "totalCostCents": 9865,
       "products": [
         {
@@ -1235,6 +1235,14 @@
       "detail": "删除商品",
       "createdAt": "2026-08-05T06:19:38.442Z",
       "id": "8N5UjXwbIHg"
+    },
+    {
+      "operator": "admin",
+      "action": "登录系统",
+      "target": "-",
+      "detail": "管理员登录后台",
+      "createdAt": "2026-08-05T06:24:29.450Z",
+      "id": "u2-8Ohp4OjE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

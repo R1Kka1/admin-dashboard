@@ -2,7 +2,7 @@ import { useState } from "react";
 import './Login.css'
 import { useNavigate } from "react-router-dom";
 import { getList } from "../api/api";
-
+import { addLog } from "../untils/log";
 
 
 export function Login(){
@@ -30,7 +30,13 @@ export function Login(){
             localStorage.setItem(
                 "token",
                 password
-            );
+            );  
+            addLog({
+                operator: "admin",
+                action: "登录系统",
+                target: "-",
+                detail: "管理员登录后台"
+            });
             navigate("/admin");
         }else{
             alert("登录失败");
