@@ -15,6 +15,9 @@ export function SideBar() {
             
             <br />
              <Link to="data">数据统计</Link>
+
+            <br />
+             <Link to="log">操作日志</Link>
         </div>
     );
 }

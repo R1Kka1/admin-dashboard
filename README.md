@@ -33,3 +33,8 @@ npm install
 启动：
 
 npm run dev
+
+## 说明
+
+所有数据来源于油管博主 SuperSimpleDev，以及AI
+All data from the youtuber SuperSimpleDev and Ai tools. 

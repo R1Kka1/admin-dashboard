@@ -7,6 +7,7 @@ import { Orders } from './pages/Orders'
 import { Users } from './pages/Users'
 import { Data } from './pages/Data'
 import { PrivateRoute } from './components/PrivateRoute'
+import { OperationLog } from './pages/OperationLog'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="orders" element={<Orders />} />
           <Route path="users" element={<Users />} />
           <Route path="data" element={<Data />} />
+          <Route path="log" element={<OperationLog />} />
       </Route>
       <Route />
     </Routes>

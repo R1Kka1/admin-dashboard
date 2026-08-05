@@ -48,7 +48,7 @@ export function Orders() {
     }
 
     return (
-        <div className="">
+        <div className="ordersTotal">
             <div className="ordersTitles">
                 <div className="ordersTitle">订单id</div>
                 <div className="ordersTitle">下单时间</div>

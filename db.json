@@ -897,5 +897,127 @@
       ]
     }
   ],
+  "logs": [
+    {
+      "id": 1,
+      "operator": "admin",
+      "action": "登录系统",
+      "target": "-",
+      "detail": "管理员登录后台",
+      "createdAt": "2026-08-05T08:00:12Z"
+    },
+    {
+      "id": 2,
+      "operator": "admin",
+      "action": "新增商品",
+      "target": "iPhone 16 Pro",
+      "detail": "新增商品，价格8999元，库存50",
+      "createdAt": "2026-08-05T08:12:31Z"
+    },
+    {
+      "id": 3,
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "iPhone 16 Pro",
+      "detail": "8999元 → 8599元",
+      "createdAt": "2026-08-05T08:25:17Z"
+    },
+    {
+      "id": 4,
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "iPhone 16 Pro",
+      "detail": "库存50 → 80",
+      "createdAt": "2026-08-05T08:40:42Z"
+    },
+    {
+      "id": 5,
+      "operator": "admin",
+      "action": "删除商品",
+      "target": "AirPods Pro 2",
+      "detail": "删除商品",
+      "createdAt": "2026-08-05T08:55:19Z"
+    },
+    {
+      "id": 6,
+      "operator": "admin",
+      "action": "新增用户",
+      "target": "tom",
+      "detail": "角色：普通用户",
+      "createdAt": "2026-08-05T09:03:48Z"
+    },
+    {
+      "id": 7,
+      "operator": "admin",
+      "action": "修改用户",
+      "target": "alice",
+      "detail": "邮箱已更新",
+      "createdAt": "2026-08-05T09:10:20Z"
+    },
+    {
+      "id": 8,
+      "operator": "admin",
+      "action": "删除用户",
+      "target": "jerry",
+      "detail": "删除普通用户账号",
+      "createdAt": "2026-08-05T09:18:37Z"
+    },
+    {
+      "id": 9,
+      "operator": "admin",
+      "action": "修改订单状态",
+      "target": "订单 #10025",
+      "detail": "待发货 → 配送中",
+      "createdAt": "2026-08-05T09:26:44Z"
+    },
+    {
+      "id": 10,
+      "operator": "admin",
+      "action": "登录系统",
+      "target": "-",
+      "detail": "管理员重新登录后台",
+      "createdAt": "2026-08-05T09:40:02Z"
+    },
+    {
+      "id": 11,
+      "operator": "admin",
+      "action": "新增商品",
+      "target": "Redmi K90",
+      "detail": "新增商品，价格2999元，库存120",
+      "createdAt": "2026-08-05T10:02:15Z"
+    },
+    {
+      "id": 12,
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "MacBook Air M5",
+      "detail": "8999元 → 8699元",
+      "createdAt": "2026-08-05T10:20:56Z"
+    },
+    {
+      "id": 13,
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "小米平板 8",
+      "detail": "库存18 → 35",
+      "createdAt": "2026-08-05T10:36:29Z"
+    },
+    {
+      "id": 14,
+      "operator": "admin",
+      "action": "删除商品",
+      "target": "荣耀 Earbuds",
+      "detail": "商品下架并删除",
+      "createdAt": "2026-08-05T10:48:11Z"
+    },
+    {
+      "id": 15,
+      "operator": "admin",
+      "action": "新增用户",
+      "target": "developer01",
+      "detail": "角色：管理员",
+      "createdAt": "2026-08-05T11:00:45Z"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
