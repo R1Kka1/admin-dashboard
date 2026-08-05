@@ -1,41 +1,61 @@
 # Admin Dashboard
 
-基于 React + Vite 开发的后台管理系统。
+一个基于 **React + Vite** 开发的后台管理系统，模拟电商后台的日常管理流程，实现了商品、用户、订单等模块的管理功能。
 
-## 技术栈
+## ✨ Features
 
-- React
-- JavaScript / TypeScript
-- React Router
-- Axios
-- JSON Server
-- Recharts
-- Dayjs
+* 用户登录
+* 路由权限控制（Route Guard）
+* 商品管理（CRUD）
+* 用户管理（CRUD）
+* 订单管理
+* 商品搜索
+* 数据统计（Recharts）
+* 操作日志（记录登录、商品、用户、订单操作）
+* Toast 消息提示
+* 表单校验
+* 删除确认弹窗
+* 请求异常处理
+* Axios 二次封装
 
-## 功能
+## 🛠 Tech Stack
 
-- 用户登录
-- 路由权限控制
-- 商品管理 CRUD
-- 用户管理 CRUD
-- 商品搜索
-- 数据统计
-- 弹窗表单
-- 删除确认
-- Axios 封装
+* React
+* Vite
+* React Router
+* Axios
+* JSON Server
+* Recharts
+* Dayjs
+* CSS
 
-## 运行
+## 🚀 Getting Started
 
-安装依赖：
+Install dependencies:
 
+```bash
 npm install
+```
 
-启动：
+Start the development server:
 
+```bash
 npm run dev
+```
 
-## 说明
+## 📂 Project Structure
 
-所有数据来源于油管博主 SuperSimpleDev，以及AI
+```text
+src
+├── api
+├── components
+├── pages
+├── utils
+├── App.jsx
+```
 
-All data from the youtuber SuperSimpleDev and Ai tools. 
+## 📌 Notes
+
+* This project is built for learning and portfolio purposes.
+* Some mock data and project ideas are referenced from the YouTube creator **SuperSimpleDev**.
+* AI tools were used as a development assistant for code review, debugging, and implementation suggestions.

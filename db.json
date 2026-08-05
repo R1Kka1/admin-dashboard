@@ -811,14 +811,6 @@
       "email": "jack@example.com",
       "role": "普通用户",
       "status": "禁用"
-    },
-    {
-      "id": "8",
-      "username": "rose",
-      "password": "123456",
-      "email": "rose@example.com",
-      "role": "普通用户",
-      "status": "正常"
     }
   ],
   "salesData": [
@@ -904,7 +896,7 @@
       "createdAt": "2026-08-01T09:15:22.000Z",
       "updatedAt": "2026-08-01T09:15:22.000Z",
       "orderTimeMs": 1785575722000,
-      "status": "已完成",
+      "status": "配送中",
       "totalCostCents": 13998,
       "products": [
         {
@@ -1262,6 +1254,22 @@
       "detail": "删除了订单",
       "createdAt": "2026-08-05T09:40:32.541Z",
       "id": "7kiYahzcdbk"
+    },
+    {
+      "operator": "admin",
+      "action": "删除用户",
+      "target": "rose",
+      "detail": "删除普通用户账号",
+      "createdAt": "2026-08-05T09:41:16.608Z",
+      "id": "2MxvF80Amgs"
+    },
+    {
+      "operator": "admin",
+      "action": "新增用户",
+      "target": "order-10001",
+      "detail": "修改了订单信息",
+      "createdAt": "2026-08-05T09:44:39.162Z",
+      "id": "QPM0cIfmEIw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

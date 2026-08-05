@@ -14,7 +14,7 @@ export function ChangeUsersModal({close,user,loadUsers,showToast}) {
         if(changeUserEmail === ""|| changeUserName === "" || changeUserPassword=== "" ||
             changeUserName.length <3 || changeUserPassword .length<5 || changeUserEmail .length<5
         ){
-            showToast("❌新建用户失败,创建失败,用户名和密码长度需大于5");
+            showToast("❌ 用户名不少于3位，密码不少于5位，请完善信息");
             return;
         }
         const updateUser = {
