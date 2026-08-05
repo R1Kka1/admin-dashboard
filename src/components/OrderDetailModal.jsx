@@ -3,6 +3,7 @@ import { formatCurrency } from "../untils/money";
 import { useState,useEffect } from "react";
 import { getList,patchObject,delObject} from "../api/api";
 import "./OrderDetailModal.css";
+import { addLog } from "../untils/log";
 
 export function OrderDetailModal({close,selectOrder,loadOrders,setSelectOrder,showToast}) {
 
@@ -35,6 +36,12 @@ export function OrderDetailModal({close,selectOrder,loadOrders,setSelectOrder,sh
                 ...selectOrder,
                 status: newStatus
             });
+            await addLog({
+                operator: "admin",
+                action: "新增用户",
+                target: selectOrder.id,
+                detail: "修改了订单信息"
+            });
             showToast("✅️保存成功");
             loadOrders();
             close();
@@ -49,6 +56,12 @@ export function OrderDetailModal({close,selectOrder,loadOrders,setSelectOrder,sh
     async function handleOrderDelete(){
         try{
             await delObject(`/orders/${selectOrder.id}`)
+            await addLog({
+                operator: "admin",
+                action: "新增用户",
+                target: selectOrder.id,
+                detail: "删除了订单"
+            });
             showToast("✅️删除成功");
             loadOrders();
             close();

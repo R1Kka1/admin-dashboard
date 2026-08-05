@@ -904,7 +904,7 @@
       "createdAt": "2026-08-01T09:15:22.000Z",
       "updatedAt": "2026-08-01T09:15:22.000Z",
       "orderTimeMs": 1785575722000,
-      "status": "配送中",
+      "status": "已完成",
       "totalCostCents": 13998,
       "products": [
         {
@@ -931,26 +931,6 @@
           "productId": "15b6fc6f-327a-4ec4-896f-486349e85a3d",
           "quantity": 1,
           "estimatedDeliveryTimeMs": 1786273210000
-        }
-      ]
-    },
-    {
-      "id": "order-10003",
-      "createdAt": "2026-08-03T08:30:45.000Z",
-      "updatedAt": "2026-08-03T08:30:45.000Z",
-      "orderTimeMs": 1785745845000,
-      "status": "已取消",
-      "totalCostCents": 9865,
-      "products": [
-        {
-          "productId": "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
-          "quantity": 3,
-          "estimatedDeliveryTimeMs": 1786350645000
-        },
-        {
-          "productId": "5968897c-4d27-4872-89f6-5bcb052746d7",
-          "quantity": 1,
-          "estimatedDeliveryTimeMs": 1786350645000
         }
       ]
     }
@@ -1266,6 +1246,22 @@
       "detail": "修改了用户信息",
       "createdAt": "2026-08-05T09:37:36.510Z",
       "id": "VQ3Llctz0Zs"
+    },
+    {
+      "operator": "admin",
+      "action": "新增用户",
+      "target": "order-10001",
+      "detail": "修改了订单信息",
+      "createdAt": "2026-08-05T09:40:14.288Z",
+      "id": "aMHYVCT8A_g"
+    },
+    {
+      "operator": "admin",
+      "action": "新增用户",
+      "target": "order-10003",
+      "detail": "删除了订单",
+      "createdAt": "2026-08-05T09:40:32.541Z",
+      "id": "7kiYahzcdbk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
