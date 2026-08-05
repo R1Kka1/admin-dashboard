@@ -69,6 +69,9 @@ export function Data() {
         return sum+order.totalCostCents;
     },0)
 
+    const totalQuantity = orders.flatMap(order => order.products).reduce((sum,product) => {
+        return sum+product.quantity;
+    },0)
 
 
     return (
@@ -92,7 +95,7 @@ export function Data() {
 
                 <div className="card">
                     <div className="title">商品数量</div>
-                    <div className="number">128件</div>
+                    <div className="number">{totalQuantity}件</div>
                 </div>
             </div>
             <div className='chartCard'>
