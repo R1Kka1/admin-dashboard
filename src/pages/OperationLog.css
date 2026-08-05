@@ -1,0 +1,18 @@
+.operationLog-Page-Title{
+    display: flex;
+    font-size: 20px;
+}
+.operationLog-Page-Title > div{
+    flex: 1;
+}
+.operationLog-Page-Main{
+    margin-top: 15px;
+}
+.eachLog-row{
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+.eachLog-row > div{
+    flex: 1;
+}

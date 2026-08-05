@@ -1,4 +1,4 @@
-
+import "./OperationLog.css";
 import { useEffect, useState } from "react";
 import { getList } from "../api/api";
 
