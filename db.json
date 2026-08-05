@@ -778,7 +778,7 @@
       "password": "123456",
       "email": "jerry@example.com",
       "role": "普通用户",
-      "status": "正常"
+      "status": "禁用"
     },
     {
       "id": "4",
@@ -819,14 +819,6 @@
       "email": "rose@example.com",
       "role": "普通用户",
       "status": "正常"
-    },
-    {
-      "id": "15rAO75K2qM",
-      "username": "asdd1111",
-      "password": "dddddddd",
-      "email": "1111111111111111",
-      "role": "普通用户",
-      "status": "冻结"
     }
   ],
   "salesData": [
@@ -1243,6 +1235,37 @@
       "detail": "管理员登录后台",
       "createdAt": "2026-08-05T06:24:29.450Z",
       "id": "u2-8Ohp4OjE"
+    },
+    {
+      "operator": "admin",
+      "action": "新增用户",
+      "target": "jsonssss",
+      "detail": "角色：普通用户",
+      "createdAt": "2026-08-05T09:33:30.775Z",
+      "id": "KQdNx2MOIrU"
+    },
+    {
+      "operator": "admin",
+      "action": "删除用户",
+      "detail": "删除普通用户账号",
+      "createdAt": "2026-08-05T09:35:27.703Z",
+      "id": "xj3wBwKtNSA"
+    },
+    {
+      "operator": "admin",
+      "action": "删除用户",
+      "target": "asdd1111",
+      "detail": "删除普通用户账号",
+      "createdAt": "2026-08-05T09:35:46.955Z",
+      "id": "iAcQCyrMRm0"
+    },
+    {
+      "operator": "admin",
+      "action": "修改用户",
+      "target": "jerry",
+      "detail": "修改了用户信息",
+      "createdAt": "2026-08-05T09:37:36.510Z",
+      "id": "VQ3Llctz0Zs"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

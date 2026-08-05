@@ -1,6 +1,7 @@
 import "./ChangeUsersModal.css";
 import { useState } from "react";
 import { putObject } from "../api/api";
+import { addLog } from "../untils/log";
 
 export function ChangeUsersModal({close,user,loadUsers,showToast}) {
     const [changeUserName,setChangeUserName] = useState(user.username);
@@ -29,6 +30,12 @@ export function ChangeUsersModal({close,user,loadUsers,showToast}) {
                 `/users/${user.id}`,
                 updateUser
             );
+            await addLog({
+                operator: "admin",
+                action: "修改用户",
+                target: user.username,
+                detail: "修改了用户信息"
+            });
             showToast("✅️修改成功");
             await loadUsers();
             close();

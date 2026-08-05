@@ -1,10 +1,17 @@
 import "./DelUserPop.css";
 import { delObject } from "../api/api";
+import { addLog } from "../untils/log";
 
 export function DelUserPop ({user,close,loadUsers,setSelectUser,showToast}) {
     async function handleDelete(){
         try{
             await delObject(`/users/${user.id}`);
+            await addLog({
+                operator: "admin",
+                action: "删除用户",
+                target: user.username,
+                detail: `删除${user.role}账号`
+            });
             showToast("✅️删除用户成功");
             await loadUsers();
             setSelectUser(null);

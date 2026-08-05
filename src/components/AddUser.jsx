@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./AddUser.css";
 import { postObject } from "../api/api";
+import { addLog } from "../untils/log";
 
 export function AddUser({close,loadUsers,users,showToast}) {
     const [newUserName,setNewUserName] = useState("");
@@ -24,6 +25,12 @@ export function AddUser({close,loadUsers,users,showToast}) {
         };
         try {
             await postObject("/users",user);
+            await addLog({
+                operator: "admin",
+                action: "新增用户",
+                target: newUserName,
+                detail: `角色：${newUserRole}`
+            });
             showToast("✅️新建用户成功");
             await loadUsers();
             close();
