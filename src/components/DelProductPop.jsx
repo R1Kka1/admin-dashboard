@@ -1,5 +1,6 @@
 import "./DelProductPop.css";
 import { delObject } from "../api/api";
+import { addLog } from "../untils/log";
 
 export function DelProductPop ({product,close,loadProducts,setSelectProduct,showToast}) {
 
@@ -7,10 +8,15 @@ export function DelProductPop ({product,close,loadProducts,setSelectProduct,show
     async function handleDelete(){
         try{
             await delObject(`/products/${product.id}`);
+             await addLog({
+                operator: "admin",
+                action: "删除商品",
+                target: product.name,
+                detail: "删除商品"
+            });
             showToast("✅️商品删除成功");
             await loadProducts();
             setSelectProduct(null);
-            
             close(); 
         }catch{
             showToast("❌商品删除失败");

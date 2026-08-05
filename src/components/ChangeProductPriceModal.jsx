@@ -2,10 +2,11 @@ import { useState } from "react";
 import { formatCurrency } from "../untils/money";
 import './ChangeProductPriceModal.css';
 import { patchObject } from "../api/api";
+import { addLog } from "../untils/log";
 
 export function ChangeProductPriceModal({product,close,loadProducts,showToast}) {
     const [newPrice,setNewPrice] = useState(1);
-
+    const oldPrice = product.priceCents;
 
     async function handleChangePrice() {
         const price = Number(newPrice);
@@ -19,6 +20,12 @@ export function ChangeProductPriceModal({product,close,loadProducts,showToast}) 
         try {
             await patchObject(`/products/${product.id}`,{
                 priceCents: Math.round(price*100)
+            });
+            await addLog({
+                operator: "admin",
+                action: "修改价格",
+                target: product.name,
+                detail: `${formatCurrency(oldPrice)} -> $${Number(newPrice).toFixed(2)}`
             });
             showToast("✅️价格修改成功");   
             loadProducts();

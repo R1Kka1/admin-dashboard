@@ -6,7 +6,7 @@
       "name": "Intermediate Size Basketball",
       "rating": {
         "stars": 4,
-        "count": 130
+        "count": 131
       },
       "priceCents": 100,
       "keywords": [
@@ -687,6 +687,72 @@
       },
       "keywords": [],
       "id": "cdIjHPxIL0c"
+    },
+    {
+      "name": "1111111",
+      "priceCents": 100,
+      "image": "images/products/women-striped-beach-dress.jpg",
+      "rating": {
+        "stars": 0,
+        "count": 1
+      },
+      "keywords": [],
+      "id": "MYrqOSXhDcM"
+    },
+    {
+      "name": "1111111",
+      "priceCents": 1044,
+      "image": "images/products/women-striped-beach-dress.jpg",
+      "rating": {
+        "stars": 0,
+        "count": 1
+      },
+      "keywords": [],
+      "id": "t_Q38Yu1LrI"
+    },
+    {
+      "name": "1111111",
+      "priceCents": 1044,
+      "image": "images/products/women-striped-beach-dress.jpg",
+      "rating": {
+        "stars": 0,
+        "count": 1
+      },
+      "keywords": [],
+      "id": "NPs-gA4MCYc"
+    },
+    {
+      "name": "3sd",
+      "priceCents": 11100,
+      "image": "images/products/women-striped-beach-dress.jpg",
+      "rating": {
+        "stars": 0,
+        "count": 1
+      },
+      "keywords": [],
+      "id": "p3q5c4XCGHU"
+    },
+    {
+      "name": "tesxrt",
+      "priceCents": 1421,
+      "image": "images/products/women-striped-beach-dress.jpg",
+      "rating": {
+        "stars": 0,
+        "count": 1
+      },
+      "keywords": [],
+      "id": "AmDLsa7aaFk"
+    },
+    {
+      "name": "text1",
+      "priceCents": 1200,
+      "image": "images/products/women-striped-beach-dress.jpg",
+      "rating": {
+        "stars": 0,
+        "count": 1
+      },
+      "keywords": [],
+      "id": "K5cNMq6iMjE"
     }
   ],
   "users": [
@@ -899,7 +965,7 @@
   ],
   "logs": [
     {
-      "id": 1,
+      "id": "1",
       "operator": "admin",
       "action": "登录系统",
       "target": "-",
@@ -907,7 +973,7 @@
       "createdAt": "2026-08-05T08:00:12Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "operator": "admin",
       "action": "新增商品",
       "target": "iPhone 16 Pro",
@@ -915,7 +981,7 @@
       "createdAt": "2026-08-05T08:12:31Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "operator": "admin",
       "action": "修改价格",
       "target": "iPhone 16 Pro",
@@ -923,7 +989,7 @@
       "createdAt": "2026-08-05T08:25:17Z"
     },
     {
-      "id": 4,
+      "id": "4",
       "operator": "admin",
       "action": "修改库存",
       "target": "iPhone 16 Pro",
@@ -931,7 +997,7 @@
       "createdAt": "2026-08-05T08:40:42Z"
     },
     {
-      "id": 5,
+      "id": "5",
       "operator": "admin",
       "action": "删除商品",
       "target": "AirPods Pro 2",
@@ -939,7 +1005,7 @@
       "createdAt": "2026-08-05T08:55:19Z"
     },
     {
-      "id": 6,
+      "id": "6",
       "operator": "admin",
       "action": "新增用户",
       "target": "tom",
@@ -947,7 +1013,7 @@
       "createdAt": "2026-08-05T09:03:48Z"
     },
     {
-      "id": 7,
+      "id": "7",
       "operator": "admin",
       "action": "修改用户",
       "target": "alice",
@@ -955,7 +1021,7 @@
       "createdAt": "2026-08-05T09:10:20Z"
     },
     {
-      "id": 8,
+      "id": "8",
       "operator": "admin",
       "action": "删除用户",
       "target": "jerry",
@@ -963,7 +1029,7 @@
       "createdAt": "2026-08-05T09:18:37Z"
     },
     {
-      "id": 9,
+      "id": "9",
       "operator": "admin",
       "action": "修改订单状态",
       "target": "订单 #10025",
@@ -971,7 +1037,7 @@
       "createdAt": "2026-08-05T09:26:44Z"
     },
     {
-      "id": 10,
+      "id": "10",
       "operator": "admin",
       "action": "登录系统",
       "target": "-",
@@ -979,7 +1045,7 @@
       "createdAt": "2026-08-05T09:40:02Z"
     },
     {
-      "id": 11,
+      "id": "11",
       "operator": "admin",
       "action": "新增商品",
       "target": "Redmi K90",
@@ -987,7 +1053,7 @@
       "createdAt": "2026-08-05T10:02:15Z"
     },
     {
-      "id": 12,
+      "id": "12",
       "operator": "admin",
       "action": "修改价格",
       "target": "MacBook Air M5",
@@ -995,7 +1061,7 @@
       "createdAt": "2026-08-05T10:20:56Z"
     },
     {
-      "id": 13,
+      "id": "13",
       "operator": "admin",
       "action": "修改库存",
       "target": "小米平板 8",
@@ -1003,7 +1069,7 @@
       "createdAt": "2026-08-05T10:36:29Z"
     },
     {
-      "id": 14,
+      "id": "14",
       "operator": "admin",
       "action": "删除商品",
       "target": "荣耀 Earbuds",
@@ -1011,12 +1077,164 @@
       "createdAt": "2026-08-05T10:48:11Z"
     },
     {
-      "id": 15,
+      "id": "15",
       "operator": "admin",
       "action": "新增用户",
       "target": "developer01",
       "detail": "角色：管理员",
       "createdAt": "2026-08-05T11:00:45Z"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Intermediate Size Basketball",
+      "detail": "$130 -> $1",
+      "createdAt": "2026-08-05T05:51:34.102Z",
+      "id": "hseh_Z9xYr8"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Intermediate Size Basketball",
+      "detail": "库存：130 -> 库存：1",
+      "createdAt": "2026-08-05T05:52:04.711Z",
+      "id": "tPjX-e5dAqc"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Intermediate Size Basketball",
+      "detail": "库存：131 -> 库存：132",
+      "createdAt": "2026-08-05T05:52:45.506Z",
+      "id": "Uhbg2P4B0YI"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Intermediate Size Basketball",
+      "detail": "库存：132 -> 库存：131",
+      "createdAt": "2026-08-05T05:53:53.063Z",
+      "id": "yF0b1lvLINg"
+    },
+    {
+      "operator": "admin",
+      "action": "新增商品",
+      "target": "1111111",
+      "detail": "新增商品，价格$0.01，库存1",
+      "createdAt": "2026-08-05T05:55:53.730Z",
+      "id": "uVvLVrkdhFc"
+    },
+    {
+      "operator": "admin",
+      "action": "新增商品",
+      "target": "1111111",
+      "detail": "新增商品，价格$0.10，库存1",
+      "createdAt": "2026-08-05T05:56:08.337Z",
+      "id": "zmJutn6chmA"
+    },
+    {
+      "operator": "admin",
+      "action": "新增商品",
+      "target": "1111111",
+      "detail": "新增商品，价格10.44，库存1",
+      "createdAt": "2026-08-05T05:56:35.329Z",
+      "id": "kcyL4v156S8"
+    },
+    {
+      "operator": "admin",
+      "action": "新增商品",
+      "target": "3sd",
+      "detail": "新增商品，价格$111，库存1",
+      "createdAt": "2026-08-05T05:56:48.695Z",
+      "id": "ijRT142y_F8"
+    },
+    {
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "Intermediate Size Basketball",
+      "detail": "$1.00 -> $10",
+      "createdAt": "2026-08-05T05:59:02.997Z",
+      "id": "QeZRFAuWQ2Q"
+    },
+    {
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "Intermediate Size Basketball",
+      "detail": "$13.00 -> $12",
+      "createdAt": "2026-08-05T06:00:21.258Z",
+      "id": "7CS07cLHBks"
+    },
+    {
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "Intermediate Size Basketball",
+      "detail": "$12.00 -> $13.5",
+      "createdAt": "2026-08-05T06:01:15.424Z",
+      "id": "fJlQ9mzDb5Q"
+    },
+    {
+      "operator": "admin",
+      "action": "新增商品",
+      "target": "tesxrt",
+      "detail": "新增商品，价格$14.21，库存1",
+      "createdAt": "2026-08-05T06:04:48.015Z",
+      "id": "73AMvJi5TAw"
+    },
+    {
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "Intermediate Size Basketball",
+      "detail": "$13.50 -> $12.00",
+      "createdAt": "2026-08-05T06:14:38.838Z",
+      "id": "_-5xa7LIdeA"
+    },
+    {
+      "operator": "admin",
+      "action": "新增商品",
+      "target": "text1",
+      "detail": "新增商品，价格$12，库存1",
+      "createdAt": "2026-08-05T06:15:06.881Z",
+      "id": "UwFlyd0TA0I"
+    },
+    {
+      "operator": "admin",
+      "action": "新增商品",
+      "target": "sd",
+      "detail": "新增商品，价格$13.00，库存1",
+      "createdAt": "2026-08-05T06:15:29.351Z",
+      "id": "o8mxScPwMNo"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Intermediate Size Basketball",
+      "detail": "库存：131 -> 库存：132",
+      "createdAt": "2026-08-05T06:17:23.444Z",
+      "id": "MdzvxTGab4k"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Intermediate Size Basketball",
+      "detail": "库存：132 -> 库存：131",
+      "createdAt": "2026-08-05T06:17:24.712Z",
+      "id": "JTQnFFFpRHM"
+    },
+    {
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "Intermediate Size Basketball",
+      "detail": "$12.00 -> $1.00",
+      "createdAt": "2026-08-05T06:17:26.222Z",
+      "id": "7ctNNmbcGTo"
+    },
+    {
+      "operator": "admin",
+      "action": "删除商品",
+      "target": "sd",
+      "detail": "删除商品",
+      "createdAt": "2026-08-05T06:19:38.442Z",
+      "id": "8N5UjXwbIHg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

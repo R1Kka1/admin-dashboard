@@ -1,8 +1,9 @@
-
+import { addLog } from "../untils/log";
 import { useState } from "react";
 import "./AddProductModal.css";
 import { ChangeMessage } from "./ChangeMessage";
 import { postObject } from "../api/api";
+import { formatCurrency } from "../untils/money";
 
 export function AddProductModal({ close, loadProducts,showToast}) {
     const [newProductName, setNewProductName] = useState("");
@@ -31,8 +32,13 @@ export function AddProductModal({ close, loadProducts,showToast}) {
             keywords: []
         };
         try {
-            await postObject("/products",product);
-
+            await postObject("/products",product);  
+            await addLog({
+                operator: "admin",
+                action: "新增商品",
+                target: newProductName,
+                detail: `新增商品，价格$${Number(newProductPrice).toFixed(2)}，库存${newProductStock}`
+            });
             showToast("✅️商品添加成功");
             await loadProducts();
             close();

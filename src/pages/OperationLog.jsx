@@ -1,6 +1,7 @@
 import "./OperationLog.css";
 import { useEffect, useState } from "react";
 import { getList } from "../api/api";
+import dayjs from "dayjs";
 
 export function OperationLog() {
     const [logs,setLogs] = useState([]); 
@@ -9,7 +10,7 @@ export function OperationLog() {
         try{
             const response = await getList('/logs');
             setLogs(response.data);
-            console.log(response.data);
+
         }
         catch(error){
             console.log(error);
@@ -34,7 +35,7 @@ export function OperationLog() {
                     logs.map((eachLog) => {
                         return (
                             <div key={eachLog.id} className="eachLog-row">
-                                <div>{eachLog.createdAt}</div>
+                                <div>{dayjs(eachLog.createdAt).format("YYYY-MM-DD HH:mm:ss")}</div>
                                 <div>{eachLog.operator}</div>
                                 <div>{eachLog.action}</div>
                                 <div>{eachLog.target}</div>

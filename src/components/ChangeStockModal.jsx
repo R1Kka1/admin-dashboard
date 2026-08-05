@@ -1,10 +1,12 @@
 import './ChangeStockModal.css';
-
+import { addLog } from '../untils/log';
 import { useState } from 'react';
 import { patchObject } from '../api/api';
 
 export function ChangeStockModal({product,close,loadProducts,showToast}){
     const [newStock,setNewStock] = useState(1);
+
+    const oldStock = product.rating.count;
 
     async function handleAdd() {
 
@@ -22,6 +24,12 @@ export function ChangeStockModal({product,close,loadProducts,showToast}){
                     }
                 }
             );
+            addLog({
+                operator: "admin",
+                action: "修改库存",
+                target: product.name,
+                detail: `库存：${oldStock} -> 库存：${oldStock+newStock}`
+            });
             showToast("✅️库存修改成功");
             await loadProducts();
             
@@ -44,6 +52,12 @@ export function ChangeStockModal({product,close,loadProducts,showToast}){
                     }
                 }
             );
+            await addLog({
+                operator: "admin",
+                action: "修改库存",
+                target: product.name,
+                detail: `库存：${oldStock} -> 库存：${oldStock-newStock}`
+            });
             showToast("✅️库存修改成功");
             await loadProducts();
 
