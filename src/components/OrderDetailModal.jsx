@@ -1,35 +1,39 @@
 import dayjs from "dayjs";
 import { formatCurrency } from "../untils/money";
-import { useState,useEffect } from "react";
-import { getList,patchObject,delObject} from "../api/api";
+import { useState, useEffect } from "react";
+import { getList, patchObject, delObject } from "../api/api";
 import "./OrderDetailModal.css";
 import { addLog } from "../untils/log";
 
-export function OrderDetailModal({close,selectOrder,loadOrders,setSelectOrder,showToast}) {
+export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrder, showToast, user }) {
 
     const [products, setProducts] = useState([]);
-    const [newStatus,setNewStatus] = useState(selectOrder.status);
-    async function loadProducts(){
-        try{
+    const [newStatus, setNewStatus] = useState(selectOrder.status);
+    const canManageOrder = [
+        "管理员",
+        "超级管理员"
+    ].includes(user.role);
+    async function loadProducts() {
+        try {
             const response = await getList("/products")
             setProducts(response.data);
-            
-        }catch(error){
+
+        } catch (error) {
             console.log(error);
         }
-        
+
     }
     useEffect(() => {
 
         loadProducts();
-  
-    },[]);
+
+    }, []);
 
     async function handleOrderStatus() {
-        try{
+        try {
             await patchObject(`/orders/${selectOrder.id}`,
                 {
-                     status: newStatus
+                    status: newStatus
                 }
             )
             setSelectOrder({
@@ -46,15 +50,15 @@ export function OrderDetailModal({close,selectOrder,loadOrders,setSelectOrder,sh
             loadOrders();
             close();
         }
-        catch(error){
+        catch (error) {
             showToast("❌保存失败");
             console.log(error);
         }
 
     }
 
-    async function handleOrderDelete(){
-        try{
+    async function handleOrderDelete() {
+        try {
             await delObject(`/orders/${selectOrder.id}`)
             await addLog({
                 operator: "admin",
@@ -66,7 +70,7 @@ export function OrderDetailModal({close,selectOrder,loadOrders,setSelectOrder,sh
             loadOrders();
             close();
         }
-        catch(error){
+        catch (error) {
             showToast("❌删除失败");
             console.log(error);
         }
@@ -97,7 +101,7 @@ export function OrderDetailModal({close,selectOrder,loadOrders,setSelectOrder,sh
                             <div>订单状态：{selectOrder.status}</div>
                         </div>
                     </div>
-                    <h2>商品列表</h2>  
+                    <h2>商品列表</h2>
                     <div className="order-detail-productsList">
 
                         {
@@ -115,7 +119,7 @@ export function OrderDetailModal({close,selectOrder,loadOrders,setSelectOrder,sh
                                             <div>商品数量: {item.quantity}</div>
                                             <div>商品价格: {product ? formatCurrency(product.priceCents) : "-"}</div>
 
-                                             <div className="product-actions">
+                                            <div className="product-actions">
                                             </div>
                                         </div>
                                     </div>
@@ -123,24 +127,31 @@ export function OrderDetailModal({close,selectOrder,loadOrders,setSelectOrder,sh
                             })
                         }
 
-                        
+
                     </div>
                 </div>
                 <div className="order-detail-bottom">
-                        <div className="statusOptions">
-                            <select value={newStatus} onChange={(e) => {
-                                setNewStatus(e.target.value)
-                            }}>
-                                <option value="待付款">待付款</option>
-                                <option value="待发货">待发货</option>
-                                <option value="配送中">配送中</option>
-                                <option value="已完成">已完成</option>
-                                <option value="已取消">已取消</option>
-                            </select>
-                        </div>
+                    {
+                        canManageOrder && (
+                            <>
+                                <div className="statusOptions">
+                                    <select value={newStatus} onChange={(e) => {
+                                        setNewStatus(e.target.value)
+                                    }}>
+                                        <option value="待付款">待付款</option>
+                                        <option value="待发货">待发货</option>
+                                        <option value="配送中">配送中</option>
+                                        <option value="已完成">已完成</option>
+                                        <option value="已取消">已取消</option>
+                                    </select>
+                                </div>
 
-                        <div><button onClick={handleOrderStatus}>保存订单</button></div>
-                        <div><button onClick={handleOrderDelete}>删除订单</button></div>
+                                <div><button onClick={handleOrderStatus}>保存订单</button></div>
+                                <div><button onClick={handleOrderDelete}>删除订单</button></div>
+                            </>
+                        )
+                    }
+
                 </div>
             </div>
         </div>

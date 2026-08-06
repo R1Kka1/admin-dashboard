@@ -1,18 +1,22 @@
 import { formatCurrency } from "../untils/money.js";
 import "./ProductDetails.css"
-import {  useState } from 'react';
+import { useState } from 'react';
 import { ChangeStockModal } from "./ChangeStockModal.jsx";
 import { DelProductPop } from "./DelProductPop.jsx";
 import { ChangeProductPriceModal } from "./ChangeProductPriceModal.jsx";
 
 
-export function ProductDetails({product,close,loadProducts,setSelectProduct,showToast}) {
+export function ProductDetails({ product, close, loadProducts, setSelectProduct, showToast, user }) {
 
-    const [showChangeStock,setShowChangeStock] = useState(false);
-    const [showDelProduct,setShowDelProduct] = useState(false);
-    const [showChangePricePop,setShowChangePricePop] = useState(false);
-    
-    if(!product){
+    const [showChangeStock, setShowChangeStock] = useState(false);
+    const [showDelProduct, setShowDelProduct] = useState(false);
+    const [showChangePricePop, setShowChangePricePop] = useState(false);
+    const canManageProduct = [
+        "管理员",
+        "超级管理员"
+    ].includes(user.role);
+
+    if (!product) {
         return null;
     }
 
@@ -28,7 +32,7 @@ export function ProductDetails({product,close,loadProducts,setSelectProduct,show
                     </button>
 
                 </div>
-                
+
                 <div className="contentDetails">
 
                     <div className="leftPhoto">
@@ -42,41 +46,64 @@ export function ProductDetails({product,close,loadProducts,setSelectProduct,show
                     </div>
                 </div>
                 <div className="cudrBtnsOnDetail">
-                    <button className="changeBtnOnDetail" onClick={() => {setShowChangeStock(true)}}>修改库存</button>
-                    <button className="changeBtnOnDetail" onClick={() => {setShowChangePricePop(true)}}>修改价格</button>
-                    <button className="delBtnOnDetail" onClick={() => {setShowDelProduct(true)}}>删除商品</button>
+                    {
+                        canManageProduct && (
+                            <>
+                                <button
+                                    className="changeBtnOnDetail"
+                                    onClick={() => setShowChangeStock(true)}
+                                >
+                                    修改库存
+                                </button>
+
+                                <button
+                                    className="changeBtnOnDetail"
+                                    onClick={() => setShowChangePricePop(true)}
+                                >
+                                    修改价格
+                                </button>
+
+                                <button
+                                    className="delBtnOnDetail"
+                                    onClick={() => setShowDelProduct(true)}
+                                >
+                                    删除商品
+                                </button>
+                            </>
+                        )
+                    }
                 </div>
             </div>
 
             {
-                showChangeStock&&(
-                    <ChangeStockModal 
-                    product={product}
-                    close={() => setShowChangeStock(false)}
-                    loadProducts={loadProducts}
-                    showToast={showToast}
+                showChangeStock && (
+                    <ChangeStockModal
+                        product={product}
+                        close={() => setShowChangeStock(false)}
+                        loadProducts={loadProducts}
+                        showToast={showToast}
                     />
                 )
             }
-            
+
             {
-                showDelProduct&&(
-                    <DelProductPop 
-                    product={product}
-                    close={() => {setShowDelProduct(false)}}
-                    loadProducts={loadProducts}
-                    setSelectProduct={setSelectProduct}
-                    showToast={showToast}
+                showDelProduct && (
+                    <DelProductPop
+                        product={product}
+                        close={() => { setShowDelProduct(false) }}
+                        loadProducts={loadProducts}
+                        setSelectProduct={setSelectProduct}
+                        showToast={showToast}
                     />
                 )
             }
             {
-                showChangePricePop&&(
-                    <ChangeProductPriceModal 
-                    product={product}
-                    close={() => {setShowChangePricePop(false)}}
-                    loadProducts={loadProducts}
-                    showToast={showToast}
+                showChangePricePop && (
+                    <ChangeProductPriceModal
+                        product={product}
+                        close={() => { setShowChangePricePop(false) }}
+                        loadProducts={loadProducts}
+                        showToast={showToast}
                     />
                 )
             }

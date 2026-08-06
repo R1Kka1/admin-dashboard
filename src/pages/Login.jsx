@@ -27,17 +27,18 @@ export function Login(){
 
         });
         if(user){
-            localStorage.setItem(
-                "token",
-                password
-            );  
+            localStorage.setItem("user", JSON.stringify(user));
+            console.log(user)
             addLog({
                 operator: "admin",
                 action: "登录系统",
                 target: "-",
                 detail: "管理员登录后台"
             });
+            console.log("准备跳转");
             navigate("/admin");
+
+            console.log("跳转执行完成");
         }else{
             alert("登录失败");
         }

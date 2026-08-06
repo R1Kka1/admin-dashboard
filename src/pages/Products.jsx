@@ -6,8 +6,10 @@ import { ProductDetails } from '../components/ProductDetails';
 import { AddProductModal } from '../components/AddProductModal';
 import { Loading } from '../components/Loading';
 import { Toast } from '../components/Toast';
+import { getCurrentUser } from '../untils/auth';
 
 export function Products() {
+    const user = getCurrentUser();
     const [toast,setToast] = useState("");
     const [products,setProducts] = useState([]);
     const [keyword, setKeyword] = useState("");
@@ -75,7 +77,12 @@ export function Products() {
                             setKeyword(e.target.value);
                         }}/>
                     </div>
-                    <div className='addNewProductBtn'><button onClick={() => {setShowAddNewProductPop(true)}}>添加商品</button></div>
+                    <div className='addNewProductBtn'>
+                        {
+                            ["管理员","超级管理员"].includes(user.role) && 
+                            <button onClick={() => {setShowAddNewProductPop(true)}}>添加商品</button>
+                        }
+                    </div>
                 </div>
                 
                 <div className="productsTitles">
@@ -117,6 +124,7 @@ export function Products() {
                 loadProducts={loadProducts}
                 setSelectProduct={setSelectProduct}
                 showToast={showToast}
+                user={user}
             />
             }
             {

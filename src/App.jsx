@@ -1,4 +1,4 @@
-import { Route,Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import { Login } from './pages/Login'
 import { Layout } from './layout/layout'
@@ -8,23 +8,39 @@ import { Users } from './pages/Users'
 import { Data } from './pages/Data'
 import { PrivateRoute } from './components/PrivateRoute'
 import { OperationLog } from './pages/OperationLog'
+import { RoleRoute } from './components/RoleRoute'
 
 function App() {
 
 
   return (
     <Routes>
-      <Route index element={<Login />}/>
+      <Route index element={<Login />} />
       <Route path='/admin' element={
         <PrivateRoute>
           <Layout />
         </PrivateRoute>
       }>
-          <Route path="products" element={<Products />} />
-          <Route path="orders" element={<Orders />} />
-          <Route path="users" element={<Users />} />
-          <Route path="data" element={<Data />} />
-          <Route path="log" element={<OperationLog />} />
+        <Route path="products" element={<Products />} />
+        <Route path="orders" element={<Orders />} />
+        <Route path="users" element={
+          <RoleRoute roles="超级管理员">
+            <Users />
+          </RoleRoute>
+        }
+        />
+        <Route path="data" element={
+          <RoleRoute roles={["管理员", "超级管理员"]} >
+            <Data />
+          </RoleRoute>
+        }
+        />
+        <Route path="log" element={
+          <RoleRoute roles="超级管理员">
+            <OperationLog />
+          </RoleRoute>
+        }
+        />
       </Route>
       <Route />
     </Routes>

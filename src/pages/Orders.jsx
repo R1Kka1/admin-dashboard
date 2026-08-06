@@ -6,8 +6,10 @@ import dayjs from "dayjs";
 import { OrderDetailModal } from "../components/OrderDetailModal";
 import { Loading } from "../components/Loading";
 import { Toast } from "../components/Toast";
+import { getCurrentUser } from "../untils/auth";
 
 export function Orders() {
+    const user = getCurrentUser();
     const [orders,setOrders] = useState([]);
     const [showOrderDetailModal,setShowOrderDetailModal] = useState(false);
     const [selectOrder,setSelectOrder] = useState(null);
@@ -81,6 +83,7 @@ export function Orders() {
                     loadOrders={loadOrders}
                     setSelectOrder={setSelectOrder}
                     showToast={showToast}
+                    user={user}
                     />
                 )
             }
