@@ -5,20 +5,20 @@ import { getList } from "../api/api";
 import { addLog } from "../untils/log";
 
 
-export function Login(){
-    const [username,setUsername] = useState("");
-    const [password,setPassword] = useState("");
-    
+export function Login() {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
     const navigate = useNavigate();
-    
+
     async function loadUsers() {
         const response = await getList("/users");
-        return response.data;   
+        return response.data;
     }
-    
-    function handleLogin(users){
-        
-        const user = users.find((user)=>{
+
+    function handleLogin(users) {
+
+        const user = users.find((user) => {
 
             return (
                 username === user.username &&
@@ -26,7 +26,7 @@ export function Login(){
             );
 
         });
-        if(user){
+        if (user) {
             localStorage.setItem("user", JSON.stringify(user));
             console.log(user)
             addLog({
@@ -39,27 +39,44 @@ export function Login(){
             navigate("/admin");
 
             console.log("跳转执行完成");
-        }else{
+        } else {
             alert("登录失败");
         }
     }
-    
+
     return (
         <div className="login">
             <h1>Login</h1>
-            <input placeholder="Username"  value={username} onChange={(username) => {
-                setUsername(username.target.value);
-            }}/>
-            <input placeholder="Password" value={password} onChange={(password) => {
-                setPassword(password.target.value);
-            }} />
-            <button onClick={async () => {
-                const users = await loadUsers();
-                handleLogin(users);
-            }}>
-            Login
-            </button>
-            
+
+            <form
+                onSubmit={async (e) => {
+                    e.preventDefault();
+
+                    const users = await loadUsers();
+                    handleLogin(users);
+                }}
+            >
+                <input
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => {
+                        setUsername(e.target.value);
+                    }}
+                />
+
+                <input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => {
+                        setPassword(e.target.value);
+                    }}
+                />
+
+                <button type="submit">
+                    Login
+                </button>
+            </form>
         </div>
     );
 }

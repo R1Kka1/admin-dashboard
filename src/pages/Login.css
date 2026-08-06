@@ -10,7 +10,11 @@
     border: 1px solid #ddd;
     border-radius: 10px;
 }
-
+.login form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 .login input {
 
     height: 35px;
@@ -21,6 +25,7 @@
     border-radius: 5px;
 
 }
+
 
 .login button {
 
