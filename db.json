@@ -811,6 +811,14 @@
       "email": "jack@example.com",
       "role": "普通用户",
       "status": "禁用"
+    },
+    {
+      "id": "or2-WNGsimE",
+      "username": "jersc",
+      "password": "dsaddd",
+      "email": "ssssssssss",
+      "role": "普通用户",
+      "status": "正常"
     }
   ],
   "salesData": [
@@ -1406,6 +1414,14 @@
       "detail": "管理员登录后台",
       "createdAt": "2026-08-06T09:50:22.517Z",
       "id": "ASvrjtn0_tg"
+    },
+    {
+      "operator": "admin",
+      "action": "新增用户",
+      "target": "jersc",
+      "detail": "角色：普通用户",
+      "createdAt": "2026-08-06T10:01:03.170Z",
+      "id": "x88Pem5JwU0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

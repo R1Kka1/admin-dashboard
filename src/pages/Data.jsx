@@ -17,48 +17,34 @@ export function Data() {
     const [sevenSales,setSevenSales] = useState ([]);
     const [salesTop,setSalesTop] = useState([]);
     const [orders,setOrders] = useState([]);
+    const [users,setUsers] = useState([]);
 
-    async function loadOrders () {
-        try{
-            const response = await getList("/orders");
-            setOrders(response.data);
-        }
-        catch(error){
-            console.log(error);
-        }
-    }
+    async function loadData(){
 
-    async function loadSales() {
         setLoading(true);
-        try{
-            const response = await getList("/salesData");
-            setSevenSales(response.data);
-        }
-        catch(error){
-            console.log(error);
-        }
-        finally{
-            setLoading(false);
-        }
-    }
-    async function loadSalesTop() {
-        setLoading(true);
-        try{
-            const response = await getList("/productSales");
-            setSalesTop(response.data);
-        }
-        catch(error){
-            console.log(error);
-        }
-        finally{
-            setLoading(false);
-        }
+
+        const [
+            orderRes,
+            salesRes,
+            topRes,
+            totalUsers
+        ] = await Promise.all([
+            getList("/orders"),
+            getList("/salesData"),
+            getList("/productSales"),
+            getList("/users")
+        ]);
+
+        setOrders(orderRes.data);
+        setSevenSales(salesRes.data);
+        setSalesTop(topRes.data);
+        setUsers(totalUsers.data);
+
+        setLoading(false);
     }
 
     useEffect(() => { 
-        loadSales();
-        loadSalesTop();
-        loadOrders();
+        loadData();
     },[]);
 
     if(loading){
@@ -90,7 +76,7 @@ export function Data() {
 
                 <div className="card">
                     <div className="title">用户总数</div>
-                    <div className="number">302人</div>
+                    <div className="number">{users.length}人</div>
                 </div>
 
                 <div className="card">
