@@ -11,10 +11,10 @@ import { Loading } from '../components/Loading';
 import { useEffect,useState } from 'react';
 import { getList } from '../api/api';
 import { formatCurrency } from '../untils/money';
+import dayjs from "dayjs";
 
 export function Data() {
     const [loading,setLoading] = useState(true);
-    const [sevenSales,setSevenSales] = useState ([]);
     const [salesTop,setSalesTop] = useState([]);
     const [orders,setOrders] = useState([]);
     const [users,setUsers] = useState([]);
@@ -26,18 +26,16 @@ export function Data() {
         try{
             const [
             orderRes,
-            salesRes,
             topRes,
             userRes
         ] = await Promise.all([
             getList("/orders"),
-            getList("/salesData"),
+
             getList("/productSales"),
             getList("/users")
         ]);
 
         setOrders(orderRes.data);
-        setSevenSales(salesRes.data);
         setSalesTop(topRes.data);
         setUsers(userRes.data);
 
@@ -66,6 +64,19 @@ export function Data() {
     const totalQuantity = orders.flatMap(order => order.products).reduce((sum,product) => {
         return sum+product.quantity;
     },0)
+
+    const salesMap = {};
+    orders.forEach((order) => {
+        const day = dayjs(order.createdAt).format("MM-DD");
+        if(!salesMap[day]){
+            salesMap[day] = 0;
+        }
+        salesMap[day] += order.totalCostCents;
+    })
+    const sevenSales = Object.entries(salesMap).map(([day, sales]) => ({
+        day,
+        sales
+    }));
 
 
     return (
@@ -99,9 +110,17 @@ export function Data() {
                     <ResponsiveContainer width="100%" height={300}>
                         <LineChart data={sevenSales}>
                             <XAxis dataKey="day"/>
-                            <YAxis />
+                            <YAxis 
+                                tickFormatter={(value)=> {
+                                    return `¥${value / 100}`;
+                                }}
+                            />
 
-                            <Tooltip />
+                            <Tooltip 
+                                formatter={(value)=>{
+                                    return formatCurrency(value);
+                                }}
+                            />
                             <CartesianGrid />
                             <Line type="monotone" dataKey="sales"/>
                         </LineChart>
