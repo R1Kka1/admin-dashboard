@@ -15,9 +15,9 @@ import dayjs from "dayjs";
 
 export function Data() {
     const [loading,setLoading] = useState(true);
-    const [salesTop,setSalesTop] = useState([]);
     const [orders,setOrders] = useState([]);
     const [users,setUsers] = useState([]);
+    const [products,setProducts] = useState([]);
 
     async function loadData(){
 
@@ -26,19 +26,18 @@ export function Data() {
         try{
             const [
             orderRes,
-            topRes,
-            userRes
+            userRes,
+            productsRes
         ] = await Promise.all([
             getList("/orders"),
-
-            getList("/productSales"),
-            getList("/users")
+            getList("/users"),
+            getList("/products")
         ]);
 
         setOrders(orderRes.data);
-        setSalesTop(topRes.data);
+ 
         setUsers(userRes.data);
-
+        setProducts(productsRes.data);
         }
         catch(error){
             console.log(error);
@@ -77,6 +76,29 @@ export function Data() {
         day,
         sales
     }));
+
+    const productSalesMap = {};
+    orders.forEach((order) => {
+        
+        order.products.forEach((product) => {
+            const productId = product.productId;
+            
+            if(!productSalesMap[productId]){
+                productSalesMap[productId] = 0;
+            }
+            productSalesMap[productId] += product.quantity;
+        });
+       
+    })
+    const salesTop = Object.entries(productSalesMap).map(([id,sales]) => {
+        const product = products.find(item => item.id === id);
+
+        return {
+            name:product?.name,
+            sales
+        };
+    }); 
+    const top5 = salesTop.sort((a, b) => b.sales - a.sales).slice(0, 5);
 
 
     return (
@@ -131,7 +153,7 @@ export function Data() {
                 <div className='salesTopCard'>
                     <h2>商品销量TOP5</h2>
                     <ResponsiveContainer width="100%" height={300}>
-                        <BarChart data={salesTop}>
+                        <BarChart data={top5}>
                             <XAxis dataKey="name"/>
                             <YAxis />
                             <Tooltip />

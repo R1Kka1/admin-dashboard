@@ -1564,6 +1564,14 @@
       "detail": "管理员登录后台",
       "createdAt": "2026-08-07T02:22:56.350Z",
       "id": "TU41ol93cRE"
+    },
+    {
+      "operator": "admin",
+      "action": "登录系统",
+      "target": "-",
+      "detail": "管理员登录后台",
+      "createdAt": "2026-08-07T07:06:58.043Z",
+      "id": "1myTFcU3V2M"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
