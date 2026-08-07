@@ -23,11 +23,12 @@ export function Data() {
 
         setLoading(true);
 
-        const [
+        try{
+            const [
             orderRes,
             salesRes,
             topRes,
-            totalUsers
+            userRes
         ] = await Promise.all([
             getList("/orders"),
             getList("/salesData"),
@@ -38,9 +39,16 @@ export function Data() {
         setOrders(orderRes.data);
         setSevenSales(salesRes.data);
         setSalesTop(topRes.data);
-        setUsers(totalUsers.data);
+        setUsers(userRes.data);
 
-        setLoading(false);
+        }
+        catch(error){
+            console.log(error);
+        }
+        finally{
+            setLoading(false);
+        }
+        
     }
 
     useEffect(() => { 
@@ -65,12 +73,12 @@ export function Data() {
             <h1>数据统计页面</h1>
             <div className="todaysData">
                 <div className="card">
-                    <div className="title">今日销售额</div>
+                    <div className="title">总销售额</div>
                     <div className="number">{formatCurrency(totalSales)}</div>
                 </div>
 
                 <div className="card">
-                    <div className="title">今日订单</div>
+                    <div className="title">总订单</div>
                     <div className="number">{orders.length}单</div>
                 </div>
 
