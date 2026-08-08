@@ -5,8 +5,10 @@
 .productsTitle{
     flex: 1;
 }
-
-
+.warningProducts {
+    margin-bottom: 20px;
+    
+}
 
 .productsDetails{
     margin-top: 15px;
@@ -23,7 +25,7 @@
 }
 .searchProduct{
     margin-bottom: 20px;
-     flex:1;
+    flex:1;
 }
 .searchInput{
     width: 300px;
@@ -42,4 +44,18 @@
 .addNewProductBtn button{
     height:40px;
     margin-bottom: 20px;
+}
+
+.warning{
+    color: orange;
+    font-weight: bold;
+}
+
+.out{
+    color: red;
+    font-weight: bold;
+}
+
+.normal{
+    color: green;
 }

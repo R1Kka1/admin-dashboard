@@ -6,7 +6,7 @@
       "name": "Intermediate Size Basketball",
       "rating": {
         "stars": 4,
-        "count": 131
+        "count": 0
       },
       "priceCents": 100,
       "keywords": [
@@ -709,50 +709,6 @@
       },
       "keywords": [],
       "id": "t_Q38Yu1LrI"
-    },
-    {
-      "name": "1111111",
-      "priceCents": 1044,
-      "image": "images/products/women-striped-beach-dress.jpg",
-      "rating": {
-        "stars": 0,
-        "count": 1
-      },
-      "keywords": [],
-      "id": "NPs-gA4MCYc"
-    },
-    {
-      "name": "3sd",
-      "priceCents": 11100,
-      "image": "images/products/women-striped-beach-dress.jpg",
-      "rating": {
-        "stars": 0,
-        "count": 1
-      },
-      "keywords": [],
-      "id": "p3q5c4XCGHU"
-    },
-    {
-      "name": "tesxrt",
-      "priceCents": 1421,
-      "image": "images/products/women-striped-beach-dress.jpg",
-      "rating": {
-        "stars": 0,
-        "count": 1
-      },
-      "keywords": [],
-      "id": "AmDLsa7aaFk"
-    },
-    {
-      "name": "text1",
-      "priceCents": 1200,
-      "image": "images/products/women-striped-beach-dress.jpg",
-      "rating": {
-        "stars": 0,
-        "count": 1
-      },
-      "keywords": [],
-      "id": "K5cNMq6iMjE"
     }
   ],
   "users": [
@@ -1572,6 +1528,46 @@
       "detail": "管理员登录后台",
       "createdAt": "2026-08-07T07:06:58.043Z",
       "id": "1myTFcU3V2M"
+    },
+    {
+      "operator": "admin",
+      "action": "删除商品",
+      "target": "text1",
+      "detail": "删除商品",
+      "createdAt": "2026-08-07T07:35:35.700Z",
+      "id": "96y2JfQChLY"
+    },
+    {
+      "operator": "admin",
+      "action": "删除商品",
+      "target": "tesxrt",
+      "detail": "删除商品",
+      "createdAt": "2026-08-07T07:35:39.036Z",
+      "id": "m_hbn44EKrk"
+    },
+    {
+      "operator": "admin",
+      "action": "删除商品",
+      "target": "3sd",
+      "detail": "删除商品",
+      "createdAt": "2026-08-07T07:35:41.881Z",
+      "id": "Re8yDG0gaB8"
+    },
+    {
+      "operator": "admin",
+      "action": "删除商品",
+      "target": "1111111",
+      "detail": "删除商品",
+      "createdAt": "2026-08-07T07:35:44.471Z",
+      "id": "M5mhLqJDJUY"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Intermediate Size Basketball",
+      "detail": "库存：131 -> 库存：0",
+      "createdAt": "2026-08-08T01:30:29.353Z",
+      "id": "y-0CUSHgIGA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

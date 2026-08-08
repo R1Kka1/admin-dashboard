@@ -63,6 +63,9 @@ export function Products() {
     const filteredProducts = products.filter((product) => {
         return product.name.toLowerCase().includes(keyword.toLowerCase());
     });
+    const warningProducts = products.filter((product) => {
+        return product.rating.count < 10;
+    });
    
     if(loading){
         return <Loading />
@@ -77,6 +80,9 @@ export function Products() {
                             setKeyword(e.target.value);
                         }}/>
                     </div>
+                    <div className='warningProducts'>
+                        <p>库存预警：{warningProducts.length} 件</p>
+                    </div>
                     <div className='addNewProductBtn'>
                         {
                             ["管理员","超级管理员"].includes(user.role) && 
@@ -90,6 +96,7 @@ export function Products() {
                     <span className="productsTitle">商品名称</span>     
                     <span className="productsTitle">价格</span>     
                     <span className="productsTitle">库存</span>     
+                    <span className="productsTitle">状态</span>     
                     <span className="productsTitle">操作</span>     
                 </div>
 
@@ -103,6 +110,15 @@ export function Products() {
                                 <div>{product.name}</div>
                                 <div>{formatCurrency(product.priceCents)}</div>
                                 <div>{product.rating.count}</div>
+                                <div>
+                                    {product.rating.count === 0 ? (
+                                        <span className="out">缺货</span>
+                                    ) : product.rating.count < 10 ? (
+                                        <span className="warning">库存不足</span>
+                                    ) : (
+                                        <span className="normal">正常</span>
+                                    )}
+                                </div>
                                 <div>
                                     <button onClick={() => {
                                         setSelectProduct(product);
