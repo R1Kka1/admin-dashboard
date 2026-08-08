@@ -64,7 +64,7 @@ export function Products() {
         return product.name.toLowerCase().includes(keyword.toLowerCase());
     });
     const warningProducts = products.filter((product) => {
-        return product.rating.count < 10;
+        return product.stock < 10;
     });
    
     if(loading){
@@ -109,14 +109,14 @@ export function Products() {
                                 <div>{idCount++}</div>
                                 <div>{product.name}</div>
                                 <div>{formatCurrency(product.priceCents)}</div>
-                                <div>{product.rating.count}</div>
+                                <div>{product.stock}</div>
                                 <div>
-                                    {product.rating.count === 0 ? (
-                                        <span className="out">缺货</span>
-                                    ) : product.rating.count < 10 ? (
-                                        <span className="warning">库存不足</span>
+                                    {product.stock === 0 ? (
+                                        <span className="out">🔴 缺货</span>
+                                    ) : product.stock < 10 ? (
+                                        <span className="warning">🟡 库存偏低</span>
                                     ) : (
-                                        <span className="normal">正常</span>
+                                        <span className="normal">🟢 正常</span>
                                     )}
                                 </div>
                                 <div>

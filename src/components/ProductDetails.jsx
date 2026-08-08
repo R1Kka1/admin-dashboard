@@ -42,7 +42,7 @@ export function ProductDetails({ product, close, loadProducts, setSelectProduct,
                         <div>商品ID:{product.id}</div>
                         <div>商品名称:{product.name}</div>
                         <div>商品价格:{formatCurrency(product.priceCents)}</div>
-                        <div>商品库存:{product.rating.count}</div>
+                        <div>商品库存:{product.stock}</div>
                     </div>
                 </div>
                 <div className="cudrBtnsOnDetail">

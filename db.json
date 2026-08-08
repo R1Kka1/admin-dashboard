@@ -6,9 +6,10 @@
       "name": "Intermediate Size Basketball",
       "rating": {
         "stars": 4,
-        "count": 0
+        "count": 131
       },
       "priceCents": 100,
+      "stock": 35,
       "keywords": [
         "sports",
         "basketballs"
@@ -22,7 +23,8 @@
         "stars": 4.5,
         "count": 56
       },
-      "priceCents": 799,
+      "priceCents": 100,
+      "stock": 8,
       "keywords": [
         "tshirts",
         "apparel",
@@ -38,6 +40,7 @@
         "count": 2198
       },
       "priceCents": 1899,
+      "stock": 72,
       "keywords": [
         "toaster",
         "kitchen",
@@ -53,6 +56,7 @@
         "count": 37
       },
       "priceCents": 2067,
+      "stock": 14,
       "keywords": [
         "plates",
         "kitchen",
@@ -68,6 +72,7 @@
         "count": 175
       },
       "priceCents": 3499,
+      "stock": 46,
       "keywords": [
         "kitchen",
         "cookware"
@@ -82,6 +87,7 @@
         "count": 317
       },
       "priceCents": 2400,
+      "stock": 6,
       "keywords": [
         "sweaters",
         "apparel"
@@ -96,6 +102,7 @@
         "count": 144
       },
       "priceCents": 3599,
+      "stock": 53,
       "keywords": [
         "bathroom",
         "washroom",
@@ -113,6 +120,7 @@
         "count": 99
       },
       "priceCents": 2374,
+      "stock": 91,
       "keywords": [
         "kleenex",
         "tissues",
@@ -129,6 +137,7 @@
         "count": 235
       },
       "priceCents": 2970,
+      "stock": 19,
       "keywords": [
         "robe",
         "swimsuit",
@@ -146,6 +155,7 @@
         "count": 2286
       },
       "priceCents": 5300,
+      "stock": 4,
       "keywords": [
         "womens",
         "shoes",
@@ -709,6 +719,18 @@
       },
       "keywords": [],
       "id": "t_Q38Yu1LrI"
+    },
+    {
+      "name": "textnew",
+      "priceCents": 100,
+      "image": "images/products/women-striped-beach-dress.jpg",
+      "rating": {
+        "stars": 0,
+        "count": 0
+      },
+      "stock": 1,
+      "keywords": [],
+      "id": "k_OzK2nH-CE"
     }
   ],
   "users": [
@@ -1568,6 +1590,38 @@
       "detail": "库存：131 -> 库存：0",
       "createdAt": "2026-08-08T01:30:29.353Z",
       "id": "y-0CUSHgIGA"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Adults Plain Cotton T-Shirt - 2 Pack",
+      "detail": "库存：8 -> 库存：9",
+      "createdAt": "2026-08-08T01:45:51.377Z",
+      "id": "osdgN-RQ9KU"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Adults Plain Cotton T-Shirt - 2 Pack",
+      "detail": "库存：9 -> 库存：8",
+      "createdAt": "2026-08-08T01:45:53.873Z",
+      "id": "r2UnMYzr3RY"
+    },
+    {
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "Adults Plain Cotton T-Shirt - 2 Pack",
+      "detail": "$7.99 -> $1.00",
+      "createdAt": "2026-08-08T01:45:56.315Z",
+      "id": "zHyfa9-FegU"
+    },
+    {
+      "operator": "admin",
+      "action": "新增商品",
+      "target": "textnew",
+      "detail": "新增商品，价格$1.00，库存1",
+      "createdAt": "2026-08-08T01:47:03.418Z",
+      "id": "PG7Q-ombK1Q"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -6,7 +6,7 @@ import { patchObject } from '../api/api';
 export function ChangeStockModal({product,close,loadProducts,showToast}){
     const [newStock,setNewStock] = useState(1);
 
-    const oldStock = product.rating.count;
+    const oldStock = product.stock;
 
     async function handleAdd() {
 
@@ -17,11 +17,8 @@ export function ChangeStockModal({product,close,loadProducts,showToast}){
         try {
             await patchObject(
                 `/products/${product.id}`,
-                {
-                    rating: {
-                        ...product.rating,
-                        count: product.rating.count + Number(newStock)
-                    }
+                {   
+                    stock: product.stock+ Number(newStock)
                 }
             );
             addLog({
@@ -38,7 +35,7 @@ export function ChangeStockModal({product,close,loadProducts,showToast}){
         }
     }
     async function handleReduce() {
-        if(newStock<=0 || newStock > product.rating.count){
+        if(newStock<=0 || newStock > product.stock){
             showToast("❌库存修改失败");
             return;
         }
@@ -46,10 +43,7 @@ export function ChangeStockModal({product,close,loadProducts,showToast}){
             await patchObject(
                 `/products/${product.id}`,
                 {
-                    rating: {
-                        ...product.rating,
-                        count: product.rating.count - Number(newStock)
-                    }
+                    stock: product.stock - Number(newStock)
                 }
             );
             await addLog({
@@ -77,7 +71,7 @@ export function ChangeStockModal({product,close,loadProducts,showToast}){
                 </div>
                 <div className="product-edit-contentDetails">
                     <div>商品名称:{product.name}</div>
-                    <div>商品库存:{product.rating.count}</div>
+                    <div>商品库存:{product.stock}</div>
                     <input type="number"className="product-edit-Input" placeholder="输入数量"
                         value={newStock}
                         onChange={(e) => setNewStock(Number(e.target.value))}

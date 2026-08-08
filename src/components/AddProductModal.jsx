@@ -26,9 +26,9 @@ export function AddProductModal({ close, loadProducts,showToast}) {
             image: "images/products/women-striped-beach-dress.jpg",
             rating: {
                 stars: 0,
-                count: Number(newProductStock)
+                count: 0
             },
-
+            stock: Number(newProductStock),
             keywords: []
         };
         try {
