@@ -9,7 +9,7 @@
         "count": 131
       },
       "priceCents": 100,
-      "stock": 35,
+      "stock": 34,
       "keywords": [
         "sports",
         "basketballs"
@@ -770,6 +770,18 @@
       "stock": 1,
       "keywords": [],
       "id": "k_OzK2nH-CE"
+    },
+    {
+      "name": "textloadproduct",
+      "priceCents": 100,
+      "image": "images/products/women-striped-beach-dress.jpg",
+      "rating": {
+        "stars": 0,
+        "count": 0
+      },
+      "stock": 1,
+      "keywords": [],
+      "id": "x1-nIcnMpYg"
     }
   ],
   "users": [
@@ -1712,6 +1724,62 @@
       "detail": "订单状态从 待发货 修改为 待付款",
       "createdAt": "2026-08-08T08:53:02.604Z",
       "id": "4isJH3K7cOI"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Intermediate Size Basketball",
+      "detail": "库存：35 -> 库存：36",
+      "createdAt": "2026-08-08T08:54:43.758Z",
+      "id": "IQVeeuRqtw4"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Intermediate Size Basketball",
+      "detail": "库存：35 -> 库存：34",
+      "createdAt": "2026-08-08T08:54:48.540Z",
+      "id": "QmHIvCRWNSc"
+    },
+    {
+      "operator": "admin",
+      "action": "新增商品",
+      "target": "textloadproduct",
+      "detail": "新增商品，价格$1.00，库存1",
+      "createdAt": "2026-08-08T08:56:55.528Z",
+      "id": "5lIxI-ZliBM"
+    },
+    {
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "Intermediate Size Basketball",
+      "detail": "$1.00 -> $1.00",
+      "createdAt": "2026-08-08T08:57:01.680Z",
+      "id": "j-n3sJBua10"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Intermediate Size Basketball",
+      "detail": "库存：34 -> 库存：35",
+      "createdAt": "2026-08-08T08:58:03.642Z",
+      "id": "85HqQy7Z98M"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Intermediate Size Basketball",
+      "detail": "库存：34 -> 库存：33",
+      "createdAt": "2026-08-08T08:58:11.730Z",
+      "id": "C_c3R9TmP9I"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Intermediate Size Basketball",
+      "detail": "库存：33 -> 库存：34",
+      "createdAt": "2026-08-08T08:58:22.937Z",
+      "id": "sh3X8x6oWck"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

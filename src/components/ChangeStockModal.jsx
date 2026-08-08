@@ -28,6 +28,7 @@ export function ChangeStockModal({product,close,loadProducts,showToast}){
                 detail: `库存：${oldStock} -> 库存：${oldStock+newStock}`
             });
             showToast("✅️库存修改成功");
+            close();
             await loadProducts();
             
         } catch  {
@@ -53,6 +54,7 @@ export function ChangeStockModal({product,close,loadProducts,showToast}){
                 detail: `库存：${oldStock} -> 库存：${oldStock-newStock}`
             });
             showToast("✅️库存修改成功");
+            close();
             await loadProducts();
 
         } catch  {

@@ -1,52 +1,22 @@
 import './Products.css';
-import { getList } from '../api/api';
-import {  useEffect,useState } from 'react';
+import { useState } from 'react';
 import { formatCurrency } from '../untils/money';
 import { ProductDetails } from '../components/ProductDetails';
 import { AddProductModal } from '../components/AddProductModal';
 import { Loading } from '../components/Loading';
 import { Toast } from '../components/Toast';
 import { getCurrentUser } from '../untils/auth';
+import { useProducts } from '../hooks/useProducts';
 
 export function Products() {
     const user = getCurrentUser();
     const [toast,setToast] = useState("");
-    const [products,setProducts] = useState([]);
+    const {products,loading,loadProducts} = useProducts();
     const [keyword, setKeyword] = useState("");
     const [selectProduct,setSelectProduct] = useState(null);
     const [showDetail,setShowDetail] = useState(false);
     const [showAddNewProductPop,setShowAddNewProductPop] = useState(false);
-    const [loading,setLoading] = useState(true);
 
-    async function loadProducts(){
-        setLoading(true);
-
-        try{
-            const response = await getList("/products")
-            setProducts(response.data);
-            if(selectProduct){
-                const newProduct = response.data.find(
-                    item => item.id === selectProduct.id
-                );
-
-                setSelectProduct(newProduct);
-            }
-        }
-        catch(error){
-            console.log(error);
-        }
-        finally{
-            setLoading(false);
-        }
-        
-       
-        
-    }
-    useEffect(() => {
-    
-        loadProducts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps    
-    },[]);
 
     function showToast(message){
 
