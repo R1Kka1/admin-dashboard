@@ -10,7 +10,7 @@ export function useLogs() {
             const response = await getList("/logs");
             setLogs(response.data);
         } catch (error) {
-            console.error("获取订单失败", error);
+            console.error("获取日志失败", error);
         } finally {
             setLoading(false);
         }
