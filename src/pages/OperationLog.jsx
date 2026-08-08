@@ -1,26 +1,11 @@
 import "./OperationLog.css";
-import { useEffect, useState } from "react";
-import { getList } from "../api/api";
 import dayjs from "dayjs";
+import {useLogs} from "../hooks/useLogs.js";
 
 export function OperationLog() {
-    const [logs,setLogs] = useState([]); 
+    const {logs} = useLogs(); 
 
-    async function loadLogs() {
-        try{
-            const response = await getList('/logs');
-            setLogs(response.data);
-
-        }
-        catch(error){
-            console.log(error);
-        }
-    }
-
-    useEffect(() => {
-        loadLogs();
-    },[]);
-
+    
     return (
         <div className="operationLog-Page-Total">
             <div className="operationLog-Page-Title">
