@@ -172,6 +172,7 @@
         "count": 30
       },
       "priceCents": 3560,
+      "stock": 35,
       "keywords": [
         "accessories",
         "shades"
@@ -186,6 +187,7 @@
         "count": 232
       },
       "priceCents": 4599,
+      "stock": 35,
       "keywords": [
         "bedroom",
         "curtains",
@@ -201,6 +203,7 @@
         "count": 160
       },
       "priceCents": 1699,
+      "stock": 35,
       "keywords": [
         "shorts",
         "apparel",
@@ -216,6 +219,7 @@
         "count": 846
       },
       "priceCents": 5074,
+      "stock": 35,
       "keywords": [
         "water kettle",
         "appliances",
@@ -231,6 +235,7 @@
         "count": 89
       },
       "priceCents": 5390,
+      "stock": 35,
       "keywords": [
         "shoes",
         "running shoes",
@@ -246,6 +251,7 @@
         "count": 215
       },
       "priceCents": 2200,
+      "stock": 35,
       "keywords": [
         "hats",
         "straw hats",
@@ -262,6 +268,7 @@
         "count": 229
       },
       "priceCents": 4590,
+      "stock": 35,
       "keywords": [
         "shoes",
         "running shoes",
@@ -278,6 +285,7 @@
         "count": 2465
       },
       "priceCents": 3374,
+      "stock": 35,
       "keywords": [
         "sweaters",
         "apparel"
@@ -292,6 +300,7 @@
         "count": 119
       },
       "priceCents": 1850,
+      "stock": 35,
       "keywords": [
         "bathmat",
         "bathroom",
@@ -307,6 +316,7 @@
         "count": 326
       },
       "priceCents": 2640,
+      "stock": 35,
       "keywords": [
         "shoes",
         "flats",
@@ -323,6 +333,7 @@
         "count": 2556
       },
       "priceCents": 1599,
+      "stock": 35,
       "keywords": [
         "tshirts",
         "shirts",
@@ -339,6 +350,7 @@
         "count": 305
       },
       "priceCents": 2899,
+      "stock": 35,
       "keywords": [
         "bathroom",
         "cleaning"
@@ -353,6 +365,7 @@
         "count": 52
       },
       "priceCents": 6799,
+      "stock": 35,
       "keywords": [
         "jewelry",
         "accessories",
@@ -368,6 +381,7 @@
         "count": 456
       },
       "priceCents": 4399,
+      "stock": 35,
       "keywords": [
         "bedroom",
         "bed sheets",
@@ -385,6 +399,7 @@
         "count": 83
       },
       "priceCents": 1950,
+      "stock": 35,
       "keywords": [
         "hats",
         "winter hats",
@@ -402,6 +417,7 @@
         "count": 9017
       },
       "priceCents": 2290,
+      "stock": 35,
       "keywords": [
         "pants",
         "apparel",
@@ -417,6 +433,7 @@
         "count": 42
       },
       "priceCents": 3690,
+      "stock": 35,
       "keywords": [
         "sunglasses",
         "glasses",
@@ -433,6 +450,7 @@
         "count": 562
       },
       "priceCents": 2499,
+      "stock": 35,
       "keywords": [
         "footwear",
         "men",
@@ -448,6 +466,7 @@
         "count": 511
       },
       "priceCents": 6797,
+      "stock": 35,
       "keywords": [
         "cooking set",
         "kitchen"
@@ -462,6 +481,7 @@
         "count": 130
       },
       "priceCents": 2549,
+      "stock": 35,
       "keywords": [
         "bathroom",
         "washroom",
@@ -478,6 +498,7 @@
         "count": 248
       },
       "priceCents": 3400,
+      "stock": 35,
       "keywords": [
         "pants",
         "apparel",
@@ -493,6 +514,7 @@
         "count": 117
       },
       "priceCents": 3467,
+      "stock": 35,
       "keywords": [
         "accessories",
         "womens"
@@ -507,6 +529,7 @@
         "count": 126
       },
       "priceCents": 2899,
+      "stock": 35,
       "keywords": [
         "food containers",
         "kitchen"
@@ -521,6 +544,7 @@
         "count": 1211
       },
       "priceCents": 8250,
+      "stock": 35,
       "keywords": [
         "espresso makers",
         "kitchen",
@@ -536,6 +560,7 @@
         "count": 363
       },
       "priceCents": 3099,
+      "stock": 35,
       "keywords": [
         "bedroom",
         "home",
@@ -551,6 +576,7 @@
         "count": 93
       },
       "priceCents": 2990,
+      "stock": 35,
       "keywords": [
         "bathroom",
         "home",
@@ -566,6 +592,7 @@
         "count": 89
       },
       "priceCents": 3390,
+      "stock": 35,
       "keywords": [
         "shoes",
         "running shoes",
@@ -581,6 +608,7 @@
         "count": 3
       },
       "priceCents": 10747,
+      "stock": 35,
       "keywords": [
         "food blenders",
         "kitchen",
@@ -596,6 +624,7 @@
         "count": 3157
       },
       "priceCents": 3800,
+      "stock": 35,
       "keywords": [
         "sweaters",
         "hoodies",
@@ -612,6 +641,7 @@
         "count": 679
       },
       "priceCents": 3899,
+      "stock": 35,
       "keywords": [
         "bowls set",
         "kitchen"
@@ -626,6 +656,7 @@
         "count": 1045
       },
       "priceCents": 1899,
+      "stock": 35,
       "keywords": [
         "kitchen",
         "kitchen towels",
@@ -640,6 +671,7 @@
         "stars": 0,
         "count": 1
       },
+      "stock": 35,
       "keywords": [],
       "id": "G7gM5sXwzBE"
     },
@@ -651,6 +683,7 @@
         "stars": 0,
         "count": 1
       },
+      "stock": 35,
       "keywords": [],
       "id": "ItF80zEEHt4"
     },
@@ -662,6 +695,7 @@
         "stars": 0,
         "count": 1
       },
+      "stock": 35,
       "keywords": [],
       "id": "KyCwMCgowg8"
     },
@@ -673,6 +707,7 @@
         "stars": 0,
         "count": 1
       },
+      "stock": 35,
       "keywords": [],
       "id": "KwE_qjnrskQ"
     },
@@ -684,6 +719,7 @@
         "stars": 0,
         "count": 1
       },
+      "stock": 35,
       "keywords": [],
       "id": "wlmzWPFARVM"
     },
@@ -695,6 +731,7 @@
         "stars": 0,
         "count": 1
       },
+      "stock": 35,
       "keywords": [],
       "id": "cdIjHPxIL0c"
     },
@@ -706,6 +743,7 @@
         "stars": 0,
         "count": 1
       },
+      "stock": 35,
       "keywords": [],
       "id": "MYrqOSXhDcM"
     },
@@ -717,6 +755,7 @@
         "stars": 0,
         "count": 1
       },
+      "stock": 35,
       "keywords": [],
       "id": "t_Q38Yu1LrI"
     },
