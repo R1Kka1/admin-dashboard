@@ -1,20 +1,17 @@
 import { useState } from "react";
 import './Login.css'
 import { useNavigate } from "react-router-dom";
-import { getList } from "../api/api";
 import { addLog } from "../untils/log";
-
+import { useUsers } from "../hooks/useUsers";
 
 export function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const { users} = useUsers();
 
     const navigate = useNavigate();
 
-    async function loadUsers() {
-        const response = await getList("/users");
-        return response.data;
-    }
+
 
     function handleLogin(users) {
 
@@ -28,7 +25,6 @@ export function Login() {
         });
         if (user) {
             localStorage.setItem("user", JSON.stringify(user));
-            console.log(user)
             addLog({
                 operator: "admin",
                 action: "登录系统",
@@ -52,7 +48,6 @@ export function Login() {
                 onSubmit={async (e) => {
                     e.preventDefault();
 
-                    const users = await loadUsers();
                     handleLogin(users);
                 }}
             >
