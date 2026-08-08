@@ -16,7 +16,7 @@ function App() {
   return (
     <Routes>
       <Route index element={<Login />} />
-      <Route path='/admin' element={
+      <Route path='/homepage' element={
         <PrivateRoute>
           <Layout />
         </PrivateRoute>

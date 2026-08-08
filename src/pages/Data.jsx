@@ -8,62 +8,26 @@ import {
     Tooltip,ResponsiveContainer 
 } from "recharts";
 import { Loading } from '../components/Loading';
-import { useEffect,useState } from 'react';
-import { getList } from '../api/api';
+
 import { formatCurrency } from '../untils/money';
 import dayjs from "dayjs";
+import { calculateTotalQuantity,calculateTotalSales } from '../untils/statistics';
+import { useOrders } from '../hooks/useOrders';
+import { useUsers } from '../hooks/useUsers';
+import { useProducts } from '../hooks/useProducts';
 
 export function Data() {
-    const [loading,setLoading] = useState(true);
-    const [orders,setOrders] = useState([]);
-    const [users,setUsers] = useState([]);
-    const [products,setProducts] = useState([]);
 
-    async function loadData(){
 
-        setLoading(true);
-
-        try{
-            const [
-            orderRes,
-            userRes,
-            productsRes
-        ] = await Promise.all([
-            getList("/orders"),
-            getList("/users"),
-            getList("/products")
-        ]);
-
-        setOrders(orderRes.data);
- 
-        setUsers(userRes.data);
-        setProducts(productsRes.data);
-        }
-        catch(error){
-            console.log(error);
-        }
-        finally{
-            setLoading(false);
-        }
-        
-    }
-
-    useEffect(() => { 
-        loadData();
-    },[]);
-
-    if(loading){
+    const { orders, loading:ordersLoading} = useOrders();
+    const {users,loading:usersLoading} = useUsers();
+    const {products , loading:productsLoading } = useProducts();
+    if(ordersLoading || usersLoading || productsLoading){
         return <Loading />;
     }
-    
-    const totalSales = orders.reduce((sum,order) => {
-        return sum+order.totalCostCents;
-    },0)
 
-    const totalQuantity = orders.flatMap(order => order.products).reduce((sum,product) => {
-        return sum+product.quantity;
-    },0)
-
+    const totalSales = calculateTotalSales(orders);
+    const totalQuantity = calculateTotalQuantity(orders);
     const salesMap = {};
     orders.forEach((order) => {
         const day = dayjs(order.createdAt).format("MM-DD");

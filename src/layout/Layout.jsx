@@ -16,8 +16,7 @@ export function Layout() {
                 <div className="header">
                     <Header />
                 </div>
-                <div className="content">
-                    
+                <div className="content">  
                     <Outlet />
                 </div>
             </div>

@@ -36,7 +36,7 @@ export function Login() {
                 detail: "管理员登录后台"
             });
             console.log("准备跳转");
-            navigate("/admin");
+            navigate("/homepage");
 
             console.log("跳转执行完成");
         } else {
