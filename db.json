@@ -907,7 +907,7 @@
       "id": "b6b6c212-d30e-4d4a-805d-90b52ce6b37d",
       "orderTimeMs": 1718013600000,
       "totalCostCents": 4190,
-      "status": "待发货",
+      "status": "待付款",
       "products": [
         {
           "productId": "15b6fc6f-327a-4ec4-896f-486349e85a3d",
@@ -1704,6 +1704,14 @@
       "detail": "管理员登录后台",
       "createdAt": "2026-08-08T08:25:28.213Z",
       "id": "wUEpIVcxPvw"
+    },
+    {
+      "operator": "admin",
+      "action": "修改订单",
+      "target": "b6b6c212-d30e-4d4a-805d-90b52ce6b37d",
+      "detail": "订单状态从 待发货 修改为 待付款",
+      "createdAt": "2026-08-08T08:53:02.604Z",
+      "id": "4isJH3K7cOI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

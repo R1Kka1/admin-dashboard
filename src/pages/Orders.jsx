@@ -1,5 +1,4 @@
-import { getList } from "../api/api";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import './Orders.css'
 import { formatCurrency } from "../untils/money";
 import dayjs from "dayjs";
@@ -7,32 +6,17 @@ import { OrderDetailModal } from "../components/OrderDetailModal";
 import { Loading } from "../components/Loading";
 import { Toast } from "../components/Toast";
 import { getCurrentUser } from "../untils/auth";
+import { useOrders } from "../hooks/useOrders";
 
 export function Orders() {
     const user = getCurrentUser();
-    const [orders,setOrders] = useState([]);
+    const {orders,loading,loadOrders} = useOrders();
     const [showOrderDetailModal,setShowOrderDetailModal] = useState(false);
     const [selectOrder,setSelectOrder] = useState(null);
-    const [loading,setLoading] = useState(true);
+
     const [toast,setToast] = useState("");
 
-    async function loadOrders() {
-        setLoading(true);
-        try{
-            const response = await getList("/orders")
-            setOrders(response.data);
-        }
-        catch(error){
-            console.log(error);
-        }
-        finally{
-            setLoading(false);
-        }
-    }
-
-    useEffect(() => {
-        loadOrders();
-    },[]);
+    
 
     function showToast(message){
 
