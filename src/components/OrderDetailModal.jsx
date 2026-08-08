@@ -42,9 +42,9 @@ export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrde
             });
             await addLog({
                 operator: "admin",
-                action: "新增用户",
+                action: "修改订单",
                 target: selectOrder.id,
-                detail: "修改了订单信息"
+                detail: `订单状态从 ${selectOrder.status} 修改为 ${newStatus}`
             });
             showToast("✅️保存成功");
             loadOrders();
@@ -62,7 +62,7 @@ export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrde
             await delObject(`/orders/${selectOrder.id}`)
             await addLog({
                 operator: "admin",
-                action: "新增用户",
+                action: "删除订单",
                 target: selectOrder.id,
                 detail: "删除了订单"
             });
