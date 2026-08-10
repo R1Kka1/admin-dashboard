@@ -31,10 +31,7 @@ export function Login() {
                 target: "-",
                 detail: "管理员登录后台"
             });
-            console.log("准备跳转");
             navigate("/homepage");
-
-            console.log("跳转执行完成");
         } else {
             alert("登录失败");
         }

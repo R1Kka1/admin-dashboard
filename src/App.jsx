@@ -9,6 +9,7 @@ import { Data } from './pages/Data'
 import { PrivateRoute } from './components/PrivateRoute'
 import { OperationLog } from './pages/OperationLog'
 import { RoleRoute } from './components/RoleRoute'
+import { HomePage } from './pages/HomePage'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Layout />
         </PrivateRoute>
       }>
+        <Route index element={<HomePage />} />
         <Route path="products" element={<Products />} />
         <Route path="orders" element={<Orders />} />
         <Route path="users" element={
