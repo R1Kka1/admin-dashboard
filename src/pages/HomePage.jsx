@@ -126,7 +126,11 @@ export function HomePage() {
                     <div className="homepage-10logs-card">
                         <div className="homepage-10logs-card-title"><h2>最近操作</h2></div>
                         <div className="homepage-10logs-card-info">
-                            {recentLogs.map((log) => {
+                            {recentLogs.length === 0 ? (
+                                    <div className="empty">
+                                        暂无操作记录
+                                    </div>
+                                ) :recentLogs.map((log) => {
                                 return (
                                     <div className="homepage-eachLog-info" key={log.id}>
                                         <div className="homepage-eachLog-details">
