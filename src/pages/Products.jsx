@@ -45,11 +45,16 @@ export function Products() {
         <>
             <div className="">
                 <div className='pageTitle'>
+                    
                     <div className='searchProduct'>
                         <input className="searchInput" placeholder="搜索商品" value={keyword} onChange={(e) => {
                             setKeyword(e.target.value);
                         }}/>
+
+                        
                     </div>
+                    
+
                     <div className='warningProducts'>
                         <p>库存预警：{warningProducts.length} 件</p>
                     </div>

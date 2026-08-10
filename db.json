@@ -514,7 +514,7 @@
         "count": 117
       },
       "priceCents": 3467,
-      "stock": 35,
+      "stock": 0,
       "keywords": [
         "accessories",
         "womens"
@@ -1804,6 +1804,14 @@
       "detail": "角色：普通用户",
       "createdAt": "2026-08-10T02:02:47.958Z",
       "id": "eHuehIL-iP4"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Crystal Zirconia Stud Earrings - Pink",
+      "detail": "库存：35 -> 库存：0",
+      "createdAt": "2026-08-10T07:25:29.094Z",
+      "id": "OfGLfgsJm6I"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

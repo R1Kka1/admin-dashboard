@@ -117,8 +117,8 @@ export function HomePage() {
                             <div className="number">{warningProducts.length}</div>
                         </div>
                         <div className="homepage-warning-card">
-                            <div className="title">test</div>
-                            <div className="number">{formatCurrency(totalSales)}</div>
+                            <div className="title">缺货商品</div>
+                            <div className="number">{products.filter(product => product.stock === 0).length}</div>
                         </div>
                     </div>
                 </div>
