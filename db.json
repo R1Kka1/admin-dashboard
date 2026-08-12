@@ -1820,6 +1820,14 @@
       "detail": "管理员登录后台",
       "createdAt": "2026-08-12T06:45:19.285Z",
       "id": "Bu43xKB0MBU"
+    },
+    {
+      "operator": "admin",
+      "action": "登录系统",
+      "target": "-",
+      "detail": "管理员登录后台",
+      "createdAt": "2026-08-12T06:52:51.936Z",
+      "id": "aiYdYujWA2k"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

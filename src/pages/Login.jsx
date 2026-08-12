@@ -25,9 +25,11 @@ export function Login() {
         });
         if (user) {
             const { password: _ , ...safeUser} = user;
-
-
             localStorage.setItem("user", JSON.stringify(safeUser));
+            localStorage.setItem(
+                "token",
+                Math.random().toString(36).substring(2)
+            );
             addLog({
                 operator: username,
                 action: "登录系统",
