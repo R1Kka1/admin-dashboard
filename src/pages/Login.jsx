@@ -24,7 +24,10 @@ export function Login() {
 
         });
         if (user) {
-            localStorage.setItem("user", JSON.stringify(user));
+            const { password: _ , ...safeUser} = user;
+
+
+            localStorage.setItem("user", JSON.stringify(safeUser));
             addLog({
                 operator: username,
                 action: "登录系统",
