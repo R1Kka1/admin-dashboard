@@ -31,7 +31,6 @@ export function ChangeUsersModal({close,user,loadUsers,showToast}) {
                 updateUser
             );
             await addLog({
-                operator: "admin",
                 action: "修改用户",
                 target: user.username,
                 detail: "修改了用户信息"

@@ -26,7 +26,6 @@ export function AddUser({close,loadUsers,users,showToast}) {
         try {
             await postObject("/users",user);
             await addLog({
-                operator: "admin",
                 action: "新增用户",
                 target: newUserName,
                 detail: `角色：${newUserRole}`

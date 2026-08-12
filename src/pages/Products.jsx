@@ -123,6 +123,7 @@ export function Products() {
                 close={() => {setShowAddNewProductPop(false)}}
                 loadProducts={loadProducts}
                 showToast={showToast}
+                user={user}
                 />
             }
             {

@@ -7,7 +7,6 @@ export function DelUserPop ({user,close,loadUsers,setSelectUser,showToast}) {
         try{
             await delObject(`/users/${user.id}`);
             await addLog({
-                operator: "admin",
                 action: "删除用户",
                 target: user.username,
                 detail: `删除${user.role}账号`

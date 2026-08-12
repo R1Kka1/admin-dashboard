@@ -22,7 +22,6 @@ export function ChangeStockModal({product,close,loadProducts,showToast}){
                 }
             );
             addLog({
-                operator: "admin",
                 action: "修改库存",
                 target: product.name,
                 detail: `库存：${oldStock} -> 库存：${oldStock+newStock}`
@@ -48,7 +47,6 @@ export function ChangeStockModal({product,close,loadProducts,showToast}){
                 }
             );
             await addLog({
-                operator: "admin",
                 action: "修改库存",
                 target: product.name,
                 detail: `库存：${oldStock} -> 库存：${oldStock-newStock}`

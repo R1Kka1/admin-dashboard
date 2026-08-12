@@ -41,7 +41,6 @@ export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrde
                 status: newStatus
             });
             await addLog({
-                operator: "admin",
                 action: "修改订单",
                 target: selectOrder.id,
                 detail: `订单状态从 ${selectOrder.status} 修改为 ${newStatus}`
@@ -61,7 +60,6 @@ export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrde
         try {
             await delObject(`/orders/${selectOrder.id}`)
             await addLog({
-                operator: "admin",
                 action: "删除订单",
                 target: selectOrder.id,
                 detail: "删除了订单"

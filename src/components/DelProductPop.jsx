@@ -9,7 +9,6 @@ export function DelProductPop ({product,close,loadProducts,setSelectProduct,show
         try{
             await delObject(`/products/${product.id}`);
              await addLog({
-                operator: "admin",
                 action: "删除商品",
                 target: product.name,
                 detail: "删除商品"

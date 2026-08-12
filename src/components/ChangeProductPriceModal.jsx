@@ -22,7 +22,6 @@ export function ChangeProductPriceModal({product,close,loadProducts,showToast}) 
                 priceCents: Math.round(price*100)
             });
             await addLog({
-                operator: "admin",
                 action: "修改价格",
                 target: product.name,
                 detail: `${formatCurrency(oldPrice)} -> $${Number(newPrice).toFixed(2)}`

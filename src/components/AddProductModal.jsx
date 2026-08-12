@@ -5,7 +5,7 @@ import { ChangeMessage } from "./ChangeMessage";
 import { postObject } from "../api/api";
 import { formatCurrency } from "../untils/money";
 
-export function AddProductModal({ close, loadProducts,showToast}) {
+export function AddProductModal({ close, loadProducts,showToast,user}) {
     const [newProductName, setNewProductName] = useState("");
     const [newProductPrice, setNewProductPrice] = useState(1);
     const [newProductStock, setNewProductStock] = useState(1);
@@ -34,7 +34,6 @@ export function AddProductModal({ close, loadProducts,showToast}) {
         try {
             await postObject("/products",product);  
             await addLog({
-                operator: "admin",
                 action: "新增商品",
                 target: newProductName,
                 detail: `新增商品，价格$${Number(newProductPrice).toFixed(2)}，库存${newProductStock}`
