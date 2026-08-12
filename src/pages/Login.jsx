@@ -26,7 +26,7 @@ export function Login() {
         if (user) {
             localStorage.setItem("user", JSON.stringify(user));
             addLog({
-                operator: "admin",
+                operator: username,
                 action: "登录系统",
                 target: "-",
                 detail: "管理员登录后台"
