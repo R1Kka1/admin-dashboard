@@ -141,7 +141,7 @@ export function HomePage() {
                                             <div className="homepage-eachLog-action">
                                                 {log.action}
                                             </div>
-                                             <div className="homepage-eachLog-time">
+                                             <div className="homepage-eachLog-time">     
                                             {dayjs(log.createdAt).format("MM-DD HH:mm")}
                                             </div>
                                         </div>

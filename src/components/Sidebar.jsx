@@ -7,6 +7,10 @@ export function SideBar() {
 
     return (
         <div className="sidebar">
+            <Link to="/homepage">主  页</Link>
+            
+            <br />
+
             <Link to="products">商品管理</Link>
             
             <br />
