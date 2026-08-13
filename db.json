@@ -794,6 +794,18 @@
       "stock": 1,
       "keywords": [],
       "id": "gpepcZFYNQY"
+    },
+    {
+      "name": "1",
+      "priceCents": 100,
+      "image": "images/products/women-striped-beach-dress.jpg",
+      "rating": {
+        "stars": 0,
+        "count": 0
+      },
+      "stock": 1,
+      "keywords": [],
+      "id": "VPHarATwolo"
     }
   ],
   "users": [
@@ -1848,6 +1860,14 @@
       "detail": "新增商品，价格$1.00，库存1",
       "createdAt": "2026-08-12T07:18:50.623Z",
       "id": "wgDCZJI9TDg"
+    },
+    {
+      "operator": "admin",
+      "action": "新增商品",
+      "target": "1",
+      "detail": "新增商品，价格$1.00，库存1",
+      "createdAt": "2026-08-12T07:48:49.832Z",
+      "id": "1CcLpNC0ii8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
