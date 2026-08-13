@@ -8,17 +8,33 @@ export function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const { users} = useUsers();
+    const [errors,setErrors] = useState({});
 
     const navigate = useNavigate();
 
+    const validateLogin = () => {
+        const newErrors = {};
+        if(!username.trim()){
+            newErrors.username = "❗请输入用户名";
+        }
+        if(!password.trim()){
+            newErrors.password = "❗请输入密码";
+        }
+
+        setErrors(newErrors);
+
+        return Object.keys(newErrors).length === 0;
+    }
 
 
     function handleLogin(users) {
-
+        if (!validateLogin()) {
+            return;
+        }
         const user = users.find((user) => {
 
             return (
-                username === user.username &&
+                username.trim() === user.username &&
                 password === user.password
             );
 
@@ -60,6 +76,9 @@ export function Login() {
                         setUsername(e.target.value);
                     }}
                 />
+                {errors.username && (
+                    <p>{errors.username}</p>
+                )}
 
                 <input
                     type="password"
@@ -69,6 +88,9 @@ export function Login() {
                         setPassword(e.target.value);
                     }}
                 />
+                {errors.password && (
+                    <p>{errors.password}</p>
+                )}
 
                 <button type="submit">
                     Login
