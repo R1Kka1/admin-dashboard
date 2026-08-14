@@ -1,10 +1,14 @@
 import "./OperationLog.css";
 import dayjs from "dayjs";
 import {useLogs} from "../hooks/useLogs.js";
+import { Loading } from "../components/Loading.jsx";
 
 export function OperationLog() {
-    const {logs} = useLogs(); 
+    const {logs,loading} = useLogs(); 
 
+    if(loading){
+        return <Loading />
+    }
     
     return (
         <div className="operationLog-Page-Total">
