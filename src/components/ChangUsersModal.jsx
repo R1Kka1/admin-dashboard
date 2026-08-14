@@ -9,12 +9,33 @@ export function ChangeUsersModal({close,user,loadUsers,showToast}) {
     const [changeUserEmail,setChangeUserEmail] = useState(user.email);
     const [changeUserRole,setChangeUserRole] = useState(user.role);
     const [changeUserStatus,setChangeUserStatus] = useState(user.status);
+    const [errors,setErrors] = useState({});
 
+    const validate = () => {
+        const newErrors = {};
+
+        if(!changeUserName.trim()){
+            newErrors.username = "用户名不能为空";
+        }else if (changeUserName.trim().length < 3){
+            newErrors.username = "用户名长度不能小于 3";
+        }
+
+        if(changeUserPassword === ""){
+            newErrors.password = "密码不能为空";
+        }else if (changeUserPassword.trim().length < 6){
+            newErrors.password = "密码长度不能小于 6";
+        }
+
+        if(changeUserEmail === ""){
+            newErrors.email = "邮箱不能为空";
+        }
+
+        setErrors(newErrors);
+
+        return Object.keys(newErrors).length === 0;
+    };
     async function handleChangeUser() {
-        if(changeUserEmail === ""|| changeUserName === "" || changeUserPassword=== "" ||
-            changeUserName.length <3 || changeUserPassword .length<5 || changeUserEmail .length<5
-        ){
-            showToast("❌ 用户名不少于3位，密码不少于5位，请完善信息");
+        if(!validate()){
             return;
         }
         const updateUser = {
@@ -68,18 +89,30 @@ export function ChangeUsersModal({close,user,loadUsers,showToast}) {
                         <input type="text" value={changeUserName} onChange={(e) => {
                             setChangeUserName(e.target.value);
                         }}/>
+
+                        {errors.username && (
+                        <span className="error">{errors.username}</span>
+                        )}
                     </div>
                     <div className="change-users-details">
                         <label>密码:</label>
                          <input type="text" value={changeUserPassword} onChange={(e) => {
                             setChangeUserPassword(e.target.value);
                         }}/>
+
+                        {errors.password && (
+                        <span className="error">{errors.password}</span>
+                        )}
                     </div>
                     <div className="change-users-details">
                         <label>邮箱:</label>
                          <input type="text" value={changeUserEmail} onChange={(e) => {
                             setChangeUserEmail(e.target.value);
                         }}/>
+
+                        {errors.email && (
+                        <span className="error">{errors.email}</span>
+                        )}
                     </div>
                     <div className="change-users-details">
                         <label>权限:</label>
