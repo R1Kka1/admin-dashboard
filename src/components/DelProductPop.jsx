@@ -8,7 +8,7 @@ export function DelProductPop ({product,close,loadProducts,setSelectProduct,show
     async function handleDelete(){
         try{
             await delObject(`/products/${product.id}`);
-             await addLog({
+            await addLog({
                 action: "删除商品",
                 target: product.name,
                 detail: "删除商品"
