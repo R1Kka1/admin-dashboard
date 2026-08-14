@@ -1972,6 +1972,14 @@
       "detail": "管理员登录后台",
       "createdAt": "2026-08-14T01:18:41.600Z",
       "id": "EjWqHPJs-Dw"
+    },
+    {
+      "operator": "admin",
+      "action": "登录系统",
+      "target": "-",
+      "detail": "管理员登录后台",
+      "createdAt": "2026-08-14T09:10:16.490Z",
+      "id": "j92cA4OGoZM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
