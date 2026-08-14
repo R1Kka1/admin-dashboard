@@ -47,7 +47,6 @@ export function Login() {
                 Math.random().toString(36).substring(2)
             );
             addLog({
-                operator: username,
                 action: "登录系统",
                 target: "-",
                 detail: "管理员登录后台"
