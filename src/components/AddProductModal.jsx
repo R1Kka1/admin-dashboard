@@ -66,6 +66,7 @@ export function AddProductModal({ close, loadProducts,showToast}) {
         }
         catch (error) {
             console.log(error);
+            setResult("fail")
         }
     }
 

@@ -888,6 +888,14 @@
       "email": "1111111111",
       "role": "普通用户",
       "status": "正常"
+    },
+    {
+      "id": "chEb3_VOMBs",
+      "username": "111111",
+      "password": "11111111",
+      "email": "11111111111",
+      "role": "普通用户",
+      "status": "正常"
     }
   ],
   "salesData": [
@@ -1900,6 +1908,14 @@
       "detail": "管理员登录后台",
       "createdAt": "2026-08-13T02:28:53.236Z",
       "id": "hiZDxiRjNlE"
+    },
+    {
+      "operator": "admin",
+      "action": "新增用户",
+      "target": "111111",
+      "detail": "角色：普通用户",
+      "createdAt": "2026-08-14T00:17:57.690Z",
+      "id": "FE9maKOaXkw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
