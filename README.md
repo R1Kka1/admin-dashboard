@@ -8,6 +8,7 @@
 - **API：** https://admin-dashboard-api-i82z.onrender.com/
 
 > Demo 使用 JSON Server 提供模拟 REST API。
+⚠️ **注意：** API 部署于 Render 免费实例，长时间无访问后服务可能进入休眠状态。首次访问时可能需要等待几秒唤醒服务器，如果首次请求失败，请稍等片刻后重新尝试。
 
 ---
 
