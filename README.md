@@ -1,61 +1,143 @@
 # Admin Dashboard
 
-一个基于 **React + Vite** 开发的后台管理系统，模拟电商后台的日常管理流程，实现了商品、用户、订单等模块的管理功能。
+一个基于 React + Vite 开发的后台管理系统，包含商品管理、用户管理、订单管理、数据统计、操作日志等功能。
 
-## ✨ Features
+## 🌐 在线预览
 
-* 用户登录
-* 路由权限控制（Route Guard）
-* 商品管理（CRUD）
-* 用户管理（CRUD）
-* 订单管理
-* 商品搜索
-* 数据统计（Recharts）
-* 操作日志（记录登录、商品、用户、订单操作）
-* Toast 消息提示
-* 表单校验
-* 删除确认弹窗
-* 请求异常处理
-* Axios 二次封装
+- 前端：https://admin-dashboard-flame-one-40.vercel.app/
+- API：https://admin-dashboard-api-i82z.onrender.com/
 
-## 🛠 Tech Stack
+> Demo 使用 JSON Server 提供模拟后端 API。
 
-* React
-* Vite
-* React Router
-* Axios
-* JSON Server
-* Recharts
-* Dayjs
-* CSS
+## ✨ 项目功能
 
-## 🚀 Getting Started
+### 🔐 登录与权限
 
-Install dependencies:
+- 用户登录
+- Token 模拟认证
+- 路由守卫
+- 基于角色的权限控制
+- 管理员 / 超级管理员权限区分
+- Axios 请求拦截器自动携带 Token
+- 统一错误处理
 
-```bash
-npm install
-```
+### 📦 商品管理
 
-Start the development server:
+- 商品列表展示
+- 商品搜索
+- 新增商品
+- 删除商品
+- 修改商品库存
+- 修改商品价格
+- 商品库存状态提示
+  - 正常
+  - 库存不足
+  - 缺货
+- 表单数据校验
 
-```bash
-npm run dev
-```
+### 👤 用户管理
 
-## 📂 Project Structure
+- 用户列表
+- 用户搜索
+- 新增用户
+- 修改用户信息
+- 用户角色管理
+- 用户状态管理
+
+### 🛒 订单管理
+
+- 订单列表
+- 订单详情
+- 商品信息关联
+- 修改订单状态
+- 处理商品删除后的异常情况
+
+### 📊 数据统计
+
+- 销售额统计
+- 商品销量统计
+- 销售趋势展示
+- 数据汇总
+- 使用 Recharts 实现数据可视化
+
+### 📝 操作日志
+
+- 记录管理员操作
+- 动态获取当前操作用户
+- 操作时间记录
+- 操作类型记录
+
+### ⚙️ 其他
+
+- Loading 加载状态
+- Error 错误处理
+- Toast 操作提示
+- Axios 请求封装
+- 环境变量配置
+- React Router SPA 路由
+- Vercel + Render 云端部署
+
+## 🛠️ 技术栈
+
+### Frontend
+
+- React 19
+- React Router
+- Vite
+- Axios
+- Recharts
+- dayjs
+- CSS
+
+### Backend / API
+
+- JSON Server
+- REST API
+
+### Development & Deployment
+
+- Git
+- GitHub
+- Vercel
+- Render
+
+## 📁 项目结构
 
 ```text
-src
-├── api
-├── components
-├── pages
-├── utils
-├── App.jsx
-```
-
-## 📌 Notes
-
-* This project is built for learning and portfolio purposes.
-* Some mock data and project ideas are referenced from the YouTube creator **SuperSimpleDev**.
-* AI tools were used as a development assistant for code review, debugging, and implementation suggestions.
+admin-dashboard/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Header/
+│   │   ├── Sidebar/
+│   │   └── ...
+│   │
+│   ├── hooks/
+│   │   ├── useUsers.js
+│   │   ├── useOrders.js
+│   │   └── ...
+│   │
+│   ├── layout/
+│   │   ├── Layout.jsx
+│   │   └── Layout.css
+│   │
+│   ├── pages/
+│   │   ├── Products/
+│   │   ├── Users/
+│   │   ├── Orders/
+│   │   ├── Data/
+│   │   └── ...
+│   │
+│   ├── utils/
+│   │   ├── api.js
+│   │   ├── statistics.js
+│   │   ├── money.js
+│   │   └── ...
+│   │
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── db.json
+├── vercel.json
+├── package.json
+└── README.md
