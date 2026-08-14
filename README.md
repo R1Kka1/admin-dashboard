@@ -4,10 +4,12 @@
 
 ## 🌐 在线预览
 
-- 前端：https://admin-dashboard-flame-one-40.vercel.app/
-- API：https://admin-dashboard-api-i82z.onrender.com/
+- **在线 Demo：** https://admin-dashboard-flame-one-40.vercel.app/
+- **API：** https://admin-dashboard-api-i82z.onrender.com/
 
-> Demo 使用 JSON Server 提供模拟后端 API。
+> Demo 使用 JSON Server 提供模拟 REST API。
+
+---
 
 ## ✨ 项目功能
 
@@ -30,10 +32,7 @@
 - 修改商品库存
 - 修改商品价格
 - 商品库存状态提示
-  - 正常
-  - 库存不足
-  - 缺货
-- 表单数据校验
+- 商品表单验证
 
 ### 👤 用户管理
 
@@ -77,6 +76,8 @@
 - React Router SPA 路由
 - Vercel + Render 云端部署
 
+---
+
 ## 🛠️ 技术栈
 
 ### Frontend
@@ -89,7 +90,7 @@
 - dayjs
 - CSS
 
-### Backend / API
+### Backend
 
 - JSON Server
 - REST API
@@ -101,6 +102,8 @@
 - Vercel
 - Render
 
+---
+
 ## 📁 项目结构
 
 ```text
@@ -108,32 +111,10 @@ admin-dashboard/
 ├── public/
 ├── src/
 │   ├── components/
-│   │   ├── Header/
-│   │   ├── Sidebar/
-│   │   └── ...
-│   │
 │   ├── hooks/
-│   │   ├── useUsers.js
-│   │   ├── useOrders.js
-│   │   └── ...
-│   │
 │   ├── layout/
-│   │   ├── Layout.jsx
-│   │   └── Layout.css
-│   │
 │   ├── pages/
-│   │   ├── Products/
-│   │   ├── Users/
-│   │   ├── Orders/
-│   │   ├── Data/
-│   │   └── ...
-│   │
 │   ├── utils/
-│   │   ├── api.js
-│   │   ├── statistics.js
-│   │   ├── money.js
-│   │   └── ...
-│   │
 │   ├── App.jsx
 │   └── main.jsx
 │
@@ -141,3 +122,157 @@ admin-dashboard/
 ├── vercel.json
 ├── package.json
 └── README.md
+````
+
+---
+
+## 🚀 本地运行
+
+### 1. 克隆项目
+
+```bash
+git clone https://github.com/R1Kka1/admin-dashboard.git
+cd admin-dashboard
+```
+
+### 2. 安装依赖
+
+```bash
+npm install
+```
+
+### 3. 启动 JSON Server
+
+```bash
+npm run server
+```
+
+默认 API 地址：
+
+```text
+http://localhost:3001
+```
+
+### 4. 启动前端
+
+新开一个终端：
+
+```bash
+npm run dev
+```
+
+访问：
+
+```text
+http://localhost:5173
+```
+
+---
+
+## 🔧 环境变量
+
+项目使用 Vite 环境变量区分本地开发环境和生产环境。
+
+本地创建 `.env`：
+
+```env
+VITE_API_BASE_URL=http://localhost:3001
+```
+
+线上环境在 Vercel 中配置：
+
+```env
+VITE_API_BASE_URL=https://admin-dashboard-api-i82z.onrender.com
+```
+
+`.env` 已加入 `.gitignore`，不会提交到 GitHub。
+
+---
+
+## 🌐 项目部署
+
+### Frontend
+
+使用 Vercel 部署 React + Vite。
+
+GitHub `main` 分支更新后，Vercel 会自动重新构建并部署。
+
+### Backend
+
+使用 Render 部署 JSON Server。
+
+Render 使用以下命令启动：
+
+```bash
+npm start
+```
+
+线上 API：
+
+```text
+https://admin-dashboard-api-i82z.onrender.com
+```
+
+---
+
+## 🔄 部署流程
+
+```text
+                 GitHub
+                /      \
+               ↓        ↓
+           Vercel      Render
+              ↓          ↓
+         React 前端   JSON Server
+              │          │
+              └─ Axios ──┘
+                    ↓
+                 REST API
+```
+
+修改项目后：
+
+```bash
+git add .
+git commit -m "your commit message"
+git push
+```
+
+Vercel 和 Render 会自动触发新的部署。
+
+---
+
+## 📌 项目亮点
+
+* 使用 React Router 构建后台管理系统 SPA
+* 使用 Axios 封装统一 API 请求
+* 使用 Axios 请求拦截器自动携带 Token
+* 使用自定义 Hooks 抽离数据请求逻辑
+* 使用 Recharts 实现数据可视化
+* 使用角色权限控制不同后台功能访问
+* 使用环境变量区分开发环境和生产环境 API
+* 实现商品、用户、订单等模块 CRUD
+* 使用 JSON Server 模拟 REST API
+* 完成 Vercel + Render 云端部署
+* 解决 React Router 部署后的 SPA 路由刷新 404 问题
+
+---
+
+## 📚 项目实践
+
+通过本项目实践了：
+
+* React Hooks
+* React Router
+* Axios
+* REST API
+* CRUD
+* 权限控制
+* 表单验证
+* 异步请求
+* Loading / Error 状态处理
+* 数据可视化
+* Git / GitHub
+* 前后端分离
+* Vercel / Render 部署
+
