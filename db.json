@@ -880,6 +880,14 @@
       "email": "11111111111111",
       "role": "普通用户",
       "status": "正常"
+    },
+    {
+      "id": "Q7QYFHxFVn4",
+      "username": "11111111",
+      "password": "11111111",
+      "email": "1111111111",
+      "role": "普通用户",
+      "status": "正常"
     }
   ],
   "salesData": [
@@ -1868,6 +1876,30 @@
       "detail": "新增商品，价格$1.00，库存1",
       "createdAt": "2026-08-12T07:48:49.832Z",
       "id": "1CcLpNC0ii8"
+    },
+    {
+      "operator": "alice",
+      "action": "登录系统",
+      "target": "-",
+      "detail": "管理员登录后台",
+      "createdAt": "2026-08-13T02:25:47.981Z",
+      "id": "z6NAQ4_dR6g"
+    },
+    {
+      "operator": "alice",
+      "action": "新增用户",
+      "target": "11111111",
+      "detail": "角色：普通用户",
+      "createdAt": "2026-08-13T02:25:55.740Z",
+      "id": "ntLNoxeXa6M"
+    },
+    {
+      "operator": "admin",
+      "action": "登录系统",
+      "target": "-",
+      "detail": "管理员登录后台",
+      "createdAt": "2026-08-13T02:28:53.236Z",
+      "id": "hiZDxiRjNlE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

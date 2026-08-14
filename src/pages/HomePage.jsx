@@ -18,8 +18,10 @@ import "./HomePage.css";
 import { AddUser } from "../components/AddUser";
 import { useState } from "react";
 import { Toast } from "../components/Toast.jsx";
+import { getCurrentUser } from "../untils/auth.js";
 
 export function HomePage() {
+    const user = getCurrentUser();
     const [toast,setToast] = useState("");
     const [showAddUserModal,setShowAddUserModal] = useState(false);
     const { users, loading: usersLoading,loadUsers } = useUsers();
@@ -153,9 +155,13 @@ export function HomePage() {
                     </div>
 
                     <div className="homepage-addUser-btn">
-                        <button onClick={ () => setShowAddUserModal(true)}>
-                            添加新用户
-                        </button>
+                        {
+                            user.role === "超级管理员"&&
+                            <button onClick={ () => setShowAddUserModal(true)}>
+                                添加新用户
+                            </button>
+                        }
+                        
                         </div>
                 </div>
             </div>
