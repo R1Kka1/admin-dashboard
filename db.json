@@ -1916,6 +1916,54 @@
       "detail": "角色：普通用户",
       "createdAt": "2026-08-14T00:17:57.690Z",
       "id": "FE9maKOaXkw"
+    },
+    {
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "Intermediate Size Basketball",
+      "detail": "$1.00 -> $0.00",
+      "createdAt": "2026-08-14T00:23:06.256Z",
+      "id": "FJ_zRpg8H6U"
+    },
+    {
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "Intermediate Size Basketball",
+      "detail": "$1.00 -> $-1.00",
+      "createdAt": "2026-08-14T00:23:08.789Z",
+      "id": "1xOdtnpmBlM"
+    },
+    {
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "Intermediate Size Basketball",
+      "detail": "$-1.00 -> $0.00",
+      "createdAt": "2026-08-14T00:23:24.912Z",
+      "id": "gIbkBr86_AY"
+    },
+    {
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "Intermediate Size Basketball",
+      "detail": "$-1.00 -> $0.00",
+      "createdAt": "2026-08-14T00:23:34.310Z",
+      "id": "3F40Iw3n4To"
+    },
+    {
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "Intermediate Size Basketball",
+      "detail": "$-1.00 -> $-1.00",
+      "createdAt": "2026-08-14T00:23:36.020Z",
+      "id": "DggEListgXg"
+    },
+    {
+      "operator": "admin",
+      "action": "修改价格",
+      "target": "Intermediate Size Basketball",
+      "detail": "$-1.00 -> $1.00",
+      "createdAt": "2026-08-14T00:25:49.822Z",
+      "id": "zTvXB4qHGyc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

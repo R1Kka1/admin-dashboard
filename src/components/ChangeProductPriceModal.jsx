@@ -7,16 +7,36 @@ import { addLog } from "../untils/log";
 export function ChangeProductPriceModal({product,close,loadProducts,showToast}) {
     const [newPrice,setNewPrice] = useState(1);
     const oldPrice = product.priceCents;
+    const [errors,setErrors] = useState({});
+
+    const validate  = () => {
+        const newErrors = {};
+        const price = Number(newPrice);
+
+        if(Number.isNaN(price)){
+            newErrors.price = "请输入有效的价格";
+        }
+
+        if(price <= 0 ){
+            newErrors.price = "价格必须大于 0";
+        }
+
+        if(newPrice === ""){
+            newErrors.price = "价格不能为空";
+        }
+
+        setErrors(newErrors);
+
+        return Object.keys(newErrors).length === 0;
+    };
 
     async function handleChangePrice() {
         const price = Number(newPrice);
 
-        if( Number.isNaN(price) ||
-            price <= 0 ||
-            price > 9999){
-            showToast("❌价格修改失败");
-            return;
+        if(!validate()){
+            return ;
         }
+    
         try {
             await patchObject(`/products/${product.id}`,{
                 priceCents: Math.round(price*100)
@@ -47,6 +67,10 @@ export function ChangeProductPriceModal({product,close,loadProducts,showToast}) 
                         value={newPrice}
                         onChange={(e) => {setNewPrice(e.target.value)}}
                     />
+
+                    {errors.price && (
+                        <span className="error">{errors.price}</span>
+                    )}
                 </div>
                 <div className="product-edit-price-Btns">
                     <button onClick={handleChangePrice}>修改</button>
