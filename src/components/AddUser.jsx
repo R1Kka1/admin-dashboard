@@ -40,7 +40,7 @@ export function AddUser({close,loadUsers,users,showToast}) {
         }
 
         const user = {
-            id:String(users.length + 1),
+            id:Date.now().toString(),
             username : newUserName,
             password : newUserPassword,
             email : newUserEmail,

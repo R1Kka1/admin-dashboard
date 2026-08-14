@@ -2,7 +2,7 @@ import { useEffect,useState } from "react";
 import "./Users.css";
 import {AddUser} from "../components/AddUser.jsx";
 import { getList } from "../api/api.js";
-import { ChangeUsersModal } from "../components/ChangUsersModal.jsx";
+import { ChangeUsersModal } from "../components/ChangeUsersModal.jsx";
 import { DelUserPop } from "../components/DelUserPop.jsx";
 import { Loading } from "../components/Loading.jsx";
 import { Toast } from "../components/Toast.jsx";
