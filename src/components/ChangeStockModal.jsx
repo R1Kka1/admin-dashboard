@@ -5,13 +5,28 @@ import { patchObject } from '../api/api';
 
 export function ChangeStockModal({product,close,loadProducts,showToast}){
     const [newStock,setNewStock] = useState(1);
-
+    const [errors,setErrors] = useState({});
     const oldStock = product.stock;
+
+    const validate  = () => {
+        const newErrors = {};
+
+        if(newStock<0){
+            newErrors.stock = "库存不能小于 0";
+        }
+
+        if(newStock > product.stock){
+            newErrors.stock = "请输入正确的数量";
+        }
+
+        setErrors(newErrors);
+
+        return Object.keys(newErrors).length === 0;
+    };
 
     async function handleAdd() {
 
-        if(newStock<=0 || newStock > 9999){
-            showToast("❌库存修改失败");
+        if(!validate()){
             return;
         }
         try {
@@ -35,8 +50,7 @@ export function ChangeStockModal({product,close,loadProducts,showToast}){
         }
     }
     async function handleReduce() {
-        if(newStock<=0 || newStock > product.stock){
-            showToast("❌库存修改失败");
+        if(!validate()){
             return;
         }
         try {
@@ -76,6 +90,9 @@ export function ChangeStockModal({product,close,loadProducts,showToast}){
                         value={newStock}
                         onChange={(e) => setNewStock(Number(e.target.value))}
                     />
+                    {errors.stock && (
+                        <span className="error">{errors.stock}</span>
+                    )}
                 </div>
                 <div className="product-edit-Btns">
                     <button onClick={handleAdd}>添加</button>
