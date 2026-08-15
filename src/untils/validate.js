@@ -54,6 +54,14 @@ export const minNumber = (value, min, message) => {
     return "";
 };
 
+export const maxNumber = (value, max, message) => {
+    if (Number(value) > max) {
+        return message;
+    }
+
+    return "";
+};
+
 
 export const validate = (values, rules) => {
     const errors = {};

@@ -2,44 +2,49 @@ import './ChangeStockModal.css';
 import { addLog } from '../untils/log';
 import { useState } from 'react';
 import { patchObject } from '../api/api';
+import { minNumber, validate ,maxNumber} from '../untils/validate';
 
 export function ChangeStockModal({product,close,loadProducts,showToast}){
-    const [newStock,setNewStock] = useState(1);
     const [errors,setErrors] = useState({});
     const oldStock = product.stock;
+    const [formData,setFormData] = useState({
+        newStock:"",
+    });
 
-    const validate  = () => {
-        const newErrors = {};
-
-        if(newStock<0){
-            newErrors.stock = "库存不能小于 0";
-        }
-
-        if(newStock > product.stock){
-            newErrors.stock = "请输入正确的数量";
-        }
-
-        setErrors(newErrors);
-
-        return Object.keys(newErrors).length === 0;
+   
+    const addRules = {
+        newStock: [
+            (value) => minNumber(value, 0, "库存不能小于 0"),
+        ],
+    };
+    const reduceRules = {
+        newStock: [
+            (value) => minNumber(value, 0, "库存不能小于 0"),
+            (value) => maxNumber(value, product.stock, "减少数量不能超过当前库存"),
+        ],
     };
 
     async function handleAdd() {
 
-        if(!validate()){
+        const newErrors = validate(formData, addRules);
+        setErrors(newErrors);
+        if (Object.keys(newErrors).length > 0) {
             return;
         }
+
+        const amount = Number(formData.newStock);
+
         try {
             await patchObject(
                 `/products/${product.id}`,
                 {   
-                    stock: product.stock+ Number(newStock)
+                    stock: oldStock + amount,
                 }
             );
             addLog({
                 action: "修改库存",
                 target: product.name,
-                detail: `库存：${oldStock} -> 库存：${oldStock+newStock}`
+                detail: `库存：${oldStock} -> 库存：${oldStock + amount}`
             });
             showToast("✅️库存修改成功");
             close();
@@ -50,20 +55,26 @@ export function ChangeStockModal({product,close,loadProducts,showToast}){
         }
     }
     async function handleReduce() {
-        if(!validate()){
+
+        const newErrors = validate(formData, reduceRules);
+        setErrors(newErrors);
+        if (Object.keys(newErrors).length > 0) {
             return;
         }
+
+        const amount = Number(formData.newStock);
+
         try {
             await patchObject(
                 `/products/${product.id}`,
                 {
-                    stock: product.stock - Number(newStock)
+                    stock: oldStock - amount,
                 }
             );
             await addLog({
                 action: "修改库存",
                 target: product.name,
-                detail: `库存：${oldStock} -> 库存：${oldStock-newStock}`
+                detail: `库存：${oldStock} -> 库存：${oldStock - amount}`
             });
             showToast("✅️库存修改成功");
             close();
@@ -87,11 +98,14 @@ export function ChangeStockModal({product,close,loadProducts,showToast}){
                     <div>商品名称:{product.name}</div>
                     <div>商品库存:{product.stock}</div>
                     <input type="number"className="product-edit-Input" placeholder="输入数量"
-                        value={newStock}
-                        onChange={(e) => setNewStock(Number(e.target.value))}
+                        value={formData.newStock}
+                        onChange={(e) => {setFormData({
+                            ...formData,
+                            newStock:e.target.value,
+                        })}}
                     />
-                    {errors.stock && (
-                        <span className="error">{errors.stock}</span>
+                    {errors.newStock && (
+                        <span className="error">{errors.newStock}</span>
                     )}
                 </div>
                 <div className="product-edit-Btns">
