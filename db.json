@@ -806,6 +806,18 @@
       "stock": 1,
       "keywords": [],
       "id": "VPHarATwolo"
+    },
+    {
+      "name": "1w",
+      "priceCents": 100,
+      "image": "images/products/women-striped-beach-dress.jpg",
+      "rating": {
+        "stars": 0,
+        "count": 0
+      },
+      "stock": 1,
+      "keywords": [],
+      "id": "v8fmdYVi64g"
     }
   ],
   "users": [
@@ -894,6 +906,14 @@
       "username": "text1",
       "password": "123456",
       "email": "123456",
+      "role": "普通用户",
+      "status": "正常"
+    },
+    {
+      "id": "JN4Hy6_eoGM",
+      "username": "",
+      "password": "",
+      "email": "",
       "role": "普通用户",
       "status": "正常"
     }
@@ -1996,6 +2016,22 @@
       "detail": "删除普通用户账号",
       "createdAt": "2026-08-14T09:17:59.595Z",
       "id": "qUTqI302Xfc"
+    },
+    {
+      "operator": "admin",
+      "action": "新增商品",
+      "target": "1w",
+      "detail": "新增商品，价格$1.00，库存1",
+      "createdAt": "2026-08-15T03:55:20.565Z",
+      "id": "7gvQbJEVkqM"
+    },
+    {
+      "operator": "admin",
+      "action": "新增用户",
+      "target": "",
+      "detail": "角色：普通用户",
+      "createdAt": "2026-08-15T04:00:27.547Z",
+      "id": "g_8KHJgu9Qs"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

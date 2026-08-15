@@ -2,57 +2,57 @@ import { useState } from "react";
 import "./AddUser.css";
 import { postObject } from "../api/api";
 import { addLog } from "../untils/log";
+import { minLength, required,isEmail,validate} from "../untils/validate";
 
-export function AddUser({close,loadUsers,users,showToast}) {
-    const [newUserName,setNewUserName] = useState("");
-    const [newUserPassword,setNewUserPassword] = useState("");
-    const [newUserRole,setNewUserRole] = useState("普通用户");
-    const [newUserEmail,setNewUserEmail] = useState("");
+export function AddUser({close,loadUsers,showToast}) {
+
     const [errors,setErrors] = useState({});
+    const [formData,setFormData] = useState({
+        newUserName:"",
+        newUserPassword:"",
+        newUserEmail:"",
+        newUserRole: "普通用户",
+    });
 
-    const validate = () => {
-        const newErrors = {};
+    const rules = {
+        newUserName : [
+            (value) => required(value,"用户名不能为空"),
+            (value) => minLength(value,3,"用户名长度不能小于 3"),
+        ],
+        newUserPassword : [
+            (value) => required(value,"密码不能为空"),
+            (value) => minLength(value,6,"密码长度不能小于 6"),
+        ],
+        newUserEmail :[
+            (value) => required(value,"邮箱不能为空"),
+            (value) => isEmail(value,"请输入正确的邮箱格式"),
+        ]
 
-        if(!newUserName.trim()){
-            newErrors.username = "用户名不能为空";
-        }else if (newUserName.trim().length < 3){
-            newErrors.username = "用户名长度不能小于 3";
-        }
-
-        if(newUserPassword === ""){
-            newErrors.password = "密码不能为空";
-        }else if (newUserPassword.trim().length < 6){
-            newErrors.password = "密码长度不能小于 6";
-        }
-
-        if(newUserEmail === ""){
-            newErrors.email = "邮箱不能为空";
-        }
-
-        setErrors(newErrors);
-
-        return Object.keys(newErrors).length === 0;
     };
+
+    
     async function handleAddUser() {
         
-        if(!validate()){
-            return ;
+        const newErrors = validate(formData, rules);
+        setErrors(newErrors);
+        if (Object.keys(newErrors).length > 0) {
+        return;
         }
 
         const user = {
             id:Date.now().toString(),
-            username : newUserName,
-            password : newUserPassword,
-            email : newUserEmail,
-            role : newUserRole,
+            username : formData.newUserName,
+            password : formData.newUserPassword,
+            email : formData.newUserEmail,
+            role : formData.newUserRole,
             status : "正常"
         };
         try {
             await postObject("/users",user);
             await addLog({
                 action: "新增用户",
-                target: newUserName,
-                detail: `角色：${newUserRole}`
+                target: formData.newUserName,
+                detail: `角色：${formData.newUserRole}`
             });
             showToast("✅️新建用户成功");
             await loadUsers();
@@ -64,10 +64,13 @@ export function AddUser({close,loadUsers,users,showToast}) {
         }
     }
     function handleReset() {
-        setNewUserName("");
-        setNewUserPassword("");
-        setNewUserRole("普通用户");
-        setNewUserEmail("");
+        setFormData({
+            newUserName:"",
+            newUserPassword:"",
+            newUserEmail:"",
+            newUserRole: "普通用户",
+        });
+        setErrors({});
     }
 
     return (
@@ -80,38 +83,50 @@ export function AddUser({close,loadUsers,users,showToast}) {
                 <div className="add-user-main">
                     <div className="add-user-form-item">
                         <label>用户名</label>
-                        <input type="text" value={newUserName} placeholder="请输入账号" onChange={(e) => {
-                            setNewUserName(e.target.value);
+                        <input type="text" value={formData.newUserName} placeholder="请输入账号" onChange={(e) => {
+                            setFormData({
+                                ...formData,
+                                newUserName:e.target.value,
+                            });
                         }}/>
 
-                        {errors.username && (
-                            <span className="error">{errors.username}</span>
+                        {errors.newUserName && (
+                            <span className="error">{errors.newUserName}</span>
                         )}
                     </div>
                     <div className="add-user-form-item">
                         <label>用户密码</label>
-                        <input type="text" value={newUserPassword} placeholder="请输入密码" onChange={(e) => {
-                            setNewUserPassword(e.target.value);
+                        <input type="text" value={formData.newUserPassword} placeholder="请输入密码" onChange={(e) => {
+                             setFormData({
+                                ...formData,
+                                newUserPassword:e.target.value,
+                            });
                         }} />
 
-                        {errors.password && (
-                            <span className="error">{errors.password}</span>
+                        {errors.newUserPassword && (
+                            <span className="error">{errors.newUserPassword}</span>
                         )}
                     </div>
                     <div className="add-user-form-item">
                         <label>用户邮箱</label>
-                        <input type="text" value={newUserEmail} placeholder="请输入邮箱" onChange={(e) => {
-                            setNewUserEmail(e.target.value);
+                        <input type="text" value={formData.newUserEmail} placeholder="请输入邮箱" onChange={(e) => {
+                             setFormData({
+                                ...formData,
+                                newUserEmail:e.target.value,
+                            });
                         }} />
 
-                        {errors.email && (
-                            <span className="error">{errors.email}</span>
+                        {errors.newUserEmail && (
+                            <span className="error">{errors.newUserEmail}</span>
                         )}
                     </div>
                     <div className="add-user-form-item">
                          <label>用户角色</label>
-                        <select value={newUserRole} onChange={(e) => {
-                            setNewUserRole(e.target.value)
+                        <select value={formData.newUserRole} onChange={(e) => {
+                            setFormData({
+                                ...formData,
+                                newUserRole: e.target.value,
+                            });
                         }}>
                             <option value="普通用户">普通用户</option>
                             <option value="管理员">管理员</option>
