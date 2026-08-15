@@ -37,7 +37,7 @@ export function AddProductModal({ close, loadProducts,showToast}) {
         const newErrors = validate(formData, rules);
         setErrors(newErrors);
         if (Object.keys(newErrors).length > 0) {
-        return;
+            return;
         }
 
         const product = {
