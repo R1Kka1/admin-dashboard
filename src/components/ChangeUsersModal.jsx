@@ -2,49 +2,50 @@ import "./ChangeUsersModal.css";
 import { useState } from "react";
 import { putObject } from "../api/api";
 import { addLog } from "../untils/log";
+import { isEmail, minLength, required,validate } from "../untils/validate";
 
 export function ChangeUsersModal({close,user,loadUsers,showToast}) {
-    const [changeUserName,setChangeUserName] = useState(user.username);
-    const [changeUserPassword,setChangeUserPassword] = useState(user.password);
-    const [changeUserEmail,setChangeUserEmail] = useState(user.email);
-    const [changeUserRole,setChangeUserRole] = useState(user.role);
-    const [changeUserStatus,setChangeUserStatus] = useState(user.status);
+
     const [errors,setErrors] = useState({});
+    const [formData,setFormData] = useState({
+        changeUserName:user.username,
+        changeUserPassword:user.password,
+        changeUserEmail:user.email,
+        changeUserRole:user.role,
+        changeUserStatus:user.status
+    });
 
-    const validate = () => {
-        const newErrors = {};
-
-        if(!changeUserName.trim()){
-            newErrors.username = "用户名不能为空";
-        }else if (changeUserName.trim().length < 3){
-            newErrors.username = "用户名长度不能小于 3";
-        }
-
-        if(changeUserPassword === ""){
-            newErrors.password = "密码不能为空";
-        }else if (changeUserPassword.trim().length < 6){
-            newErrors.password = "密码长度不能小于 6";
-        }
-
-        if(changeUserEmail === ""){
-            newErrors.email = "邮箱不能为空";
-        }
-
-        setErrors(newErrors);
-
-        return Object.keys(newErrors).length === 0;
+    const rules = {
+        changeUserName:[
+            (value) => required(value,"用户名不能为空"),
+            (value) => minLength(value,3,"用户名长度不能小于 3"),
+        ],
+        changeUserPassword:[
+            (value) => required(value,"密码不能为空"),
+            (value) => minLength(value,6,"密码长度不能小于 6"),
+        ],
+        changeUserEmail:[
+            (value) => required(value,"邮箱不能为空"),
+            (value) => isEmail(value,"请输入正确的邮箱格式"),
+        ],
     };
+
+
     async function handleChangeUser() {
-        if(!validate()){
+
+        const newErrors = validate(formData, rules);
+        setErrors(newErrors);
+        if (Object.keys(newErrors).length > 0) {
             return;
         }
+
         const updateUser = {
             ...user,
-            username : changeUserName,
-            password : changeUserPassword,
-            email : changeUserEmail,
-            role : changeUserRole,
-            status : changeUserStatus
+            username : formData.changeUserName,
+            password : formData.changeUserPassword,
+            email : formData.changeUserEmail,
+            role : formData.changeUserRole,
+            status : formData.changeUserStatus
         };
         try{
             await putObject(
@@ -67,11 +68,14 @@ export function ChangeUsersModal({close,user,loadUsers,showToast}) {
 
 
     function handleReset() {
-        setChangeUserName(user.username);
-        setChangeUserPassword(user.password);
-        setChangeUserRole(user.role);
-        setChangeUserEmail(user.email);
-        setChangeUserStatus(user.status);
+       setFormData({
+        changeUserName:user.name,
+        changeUserPassword:user.password,
+        changeUserEmail:user.email,
+        changeUserRole:user.role,
+        changeUserStatus:user.status
+       });
+       setErrors({});
     }
 
 
@@ -86,38 +90,50 @@ export function ChangeUsersModal({close,user,loadUsers,showToast}) {
                 <div className="change-users-main">
                     <div className="change-users-details">
                         <label>账号:</label>
-                        <input type="text" value={changeUserName} onChange={(e) => {
-                            setChangeUserName(e.target.value);
+                        <input type="text" value={formData.changeUserName} onChange={(e) => {
+                            setFormData({
+                                ...formData,
+                                changeUserName:e.target.value,
+                            })
                         }}/>
 
-                        {errors.username && (
-                        <span className="error">{errors.username}</span>
+                        {errors.changeUserName && (
+                        <span className="error">{errors.changeUserName}</span>
                         )}
                     </div>
                     <div className="change-users-details">
                         <label>密码:</label>
-                         <input type="text" value={changeUserPassword} onChange={(e) => {
-                            setChangeUserPassword(e.target.value);
+                         <input type="text" value={formData.changeUserPassword} onChange={(e) => {
+                            setFormData({
+                                ...formData,
+                                changeUserPassword:e.target.value,
+                            })
                         }}/>
 
-                        {errors.password && (
-                        <span className="error">{errors.password}</span>
+                        {errors.changeUserPassword && (
+                        <span className="error">{errors.changeUserPassword}</span>
                         )}
                     </div>
                     <div className="change-users-details">
                         <label>邮箱:</label>
-                         <input type="text" value={changeUserEmail} onChange={(e) => {
-                            setChangeUserEmail(e.target.value);
+                         <input type="text" value={formData.changeUserEmail} onChange={(e) => {
+                            setFormData({
+                                ...formData,
+                                changeUserEmail:e.target.value,
+                            })
                         }}/>
 
-                        {errors.email && (
-                        <span className="error">{errors.email}</span>
+                        {errors.changeUserEmail && (
+                        <span className="error">{errors.changeUserEmail}</span>
                         )}
                     </div>
                     <div className="change-users-details">
                         <label>权限:</label>
-                        <select value={changeUserRole} onChange={(e) => {
-                            setChangeUserRole(e.target.value)
+                        <select value={formData.changeUserRole} onChange={(e) => {
+                            setFormData({
+                                ...formData,
+                                changeUserRole:e.target.value,
+                            })
                         }}>
                             <option value="普通用户">普通用户</option>
                             <option value="管理员">管理员</option>
@@ -125,8 +141,11 @@ export function ChangeUsersModal({close,user,loadUsers,showToast}) {
                     </div>
                     <div className="change-users-details">
                         <label>状态:</label>
-                        <select value={changeUserStatus} onChange={(e) => {
-                            setChangeUserStatus(e.target.value)
+                        <select value={formData.changeUserStatus} onChange={(e) => {
+                            setFormData({
+                                ...formData,
+                                changeUserStatus:e.target.value,
+                            })
                         }}>
                             <option value="正常">正常</option>
                             <option value="冻结">冻结</option>
