@@ -104,7 +104,7 @@ export function AddProductModal({ close, loadProducts,showToast}) {
                         />
 
                         {errors.newProductName && (
-                            <span className="error">{errors.name}</span>
+                            <span className="error">{errors.newProductName}</span>
                         )}
                     </div>
 
@@ -124,7 +124,7 @@ export function AddProductModal({ close, loadProducts,showToast}) {
                         />
 
                         {errors.newProductPrice && (
-                            <span className="error">{errors.price}</span>
+                            <span className="error">{errors.newProductPrice}</span>
                         )}
                     </div>
 
@@ -144,7 +144,7 @@ export function AddProductModal({ close, loadProducts,showToast}) {
                         />
 
                         {errors.newProductStock && (
-                            <span className="error">{errors.stock}</span>
+                            <span className="error">{errors.newProductStock}</span>
                         )}
                     </div>
                 </div>
