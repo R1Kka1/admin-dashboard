@@ -1,3 +1,5 @@
+
+//判空
 export const required = (value,message = "此项不能为空") => {
     if (!value || String(value).trim === ""){
         return message;
@@ -6,6 +8,7 @@ export const required = (value,message = "此项不能为空") => {
     return "";
 };
 
+//长度
 export const minLength = (value,length,message) => {
     if(String(value).length < length){
         return message;
@@ -14,6 +17,7 @@ export const minLength = (value,length,message) => {
     return "";
 };
 
+//长度
 export const maxLength = (value,length,message) => {
     if(String(value).length > length){
         return message;
@@ -21,6 +25,7 @@ export const maxLength = (value,length,message) => {
     return "";
 };
 
+//邮箱格式
 export const isEmail = (value,message = "请输入正确的邮箱") => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -31,6 +36,7 @@ export const isEmail = (value,message = "请输入正确的邮箱") => {
     return "";
 };
 
+//数字合法
 export const isNumber = (value,message = "请输入数字") => {
     if (isNaN(value)) {
         return message;
@@ -39,6 +45,7 @@ export const isNumber = (value,message = "请输入数字") => {
     return "";
 };
 
+//最小值
 export const minNumber = (value, min, message) => {
     if (Number(value) < min) {
         return message;
@@ -46,6 +53,7 @@ export const minNumber = (value, min, message) => {
 
     return "";
 };
+
 
 export const validate = (values, rules) => {
     const errors = {};

@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./AddProductModal.css";
 import { ChangeMessage } from "./ChangeMessage";
 import { postObject } from "../api/api";
+import { minNumber, required,validate } from "../untils/validate";
 
 
 export function AddProductModal({ close, loadProducts,showToast}) {
@@ -13,33 +14,32 @@ export function AddProductModal({ close, loadProducts,showToast}) {
     const [showAddProductMessage, setShowAddProductMessage] = useState(false);
     const [errors,setErrors] = useState({});
 
-    const validate = () => {
-        const newErrors = {};
-
-        if(!newProductName.trim()){
-            newErrors.name = "商品名不能为空";
-        }
-
-        if(newProductPrice === ""){
-            newErrors.price = "价格不能为空";
-        }else if (Number(newProductPrice) < 0){
-            newErrors.price = "价格不能小于 0";
-        }
-
-        if(newProductStock === ""){
-            newErrors.stock = "库存不能为空";
-        }else if(Number(newProductStock) < 0){
-            newErrors.stock = "库存不能小于 0";
-        }
-
-        setErrors(newErrors);
-
-        return Object.keys(newErrors).length === 0;
+    const rules = {
+        newProductName : [
+            (value) => required(value,"商品名不能为空"),
+        ],
+        newProductPrice : [
+            (value) => required(value,"价格不能为空"),
+            (value) => minNumber(value,0,"价格不能小于 0")
+        ],
+        newProductStock : [
+            (value) => required(value,"库存不能为空"),
+            (value) => minNumber(value,0,"库存不能小于 0")
+        ]
     };
 
+    
+
     async function handleAddProduct() {
-        if(!validate()){
-            return;
+        const formData = {
+            newProductName:newProductName,
+            newProductPrice:newProductPrice,
+            newProductStock:newProductStock
+        }
+        const newErrors = validate(formData, rules);
+        setErrors(newErrors);
+        if (Object.keys(newErrors).length > 0) {
+        return;
         }
 
         const product = {
@@ -74,6 +74,7 @@ export function AddProductModal({ close, loadProducts,showToast}) {
         setNewProductName("");
         setNewProductPrice(1);
         setNewProductStock(1);
+        setErrors({});
     }
 
 
@@ -98,7 +99,7 @@ export function AddProductModal({ close, loadProducts,showToast}) {
                             }}
                         />
 
-                        {errors.name && (
+                        {errors.newProductName && (
                             <span className="error">{errors.name}</span>
                         )}
                     </div>
@@ -115,7 +116,7 @@ export function AddProductModal({ close, loadProducts,showToast}) {
                             }}
                         />
 
-                        {errors.price && (
+                        {errors.newProductPrice && (
                             <span className="error">{errors.price}</span>
                         )}
                     </div>
@@ -132,7 +133,7 @@ export function AddProductModal({ close, loadProducts,showToast}) {
                             }}
                         />
 
-                        {errors.stock && (
+                        {errors.newProductStock && (
                             <span className="error">{errors.stock}</span>
                         )}
                     </div>
