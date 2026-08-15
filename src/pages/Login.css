@@ -40,3 +40,7 @@
     cursor:pointer;
 
 }
+
+.error{
+    color: rgb(252, 135, 135);
+}

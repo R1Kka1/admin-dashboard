@@ -76,7 +76,7 @@ export function Login() {
                     }}
                 />
                 {errors.username && (
-                    <p>{errors.username}</p>
+                    <p className="error">{errors.username}</p>
                 )}
 
                 <input
@@ -88,7 +88,7 @@ export function Login() {
                     }}
                 />
                 {errors.password && (
-                    <p>{errors.password}</p>
+                    <p className="error">{errors.password}</p>
                 )}
 
                 <button type="submit">

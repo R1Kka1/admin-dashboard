@@ -890,14 +890,6 @@
       "status": "正常"
     },
     {
-      "id": "chEb3_VOMBs",
-      "username": "111111",
-      "password": "11111111",
-      "email": "11111111111",
-      "role": "普通用户",
-      "status": "正常"
-    },
-    {
       "id": "yyTN5UTqJWs",
       "username": "text1",
       "password": "123456",
@@ -1996,6 +1988,14 @@
       "detail": "角色：普通用户",
       "createdAt": "2026-08-14T09:14:36.340Z",
       "id": "BLDw9ozg-UQ"
+    },
+    {
+      "operator": "admin",
+      "action": "删除用户",
+      "target": "111111",
+      "detail": "删除普通用户账号",
+      "createdAt": "2026-08-14T09:17:59.595Z",
+      "id": "qUTqI302Xfc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
