@@ -2,6 +2,7 @@ import { useState } from "react";
 import './Login.css'
 import { useNavigate } from "react-router-dom";
 import { addLog } from "../untils/log";
+import { required,minLength,validate } from "../untils/validate";
 import { useUsers } from "../hooks/useUsers";
 
 export function Login() {
@@ -12,24 +13,29 @@ export function Login() {
 
     const navigate = useNavigate();
 
-    const validateLogin = () => {
-        const newErrors = {};
-        if(!username.trim()){
-            newErrors.username = "❗请输入用户名";
-        }
-        if(!password.trim()){
-            newErrors.password = "❗请输入密码";
-        }
+    const rules = {
+        username : [
+            (value) => required(value, "请输入用户名"),
+        ],
 
+        password: [
+            (value) => required(value, "请输入密码"),
+            (value) => minLength(value, 6, "密码至少6位"),
+        ]
+    };
+    
+
+    function handleLogin() {
+
+        const formData = {
+            username: username,
+            password: password
+        };
+
+        const newErrors = validate(formData, rules);
         setErrors(newErrors);
-
-        return Object.keys(newErrors).length === 0;
-    }
-
-
-    function handleLogin(users) {
-        if (!validateLogin()) {
-            return;
+        if (Object.keys(newErrors).length > 0) {
+        return;
         }
         const user = users.find((user) => {
 
