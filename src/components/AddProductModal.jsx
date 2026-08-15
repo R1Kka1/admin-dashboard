@@ -7,12 +7,14 @@ import { minNumber, required,validate } from "../untils/validate";
 
 
 export function AddProductModal({ close, loadProducts,showToast}) {
-    const [newProductName, setNewProductName] = useState("");
-    const [newProductPrice, setNewProductPrice] = useState(1);
-    const [newProductStock, setNewProductStock] = useState(1);
     const [result, setResult] = useState("");
     const [showAddProductMessage, setShowAddProductMessage] = useState(false);
     const [errors,setErrors] = useState({});
+    const [formData, setFormData] = useState({
+        newProductName: "",
+        newProductPrice: "",
+        newProductStock: "",
+    });
 
     const rules = {
         newProductName : [
@@ -31,11 +33,7 @@ export function AddProductModal({ close, loadProducts,showToast}) {
     
 
     async function handleAddProduct() {
-        const formData = {
-            newProductName:newProductName,
-            newProductPrice:newProductPrice,
-            newProductStock:newProductStock
-        }
+
         const newErrors = validate(formData, rules);
         setErrors(newErrors);
         if (Object.keys(newErrors).length > 0) {
@@ -43,22 +41,22 @@ export function AddProductModal({ close, loadProducts,showToast}) {
         }
 
         const product = {
-            name: newProductName,
-            priceCents: Math.round(Number(newProductPrice) * 100),
+            name: formData.newProductName,
+            priceCents: Math.round(Number(formData.newProductPrice) * 100),
             image: "images/products/women-striped-beach-dress.jpg",
             rating: {
                 stars: 0,
                 count: 0
             },
-            stock: Number(newProductStock),
+            stock: Number(formData.newProductStock),
             keywords: []
         };
         try {
             await postObject("/products",product);  
             await addLog({
                 action: "新增商品",
-                target: newProductName,
-                detail: `新增商品，价格$${Number(newProductPrice).toFixed(2)}，库存${newProductStock}`
+                target: formData.newProductName,
+                detail: `新增商品，价格$${Number(formData.newProductPrice).toFixed(2)}，库存${formData.newProductStock}`
             });
             showToast("✅️商品添加成功");
             await loadProducts();
@@ -71,9 +69,12 @@ export function AddProductModal({ close, loadProducts,showToast}) {
     }
 
     function handleReset() {
-        setNewProductName("");
-        setNewProductPrice(1);
-        setNewProductStock(1);
+        setFormData({
+            newProductName: "",
+            newProductPrice: "",
+            newProductStock: "",
+        });
+
         setErrors({});
     }
 
@@ -93,9 +94,12 @@ export function AddProductModal({ close, loadProducts,showToast}) {
                         <input
                             placeholder="请输入商品名称"
                             type="text"
-                            value={newProductName}
+                            value={formData.newProductName}
                             onChange={(e) => {
-                                setNewProductName(e.target.value);
+                                setFormData({
+                                    ...formData,
+                                    newProductName: e.target.value,
+                                });
                             }}
                         />
 
@@ -110,9 +114,12 @@ export function AddProductModal({ close, loadProducts,showToast}) {
                         <input
                             placeholder="请输入商品价格"
                             type="number"
-                            value={newProductPrice}
+                            value={formData.newProductPrice}
                             onChange={(e) => {
-                                setNewProductPrice(e.target.value);
+                                setFormData({
+                                    ...formData,
+                                    newProductPrice: e.target.value,
+                                });
                             }}
                         />
 
@@ -127,9 +134,12 @@ export function AddProductModal({ close, loadProducts,showToast}) {
                         <input
                             placeholder="请输入商品库存"
                             type="number"
-                            value={newProductStock}
+                            value={formData.newProductStock}
                             onChange={(e) => {
-                                setNewProductStock(e.target.value);
+                                setFormData({
+                                    ...formData,
+                                    newProductStock:e.target.value,
+                                });
                             }}
                         />
 
