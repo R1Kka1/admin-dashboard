@@ -3,21 +3,29 @@ import { addLog } from '../untils/log';
 import { useState } from 'react';
 import { patchObject } from '../api/api';
 import { minNumber, validate ,maxNumber} from '../untils/validate';
-
-export function ChangeStockModal({product,close,loadProducts,showToast}){
-    const [errors,setErrors] = useState({});
+import type {ValidationRule} from '../untils/validate';
+import type { Product } from "../types/product";
+interface ChangeStockModalProps{
+    product : Product;
+    close:() => void;
+    loadProducts:() => Promise<void>;
+    showToast:(message: string) => void;
+}
+export function ChangeStockModal({product,close,loadProducts,showToast}:ChangeStockModalProps){
+    const [errors,setErrors] = useState<Record<string,string>>({});
     const oldStock = product.stock;
+    
     const [formData,setFormData] = useState({
         newStock:"",
     });
 
-   
-    const addRules = {
+    type ChangeStockModalField =| "newStock";
+    const addRules:Record<ChangeStockModalField,ValidationRule[]> = {
         newStock: [
             (value) => minNumber(value, 0, "库存不能小于 0"),
         ],
     };
-    const reduceRules = {
+    const reduceRules:Record<ChangeStockModalField,ValidationRule[]> = {
         newStock: [
             (value) => minNumber(value, 0, "库存不能小于 0"),
             (value) => maxNumber(value, product.stock, "减少数量不能超过当前库存"),

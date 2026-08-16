@@ -3,7 +3,8 @@ import { useState } from "react";
 import "./AddProductModal.css";
 import { ChangeMessage } from "./ChangeMessage";
 import { postObject } from "../api/api";
-import { minNumber, required,validate,ValidationRule } from "../untils/validate";
+import { minNumber, required,validate} from "../untils/validate";
+import type {ValidationRule} from '../untils/validate';
 interface AddProductProps {
     close:() => void;
     loadProducts:() => Promise<void>;
