@@ -99,7 +99,7 @@ export function Users() {
             })}
             </div>
             {
-                showAddUserModal&&<AddUser 
+                showAddUserModal&& selectUser&&<AddUser 
                 close={() => {setShowAddUserModal(false)}}
                 users={users}
                 loadUsers={loadUsers}
@@ -107,7 +107,7 @@ export function Users() {
                 />
             }
             {
-                showChangeUserModal&&<ChangeUsersModal 
+                showChangeUserModal&& selectUser&&<ChangeUsersModal 
                 close={() => {setShowChangeUserModal(false)}}
                 user={selectUser}
                 loadUsers={loadUsers}
@@ -115,7 +115,7 @@ export function Users() {
                 />
             }
             {
-                showDelUserModal&&<DelUserPop 
+                showDelUserModal&& selectUser&&<DelUserPop 
                 close={() => {setShowDelUserModal(false)}}
                 user={selectUser}
                 loadUsers={loadUsers}
