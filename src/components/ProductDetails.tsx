@@ -1,12 +1,28 @@
-import { formatCurrency } from "../untils/money.js";
+import { formatCurrency } from "../untils/money";
 import "./ProductDetails.css"
 import { useState } from 'react';
-import { ChangeStockModal } from "./ChangeStockModal.jsx";
-import { DelProductPop } from "./DelProductPop.jsx";
-import { ChangeProductPriceModal } from "./ChangeProductPriceModal.jsx";
+import { ChangeStockModal } from "./ChangeStockModal";
+import { DelProductPop } from "./DelProductPop";
+import { ChangeProductPriceModal } from "./ChangeProductPriceModal";
+import type { Product } from "../types/product";
+import type { User } from "../types/user";
+interface ProductDetailsProps {
+    product:Product | null;
+    close:() => void;
+    loadProducts:() => Promise<void>;
+    setSelectProduct:React.Dispatch<React.SetStateAction<Product | null>>;
+    showToast: (message: string) => void;
+    user: User;
+}
 
-
-export function ProductDetails({ product, close, loadProducts, setSelectProduct, showToast, user }) {
+export function ProductDetails({ 
+    product, 
+    close,
+    loadProducts, 
+    setSelectProduct, 
+    showToast, 
+    user 
+}:ProductDetailsProps) {
 
     const [showChangeStock, setShowChangeStock] = useState(false);
     const [showDelProduct, setShowDelProduct] = useState(false);
@@ -19,6 +35,7 @@ export function ProductDetails({ product, close, loadProducts, setSelectProduct,
     if (!product) {
         return null;
     }
+    
 
     return (
         <div className="modal">

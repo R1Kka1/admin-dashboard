@@ -7,18 +7,22 @@ import { Loading } from '../components/Loading';
 import { Toast } from '../components/Toast';
 import { getCurrentUser } from '../untils/auth';
 import { useProducts } from '../hooks/useProducts';
+import  type {Product} from "../types/product";
 
 export function Products() {
     const user = getCurrentUser();
     const [toast,setToast] = useState("");
     const {products,loading,loadProducts} = useProducts();
     const [keyword, setKeyword] = useState("");
-    const [selectProduct,setSelectProduct] = useState(null);
+    const [selectProduct,setSelectProduct] = useState<Product | null>(null);
     const [showDetail,setShowDetail] = useState(false);
     const [showAddNewProductPop,setShowAddNewProductPop] = useState(false);
 
+    if (!user) {
+        return null;
+    }
 
-    function showToast(message){
+    function showToast(message:string){
 
         setToast(message);
 
@@ -123,7 +127,7 @@ export function Products() {
                 close={() => {setShowAddNewProductPop(false)}}
                 loadProducts={loadProducts}
                 showToast={showToast}
-                user={user}
+
                 />
             }
             {
