@@ -1,7 +1,7 @@
 import "./OperationLog.css";
 import dayjs from "dayjs";
-import {useLogs} from "../hooks/useLogs.js";
-import { Loading } from "../components/Loading.jsx";
+import {useLogs} from "../hooks/useLogs";
+import { Loading } from "../components/Loading";
 
 export function OperationLog() {
     const {logs,loading} = useLogs(); 
