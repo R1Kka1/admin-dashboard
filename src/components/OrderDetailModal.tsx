@@ -4,10 +4,22 @@ import { useState, useEffect } from "react";
 import { getList, patchObject, delObject } from "../api/api";
 import "./OrderDetailModal.css";
 import { addLog } from "../untils/log";
+import type { Order } from "../types/order";
+import type { Dispatch, SetStateAction } from "react";
+import type { User } from "../types/user";
+import type { Product } from "../types/product";
 
-export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrder, showToast, user }) {
+interface OrderDetailProps{
+    selectOrder:Order;
+    close:() => void;
+    loadOrders:() => Promise<void>;
+    setSelectOrder:React.Dispatch<React.SetStateAction<Order | null>>;
+    showToast:(message:string) => void;
+    user:User;
+}
+export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrder, showToast, user }:OrderDetailProps) {
 
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState<Product[]>([]);
     const [newStatus, setNewStatus] = useState(selectOrder.status);
     const canManageOrder = [
         "管理员",
@@ -15,7 +27,7 @@ export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrde
     ].includes(user.role);
     async function loadProducts() {
         try {
-            const response = await getList("/products")
+            const response = await getList<Product[]>("/products")
             setProducts(response.data);
 
         } catch (error) {
