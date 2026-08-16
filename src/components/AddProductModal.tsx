@@ -3,20 +3,28 @@ import { useState } from "react";
 import "./AddProductModal.css";
 import { ChangeMessage } from "./ChangeMessage";
 import { postObject } from "../api/api";
-import { minNumber, required,validate } from "../untils/validate";
+import { minNumber, required,validate,ValidationRule } from "../untils/validate";
+interface AddProductProps {
+    close:() => void;
+    loadProducts:() => Promise<void>;
+    showToast: (message: string) => void;
+}
 
-
-export function AddProductModal({ close, loadProducts,showToast}) {
-    const [result, setResult] = useState("");
+export function AddProductModal({ close, loadProducts,showToast}:AddProductProps) {
+    const [result, setResult] = useState<"success" | "fail">("success");
     const [showAddProductMessage, setShowAddProductMessage] = useState(false);
-    const [errors,setErrors] = useState({});
+    const [errors,setErrors] = useState<Record<string,string>>({});
     const [formData, setFormData] = useState({
         newProductName: "",
         newProductPrice: "",
         newProductStock: "",
     });
 
-    const rules = {
+    type AddProductField =
+    | "newProductName"
+    | "newProductPrice"
+    | "newProductStock";
+    const rules :Record<AddProductField, ValidationRule[]> = {
         newProductName : [
             (value) => required(value,"商品名不能为空"),
         ],
