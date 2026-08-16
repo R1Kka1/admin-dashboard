@@ -1,8 +1,17 @@
 import "./DelProductPop.css";
 import { delObject } from "../api/api";
 import { addLog } from "../untils/log";
+import type { Product } from "../types/product";
+import type { Dispatch, SetStateAction } from "react";
 
-export function DelProductPop ({product,close,loadProducts,setSelectProduct,showToast}) {
+interface DelProductProps{
+    product:Product;
+    close:() => void;
+    loadProducts:() => Promise<void>;
+    setSelectProduct:React.Dispatch<React.SetStateAction<Product | null>>;
+    showToast:(message:string) => void;
+}
+export function DelProductPop ({product,close,loadProducts,setSelectProduct,showToast}:DelProductProps) {
 
 
     async function handleDelete(){
