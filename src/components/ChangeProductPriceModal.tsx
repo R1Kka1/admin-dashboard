@@ -4,16 +4,26 @@ import './ChangeProductPriceModal.css';
 import { patchObject } from "../api/api";
 import { addLog } from "../untils/log";
 import { isNumber, minNumber, required,validate } from "../untils/validate";
+import type {ValidationRule} from '../untils/validate';
+import type { Product } from "../types/product";
 
-export function ChangeProductPriceModal({product,close,loadProducts,showToast}) {
+interface ChangeProductPriceModalProps{
+    product:Product;
+    close:() => void;
+    loadProducts:() => Promise<void>;
+    showToast:(message:string) => void;
+}
+
+export function ChangeProductPriceModal({product,close,loadProducts,showToast}:ChangeProductPriceModalProps) {
 
     const oldPrice = product.priceCents;
-    const [errors,setErrors] = useState({});
+    const [errors,setErrors] = useState<Record<string,string>>({});
     const [formData,setFormData] = useState({
         newPrice:"",
     });
 
-    const rules = {
+    type ChangeProductPriceField = "newPrice";
+    const rules:Record<ChangeProductPriceField,ValidationRule[]> = {
         newPrice: [
             (value) => required(value,"价格不能为空"),
             (value) => minNumber(value,0,"价格不能小于 0"),
@@ -33,7 +43,7 @@ export function ChangeProductPriceModal({product,close,loadProducts,showToast}) 
     
         try {
             await patchObject(`/products/${product.id}`,{
-                priceCents: Math.round(formData.newPrice*100)
+                priceCents: Math.round(Number(formData.newPrice)*100)
             });
             await addLog({
                 action: "修改价格",
@@ -41,7 +51,7 @@ export function ChangeProductPriceModal({product,close,loadProducts,showToast}) 
                 detail: `${formatCurrency(oldPrice)} -> $${Number(formData.newPrice).toFixed(2)}`
             });
             showToast("✅️价格修改成功");   
-            loadProducts();
+            await loadProducts();
 
         } catch  {
             showToast("❌价格修改失败");
