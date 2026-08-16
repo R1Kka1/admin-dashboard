@@ -28,7 +28,7 @@ export function Data() {
 
     const totalSales = calculateTotalSales(orders);
     const totalQuantity = calculateTotalQuantity(orders);
-    const salesMap = {};
+    const salesMap:Record <string,number> = {};
     orders.forEach((order) => {
         const day = dayjs(order.createdAt).format("MM-DD");
         if(!salesMap[day]){
@@ -41,7 +41,7 @@ export function Data() {
         sales
     }));
 
-    const productSalesMap = {};
+    const productSalesMap: Record<string, number> = {};
     orders.forEach((order) => {
         
         order.products.forEach((product) => {
@@ -104,7 +104,7 @@ export function Data() {
 
                             <Tooltip 
                                 formatter={(value)=>{
-                                    return formatCurrency(value);
+                                    return formatCurrency(Number(value));
                                 }}
                             />
                             <CartesianGrid />
