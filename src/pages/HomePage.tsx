@@ -17,8 +17,9 @@ import dayjs from "dayjs";
 import "./HomePage.css";
 import { AddUser } from "../components/AddUser";
 import { useState } from "react";
-import { Toast } from "../components/Toast.jsx";
-import { getCurrentUser } from "../untils/auth.js";
+import { Toast } from "../components/Toast";
+import { getCurrentUser } from "../untils/auth";
+
 
 export function HomePage() {
     const user = getCurrentUser();
@@ -31,7 +32,10 @@ export function HomePage() {
     const totalQuantity = calculateTotalQuantity(orders);
     const { products, loading: productsLoading } = useProducts();
 
-    function showToast(message){
+    if (!user) {
+        return null;
+    }   
+    function showToast(message:string){
 
         setToast(message);
 
@@ -46,7 +50,7 @@ export function HomePage() {
         return <Loading />
     }
 
-    const salesMap = {};
+    const salesMap:Record<string,number> = {};
     orders.forEach((order) => {
         const day = dayjs(order.createdAt).format("MM-DD");
         if (!salesMap[day]) {
@@ -63,7 +67,7 @@ export function HomePage() {
     });
     const recentLogs = [...logs]
         .sort((a, b) => {
-            return new Date(b.createdAt) - new Date(a.createdAt);
+            return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
         }).slice(0, 10);
 
 
@@ -104,7 +108,7 @@ export function HomePage() {
 
                                 <Tooltip
                                     formatter={(value) => {
-                                        return formatCurrency(value);
+                                        return formatCurrency(Number(value));
                                     }}
                                 />
                                 <CartesianGrid />
