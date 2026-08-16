@@ -6,9 +6,10 @@ import { ChangeUsersModal } from "../components/ChangeUsersModal.jsx";
 import { DelUserPop } from "../components/DelUserPop.jsx";
 import { Loading } from "../components/Loading.jsx";
 import { Toast } from "../components/Toast.jsx";
+import type { User } from "../types/user";
 
 export function Users() {
-    const [users,setUsers] = useState([]);
+    const [users,setUsers] = useState<User[]>([]);
     const [showAddUserModal,setShowAddUserModal] = useState(false);
     const [showChangeUserModal,setShowChangeUserModal] = useState(false);
     const [showDelUserModal,setShowDelUserModal] = useState(false);
