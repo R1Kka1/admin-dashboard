@@ -7,18 +7,20 @@ import { Loading } from "../components/Loading";
 import { Toast } from "../components/Toast";
 import { getCurrentUser } from "../untils/auth";
 import { useOrders } from "../hooks/useOrders";
+import type { Order } from "../types/order";
+
 
 export function Orders() {
     const user = getCurrentUser();
     const {orders,loading,loadOrders} = useOrders();
     const [showOrderDetailModal,setShowOrderDetailModal] = useState(false);
-    const [selectOrder,setSelectOrder] = useState(null);
+    const [selectOrder,setSelectOrder] = useState<Order | null>(null);
 
     const [toast,setToast] = useState("");
 
     
 
-    function showToast(message){
+    function showToast(message:string){
 
         setToast(message);
 
@@ -60,7 +62,7 @@ export function Orders() {
                 })}
             </div>
             {
-                showOrderDetailModal&&(
+                showOrderDetailModal&& selectOrder && user &&(
                     <OrderDetailModal 
                     close={() => {setShowOrderDetailModal(false)}}
                     selectOrder={selectOrder}
