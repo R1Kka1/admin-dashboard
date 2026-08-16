@@ -144,7 +144,7 @@ export function ChangeUsersModal({
                         <select value={formData.changeUserRole} onChange={(e) => {
                             setFormData({
                                 ...formData,
-                                changeUserRole:e.target.value,
+                                changeUserRole:e.target.value as User["role"],
                             })
                         }}>
                             <option value="普通用户">普通用户</option>
