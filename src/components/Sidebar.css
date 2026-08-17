@@ -1,7 +1,26 @@
 .sidebar{
+    width: var(--sidebar-width);
+    min-height: 100vh;
     padding: 30px;
-    font-size: 30px;
+ 
+
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    background-color: #fff;
+    border-right: 1px solid #e5e7eb;
+    
+    flex-shrink: 0;
+}
+
+.sidebar a {
+    color: #333;
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+}
+.sidebar a:hover{
+    background-color: #f0f5ff;
+    color: #1677ff;
 }

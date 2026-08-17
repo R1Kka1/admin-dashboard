@@ -2048,6 +2048,30 @@
       "detail": "库存：14 -> 库存：14",
       "createdAt": "2026-08-15T06:48:55.403Z",
       "id": "JOgZVMerHE4"
+    },
+    {
+      "operator": "admin",
+      "action": "登录系统",
+      "target": "-",
+      "detail": "管理员登录后台",
+      "createdAt": "2026-08-17T00:39:47.203Z",
+      "id": "rbDl6A4PRD8"
+    },
+    {
+      "operator": "admin",
+      "action": "登录系统",
+      "target": "-",
+      "detail": "管理员登录后台",
+      "createdAt": "2026-08-17T00:41:33.596Z",
+      "id": "0NZ1lO9Fhfk"
+    },
+    {
+      "operator": "admin",
+      "action": "登录系统",
+      "target": "-",
+      "detail": "管理员登录后台",
+      "createdAt": "2026-08-17T00:43:08.798Z",
+      "id": "k1oVPX5__pw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
