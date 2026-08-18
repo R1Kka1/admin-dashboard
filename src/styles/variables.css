@@ -1,8 +1,14 @@
 :root {
   --primary-color: #2563eb;
+  
   --bg-color:#f5f7fa;
   --card-color:#ffffff;
   --text-color:#1f2937;
   --text-secondary: #6b7280;
   --border-color:#e5e7eb;
+
+  /*缺货 库存低 正常颜色*/
+  --success-color: #16a34a;
+  --warning-color: #d97706;
+  --danger-color: #dc2626;
 }
