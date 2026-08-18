@@ -47,7 +47,7 @@ export function Products() {
 
     return (
         <>
-            <div className="">
+            <div className="productsPage">
                 <div className='pageTitle'>
                     
                     <div className='searchProduct'>
