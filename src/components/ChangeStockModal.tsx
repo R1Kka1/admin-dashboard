@@ -28,6 +28,7 @@ export function ChangeStockModal({product,close,loadProducts,showToast}:ChangeSt
     };
     const reduceRules:Record<ChangeStockModalField,ValidationRule[]> = {
         newStock: [
+            (value) => required(value, "此项不能为空"),
             (value) => minNumber(value, 0, "库存不能小于 0"),
             (value) => maxNumber(value, product.stock, "减少数量不能超过当前库存"),
         ],
