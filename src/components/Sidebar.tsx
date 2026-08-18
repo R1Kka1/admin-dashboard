@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import './Sidebar.css';
 import { getCurrentUser } from "../untils/auth";
+import { NavLink } from "react-router-dom";
 
 export function SideBar() {
     const user = getCurrentUser();
@@ -11,27 +11,27 @@ export function SideBar() {
     
     return (
         <div className="sidebar">
-            <Link to="/homepage">主  页</Link>
+            <NavLink to="/homepage" end>主  页</NavLink>
             
 
-            <Link to="products">商品管理</Link>
+            <NavLink to="products">商品管理</NavLink>
             
 
-            <Link to="orders">订单管理</Link>
+            <NavLink to="orders">订单管理</NavLink>
             
 
              {user.role === "超级管理员" && (
-                <Link to="users">用户管理</Link>
+                <NavLink to="users">用户管理</NavLink>
             )}
 
 
             {(user.role === "管理员" || user.role === "超级管理员") && (
-                <Link to="data">数据统计</Link>
+                <NavLink to="data">数据统计</NavLink>
             )}
              
 
             {user.role === "超级管理员" && (
-               <Link to="log">操作日志</Link>
+               <NavLink to="log">操作日志</NavLink>
             )}
              
         </div>

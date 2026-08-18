@@ -2072,6 +2072,14 @@
       "detail": "管理员登录后台",
       "createdAt": "2026-08-17T00:43:08.798Z",
       "id": "k1oVPX5__pw"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Adults Plain Cotton T-Shirt - 2 Pack",
+      "detail": "库存：8 -> 库存：8",
+      "createdAt": "2026-08-17T01:17:35.651Z",
+      "id": "Q9SPnDp0nNs"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

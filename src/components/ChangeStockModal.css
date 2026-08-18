@@ -9,12 +9,12 @@
 }
 
 .editProductStock {
+    position: relative;
+    
     background: white;
-
     width:50%;
     max-width:600px;
     padding: 30px;
-
     border-radius: 10px;
 }
 .product-edit-popHeader{
@@ -40,4 +40,9 @@
 }
 .product-edit-Btns button{
     padding: 4px;
+}
+.product-edit-closeBtn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }

@@ -1,3 +1,17 @@
+@import "./styles/variables.css";
+
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+button,input,textarea,select{
+  font: inherit;
 }
