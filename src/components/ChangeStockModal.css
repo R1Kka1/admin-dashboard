@@ -1,48 +1,135 @@
 .product-edit-modal{
     position: fixed;
     inset:0;
+
     display:flex;
     justify-content:center;
     align-items:center;
-    background: rgba(0,0,0,0.4);
-    z-index: 999;
+
+    background: rgba(0,0,0,0.45);
+    z-index: 1100;
 }
 
 .editProductStock {
-    position: relative;
+    width: 420px;
+    max-width: calc(100% - 40px);
     
-    background: white;
-    width:50%;
-    max-width:600px;
-    padding: 30px;
-    border-radius: 10px;
+    padding: 24px;
+
+    background-color: var(--card-color);
+    border-radius: 12px;
+    
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    
 }
 .product-edit-popHeader{
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
 }
-.product-edit-contentDetails div{
-    margin: 20px;
+.product-edit-popHeader h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+
+.product-edit-closeBtn{
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 6px;
+
+    background-color: transparent;
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+.product-edit-closeBtn:hover {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.product-edit-closeBtn:active {
+  transform: scale(0.95);
+}
+
+.product-edit-contentDetails{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  padding: 20px 0;
 }
 .product-edit-Input{
-    width: 20%;
-    height: 30px;
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 10px 14px;
+
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+
+  outline: none;
+
+  transition: 0.2s;
+}
+.product-edit-Input:focus{
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+}
+
+.error{
+  color: var(--danger-color);
+  font-size: 13px;
 }
 
 
-.product-edit-Btns{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 15px;
-    margin-top: 20px;
+.product-edit-Btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
 }
-.product-edit-Btns button{
-    padding: 4px;
+
+.product-edit-Btns button {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--card-color);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: 0.2s;
 }
-.product-edit-closeBtn{
-    position: absolute;
-    top: 20px;
-    right: 20px;
+
+.product-edit-Btns button:hover {
+  background-color: var(--bg-color);
+}
+
+.product-edit-Btns button:active {
+  transform: scale(0.98);
+}
+
+.product-edit-Btns .addStockBtn {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.product-edit-Btns .addStockBtn:hover {
+  opacity: 0.9;
+}
+
+.product-edit-Btns .reduceStockBtn {
+  color: var(--warning-color);
+}
+
+.product-edit-Btns .cancelStockBtn {
+  color: var(--text-secondary);
 }

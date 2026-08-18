@@ -2,7 +2,7 @@ import './ChangeStockModal.css';
 import { addLog } from '../untils/log';
 import { useState } from 'react';
 import { patchObject } from '../api/api';
-import { minNumber, validate ,maxNumber} from '../untils/validate';
+import { minNumber, validate ,maxNumber, required} from '../untils/validate';
 import type {ValidationRule} from '../untils/validate';
 import type { Product } from "../types/product";
 interface ChangeStockModalProps{
@@ -22,6 +22,7 @@ export function ChangeStockModal({product,close,loadProducts,showToast}:ChangeSt
     type ChangeStockModalField =| "newStock";
     const addRules:Record<ChangeStockModalField,ValidationRule[]> = {
         newStock: [
+            (value) => required(value, "此项不能为空"),
             (value) => minNumber(value, 0, "库存不能小于 0"),
         ],
     };
@@ -117,9 +118,9 @@ export function ChangeStockModal({product,close,loadProducts,showToast}:ChangeSt
                     )}
                 </div>
                 <div className="product-edit-Btns">
-                    <button onClick={handleAdd}>添加</button>
-                    <button onClick={handleReduce}>减少</button>
-                    <button onClick={close}>取消</button>
+                    <button className="addStockBtn" onClick={handleAdd}>添加</button>
+                    <button className="reduceStockBtn" onClick={handleReduce}>减少</button>
+                    <button className="cancelStockBtn" onClick={close}>取消</button>
                 </div>
             </div>
             <div>

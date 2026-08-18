@@ -2080,6 +2080,22 @@
       "detail": "库存：8 -> 库存：8",
       "createdAt": "2026-08-17T01:17:35.651Z",
       "id": "Q9SPnDp0nNs"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Intermediate Size Basketball",
+      "detail": "库存：34 -> 库存：34",
+      "createdAt": "2026-08-18T07:24:45.047Z",
+      "id": "90GPJRiYQhU"
+    },
+    {
+      "operator": "admin",
+      "action": "修改库存",
+      "target": "Intermediate Size Basketball",
+      "detail": "库存：34 -> 库存：34",
+      "createdAt": "2026-08-18T07:31:11.244Z",
+      "id": "zfIBZczKOCs"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

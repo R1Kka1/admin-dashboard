@@ -1,3 +1,6 @@
+.productsPage {
+  width: 100%;
+}
 .pageTitle{
     display: flex;
     align-items: center;
