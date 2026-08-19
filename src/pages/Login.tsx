@@ -105,6 +105,10 @@ export function Login() {
                     Login
                 </button>
             </form>
+            <div className="tipsOnLogin">
+                <div>测试账号(username): admin</div>
+                <div>测试密码(password): 123456</div>
+            </div>
         </div>
     );
 }
