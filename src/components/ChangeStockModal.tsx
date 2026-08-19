@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { patchObject } from '../api/api';
 import { minNumber, validate ,maxNumber, required} from '../untils/validate';
 import type {ValidationRule} from '../untils/validate';
+import "../styles/modal.css";
 import type { Product } from "../types/product";
 interface ChangeStockModalProps{
     product : Product;
@@ -97,7 +98,7 @@ export function ChangeStockModal({product,close,loadProducts,showToast}:ChangeSt
 
     return (
         <div className="product-edit-modal">
-            <div className="editProductStock">
+            <div className="editModal">
                 <div className="product-edit-popHeader">
                     <h2>修改库存</h2>
                     <button className="product-edit-closeBtn" onClick={close}>

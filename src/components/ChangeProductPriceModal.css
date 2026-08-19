@@ -1,32 +1,12 @@
-.product-edit-price-modal{
-    position: fixed;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background: rgba(0,0,0,0.4);
-    z-index: 998;
+.product-edit-Btns .changePriceBtn {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
 }
-.product-edit-price-pop{
-    background: white;
-
-    width:50%;
-    max-width:600px;
-    padding: 30px;
-
-    border-radius: 10px;
-    
+.product-edit-Btns .changePriceBtn:hover {
+  background-color: var(--primary-color);
+  opacity: 0.9;
 }
-.product-edit-price-pop div{
-   margin: 25px;
-}
-
-.product-edit-price-Btns{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 15px;
-}
-.product-edit-price-Btns button{
-    padding: 4px;
+.product-edit-Btns .cancelPriceBtn {
+  color: var(--text-secondary);
 }

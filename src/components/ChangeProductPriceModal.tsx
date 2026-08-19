@@ -6,6 +6,7 @@ import { addLog } from "../untils/log";
 import { isNumber, minNumber, required,validate } from "../untils/validate";
 import type {ValidationRule} from '../untils/validate';
 import type { Product } from "../types/product";
+import "../styles/modal.css";
 
 interface ChangeProductPriceModalProps{
     product:Product;
@@ -59,15 +60,15 @@ export function ChangeProductPriceModal({product,close,loadProducts,showToast}:C
     }
 
     return (
-        <div className="product-edit-price-modal">
-            <div className="product-edit-price-pop">
-                <div className="product-edit-price-popHeader">
+        <div className="product-edit-modal">
+            <div className="editModal">
+                <div className="product-edit-popHeader">
                     <h2>修改价格</h2>
                 </div>
-                <div className="product-edit-price-popDetails">
+                <div className="product-edit-contentDetails">
                     <div>商品名称:{product.name}</div>
                     <div>商品价格:{formatCurrency(product.priceCents)}</div>
-                    <input type="number" className="product-edit-price-Input" placeholder="输入价格"
+                    <input type="number" className="product-edit-Input" placeholder="输入价格"
                         value={formData.newPrice}
                         onChange={(e) => {setFormData({
                             ...formData,
@@ -79,13 +80,10 @@ export function ChangeProductPriceModal({product,close,loadProducts,showToast}:C
                         <span className="error">{errors.newPrice}</span>
                     )}
                 </div>
-                <div className="product-edit-price-Btns">
-                    <button onClick={handleChangePrice}>修改</button>
-                    <button onClick={close}>取消</button>
+                <div className="product-edit-Btns">
+                    <button className="changePriceBtn" onClick={handleChangePrice}>修改</button>
+                    <button className="cancelPriceBtn" onClick={close}>取消</button>
                 </div>
-            </div>
-            <div>
-
             </div>
         </div>
     );
