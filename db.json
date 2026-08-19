@@ -2104,6 +2104,22 @@
       "detail": "管理员登录后台",
       "createdAt": "2026-08-19T02:13:57.143Z",
       "id": "UyZmOADGRzM"
+    },
+    {
+      "operator": "admin",
+      "action": "修改订单",
+      "target": "b6b6c212-d30e-4d4a-805d-90b52ce6b37d",
+      "detail": "订单状态从 待付款 修改为 待付款",
+      "createdAt": "2026-08-19T09:05:30.289Z",
+      "id": "XQHt1aV5pto"
+    },
+    {
+      "operator": "admin",
+      "action": "修改订单",
+      "target": "b6b6c212-d30e-4d4a-805d-90b52ce6b37d",
+      "detail": "订单状态从 待付款 修改为 待付款",
+      "createdAt": "2026-08-19T09:07:57.860Z",
+      "id": "HZwfFF-izWY"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

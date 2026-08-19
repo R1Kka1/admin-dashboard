@@ -87,13 +87,13 @@ export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrde
     }
 
     return (
-        <div className="order-detail-modal">
-            <div className="order-detail-pop">
-                <div className="order-detail-header">
+        <div className="product-edit-modal">
+            <div className="editModal">
+                <div className="product-edit-popHeader">
                     <div>订单详情</div>
-                    <button onClick={close}>X</button>
+                    <button className="product-edit-closeBtn" onClick={close}>X</button>
                 </div>
-                <div className="order-detail-main">
+                <div className="product-edit-contentDetails">
                     <div className="order-detail-infoList">
                         <div className="order-detail-info">
                             <div>OrderId: {selectOrder.id}</div>
@@ -140,7 +140,7 @@ export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrde
 
                     </div>
                 </div>
-                <div className="order-detail-bottom">
+                <div className="product-edit-Btns">
                     {
                         canManageOrder && (
                             <>
@@ -156,8 +156,8 @@ export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrde
                                     </select>
                                 </div>
 
-                                <div><button onClick={handleOrderStatus}>保存订单</button></div>
-                                <div><button onClick={handleOrderDelete}>删除订单</button></div>
+                                <button className="saveOrderBtn"onClick={handleOrderStatus}>保存订单</button>
+                                <button className="deleteOrderBtn" onClick={handleOrderDelete}>删除订单</button>
                             </>
                         )
                     }
