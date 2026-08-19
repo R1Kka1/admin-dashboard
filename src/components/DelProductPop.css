@@ -1,38 +1,36 @@
-.product-del-modal{
-    position: fixed;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background: rgba(0,0,0,0.4);
-    z-index: 998;
+.product-edit-Btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
 }
 
-.delProduct{
-    background: white;
-
-    width:50%;
-    max-width:600px;
-    padding: 30px;
-
-    border-radius: 10px;
+.product-edit-Btns button {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--card-color);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.product-del-detail div{
-    margin: 20px;
+.product-edit-Btns button:hover {
+  opacity: 0.9;
 }
 
-.product-del-Btns{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 15px;
+.product-edit-Btns button:active {
+  transform: scale(0.98);
 }
 
-.product-del-Btns button{
-    padding: 4px;
+.product-edit-Btns .delProductBtn{
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+  color: white;
 }
 
-.del-product-btn:hover{
-    background-color: rgb(255, 168, 168);
+
+.product-edit-Btns .cancelDelBtn {
+  color: var(--text-secondary);
 }

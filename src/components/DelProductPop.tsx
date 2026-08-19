@@ -3,6 +3,7 @@ import { delObject } from "../api/api";
 import { addLog } from "../untils/log";
 import type { Product } from "../types/product";
 import type { Dispatch, SetStateAction } from "react";
+import "../styles/modal.css";
 
 interface DelProductProps{
     product:Product;
@@ -31,16 +32,16 @@ export function DelProductPop ({product,close,loadProducts,setSelectProduct,show
         }
     }    
     return (
-        <div className="product-del-modal">
-            <div className="delProduct">
+        <div className="product-edit-modal">
+            <div className="editModal">
                 <h2>确定要删除商品吗?</h2>
-                <div className="product-del-detail">
+                <div className="product-edit-contentDetails">
                     <div>商品ID:{product.id}</div>
                     <div>商品名称:{product.name}</div>
                 </div>
-                <div className="product-del-Btns">
-                    <button onClick={handleDelete} className="del-product-btn">确定</button>
-                    <button onClick={close}>取消</button>
+                <div className="product-edit-Btns">
+                    <button className="delProductBtn" onClick={handleDelete}>确定</button>
+                    <button className="cancelDelBtn" onClick={close}>取消</button>
                 </div>
             </div>
             <div>
