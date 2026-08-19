@@ -36,6 +36,8 @@ const request = axios.create({
     baseURL: import.meta.env.VITE_API_BASE_URL
 });
 
+//此处加请求拦截器会导致部署的页面登不上去 暂时不清楚什么情况 我还在学习中...
+
 // 响应拦截器
 request.interceptors.response.use(
     (response) => {
