@@ -1,14 +1,17 @@
 .layout {
     display: flex;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .main{
     flex: 1;
     min-width: 0;
+    height: 100vh;
+    overflow-y: auto;
 }
 .content{
     padding: 24px;
     background-color: var(--bg-color);
-    min-height: calc(100vh-64px);
+    min-height: calc(100vh - 64px);
 }
