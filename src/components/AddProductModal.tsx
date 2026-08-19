@@ -5,6 +5,7 @@ import { ChangeMessage } from "./ChangeMessage";
 import { postObject } from "../api/api";
 import { minNumber, required,validate} from "../untils/validate";
 import type {ValidationRule} from '../untils/validate';
+import "../styles/modal.css";
 interface AddProductProps {
     close:() => void;
     loadProducts:() => Promise<void>;
@@ -90,13 +91,13 @@ export function AddProductModal({ close, loadProducts,showToast}:AddProductProps
 
 
     return (
-        <div className="product-add-modal">
-            <div className="product-add-pop">
-                <div className="product-add-header">
-                    <div><h2>添加新商品</h2></div>
-                    <div><button onClick={close}>X</button></div>
+        <div className="product-edit-modal">
+            <div className="editModal">
+                <div className="product-edit-popHeader">
+                    <h2>添加新商品</h2>
+                    <button className="product-edit-closeBtn" onClick={close}>X</button>
                 </div>
-                <div className="product-add-main">
+                <div className="product-edit-contentDetails">
                     <div className="form-item">
 
                         <label>商品名称</label>
@@ -104,6 +105,7 @@ export function AddProductModal({ close, loadProducts,showToast}:AddProductProps
                             placeholder="请输入商品名称"
                             type="text"
                             value={formData.newProductName}
+                            className="product-edit-Input"
                             onChange={(e) => {
                                 setFormData({
                                     ...formData,
@@ -124,6 +126,7 @@ export function AddProductModal({ close, loadProducts,showToast}:AddProductProps
                             placeholder="请输入商品价格"
                             type="number"
                             value={formData.newProductPrice}
+                            className="product-edit-Input"
                             onChange={(e) => {
                                 setFormData({
                                     ...formData,
@@ -144,6 +147,7 @@ export function AddProductModal({ close, loadProducts,showToast}:AddProductProps
                             placeholder="请输入商品库存"
                             type="number"
                             value={formData.newProductStock}
+                            className="product-edit-Input"
                             onChange={(e) => {
                                 setFormData({
                                     ...formData,
@@ -157,10 +161,10 @@ export function AddProductModal({ close, loadProducts,showToast}:AddProductProps
                         )}
                     </div>
                 </div>
-                <div className="product-add-bottom">
-                    <button className="primary" onClick={handleAddProduct}>添加</button>
-                    <button onClick={handleReset}>重置</button>
-                    <button onClick={close}>取消</button>
+                <div className="product-edit-Btns">
+                    <button className="addProductBtn" onClick={handleAddProduct}>添加</button>
+                    <button className="resetProductBtn" onClick={handleReset}>重置</button>
+                    <button className="cancelAddBtn" onClick={close}>取消</button>
                 </div>
             </div>
             {
