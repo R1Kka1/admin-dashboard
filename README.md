@@ -17,6 +17,18 @@
 > 首次打开 Demo 时，后端可能需要几秒钟唤醒。如果首次请求失败，请等待几秒后刷新页面重试。
 
 ---
+## 📸 项目截图
+### 主页
+
+![主页](./public/screenshots/homepage.png)
+
+### 数据统计
+
+![数据统计](./public/screenshots/data.png)
+
+### 商品管理
+
+![商品管理](./public/screenshots/products.png)
 
 ## ✨ 核心功能
 

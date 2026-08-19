@@ -1021,7 +1021,7 @@
       "createdAt": "2026-08-02T13:40:10.000Z",
       "updatedAt": "2026-08-02T13:40:10.000Z",
       "orderTimeMs": 1785668410000,
-      "status": "配送中",
+      "status": "已取消",
       "totalCostCents": 28999,
       "products": [
         {
@@ -2120,6 +2120,14 @@
       "detail": "订单状态从 待付款 修改为 待付款",
       "createdAt": "2026-08-19T09:07:57.860Z",
       "id": "HZwfFF-izWY"
+    },
+    {
+      "operator": "admin",
+      "action": "修改订单",
+      "target": "order-10002",
+      "detail": "订单状态从 配送中 修改为 已取消",
+      "createdAt": "2026-08-19T10:18:43.069Z",
+      "id": "DD2Mjxe-dTc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
