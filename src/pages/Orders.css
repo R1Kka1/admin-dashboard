@@ -38,5 +38,5 @@
     background-color: var(--bg-color);
 }
 .orderRow button:active {
-  transform: scale(0.98);
+    transform: scale(0.98);
 }

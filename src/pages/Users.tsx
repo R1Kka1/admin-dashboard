@@ -57,10 +57,10 @@ export function Users() {
     }
 
     return (
-        <div>
-            <div className="userControl">
-                <div className='searchProduct'>
-                    <input className="searchInput" placeholder="搜索商品" value={keyword} onChange={(e) => {
+        <div className="usersPage">
+            <div className="pageTitle">
+                <div className='searchUser'>
+                    <input className="searchInput" placeholder="搜索用户" value={keyword} onChange={(e) => {
                         setKeyword(e.target.value);
                     }}/>
                 </div>
@@ -85,15 +85,21 @@ export function Users() {
                         <div>{user.email}</div>
                         <div>{user.role}</div>
                         <div>{user.status}</div>
-                        <div><button onClick={() => {
-                            setSelectUser(user)
-                            setShowChangeUserModal(true)
-                        }}>修改</button></div>
-                        <div><button onClick={() => {
-                            setSelectUser(user)
-                            setShowDelUserModal(true)
-                           
-                        }}>删除</button></div>
+                        <div className="userActions">
+                            <button 
+                                className="changeUserBtn"
+                                onClick={() => {
+                                setSelectUser(user)
+                                setShowChangeUserModal(true)
+                            }}>修改</button>
+                            <button 
+                                className="delUserBtn"
+                                onClick={() => {
+                                setSelectUser(user)
+                                setShowDelUserModal(true)
+                            }}>删除</button>
+                        </div>
+                        
                     </div>
                 );
             })}

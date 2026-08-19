@@ -54,8 +54,6 @@ export function Products() {
                         <input className="searchInput" placeholder="搜索商品" value={keyword} onChange={(e) => {
                             setKeyword(e.target.value);
                         }}/>
-
-                        
                     </div>
                     
 

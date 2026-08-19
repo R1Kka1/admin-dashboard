@@ -1,52 +1,97 @@
-.userControl{
+.usersPage {
+  width: 100%;
+}
+.pageTitle{
     display: flex;
-    justify-content: end;
-    margin-bottom: 30px;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
 }
-.addUserBtn{
-    padding: 5px;
-    
-}
-.usersTitles{
-    display: flex;
-    font-size: 20px;
-}
-.usersTitle{
-    flex: 1;
+.searchUser{
+    flex:1;
 }
 
-.usersDetails{
-    margin-top: 15px;
+.searchInput{
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--card-color);
+    color: var(--text-color);
+    outline: none;
+    transition: 0.2s;
 }
-.userRow{
-    display: flex;
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-    
+.searchInput:focus{
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37,99,235, 0.12);
 }
-.usersTitles,
+
+.addUserBtn{
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.addUserBtn:hover {
+  opacity: 0.9;
+}
+.addUserBtn:focus{
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37,99,235, 0.15);
+}
+.addUserBtn:active {
+  transform: scale(0.98);
+}
+.usersTitles{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 100px 100px 140px;
+    align-items: center;
+
+    padding: 12px 16px;
+    background-color: var(--card-color);
+    border-bottom: 1px solid var(--border-color);
+}
 .userRow{
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr 120px 100px 100px 100px;
+    grid-template-columns: 1fr 1fr 2fr 100px 100px 140px;
     align-items: center;
+
+    padding: 12px 16px;
+    background-color: var(--card-color);
+
+    border-bottom: 1px solid var(--border-color);
 }
-.usersTitles{
-    padding: 15px;
-    font-weight: bold;
-    border-bottom: 2px solid #ddd;
+.userRow:hover {
+  background-color: var(--bg-color);
+}
+.userRow button{
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--card-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+.userRow:hover{
+    background-color: var(--bg-color);
+}
+.userRow button:active {
+  transform: scale(0.98);
 }
 
-.userRow{
-    padding: 15px;
-    border-bottom: 1px solid #eee;
+.userActions {
+    display: flex;
+    gap: 8px;
 }
-
-.usersTitles > div,
-.userRow > div{
-    padding: 0 8px;
-    box-sizing: border-box;
+.userRow .delUserBtn {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+    color: white;
 }
-.userRow > div > button{
-    width:60px;
-    height:30px;
+.userRow .delUserBtn:hover {
+    background-color: var(--danger-color);
+    opacity: 0.9;
 }
