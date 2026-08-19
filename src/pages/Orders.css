@@ -1,19 +1,42 @@
+.ordersTotal{
+    width: 100%;
+}
 .ordersTitles{
-    display: flex;
-    font-size: 20px;
-}
-.ordersTitle{
-    flex: 1 ;
-}
+    display: grid;
 
-.ordersDetails{
-    margin-top: 15px;
+    grid-template-columns: 1fr 2fr 1fr 1fr 100px;
+
+    align-items: center;
+
+    padding: 12px 16px;
+    background-color: var(--card-color);
+    border-bottom: 1px solid var(--border-color);
 }
 .orderRow{
-    display: flex;
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
+    display: grid;
+
+    grid-template-columns: 1fr 2fr 1fr 1fr 100px;
+
+    align-items: center;
+
+    padding: 12px 16px;
+    background-color: var(--card-color);
+    border-bottom: 1px solid var(--border-color); 
 }
-.orderRow div{
-    flex: 1;
+.orderRow:hover {
+    background-color: var(--bg-color);
+}
+.orderRow button{
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--card-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+.orderRow button:hover{
+    background-color: var(--bg-color);
+}
+.orderRow button:active {
+  transform: scale(0.98);
 }

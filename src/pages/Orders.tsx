@@ -53,7 +53,8 @@ export function Orders() {
                             <div>{dayjs(order.createdAt).format("YYYY-MM-DD HH:mm:ss")}</div>
                             <div>{order.products.length}</div>
                             <div>{formatCurrency(order.totalCostCents)}</div>
-                            <div><button onClick={() => {
+                            <div><button 
+                                onClick={() => {
                                 setSelectOrder(order);
                                 setShowOrderDetailModal(true)
                                 }}>详情</button></div>

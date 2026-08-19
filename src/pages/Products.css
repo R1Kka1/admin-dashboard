@@ -87,7 +87,9 @@
 .productRow button:hover{
     background-color: var(--bg-color);
 }
-
+.productRow button:active {
+  transform: scale(0.98);
+}
 /*库存预警*/
 .out{
     color: var( --danger-color);
