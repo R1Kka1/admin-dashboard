@@ -40,17 +40,17 @@ export function ProductDetails({
     return (
         <div className="modal">
 
-            <div className="productDetails">
-                <div className="popHeader">
+            <div className="modal-pop">
+                <div className="modal-header">
                     <h2>商品详情</h2>
 
-                    <button className="closeBtn" onClick={close}>
+                    <button className="modal-closeBtn" onClick={close}>
                         X
                     </button>
 
                 </div>
 
-                <div className="contentDetails">
+                <div className="modal-content product-details">
 
                     <div className="leftPhoto">
                         <img src={`/${product.image}`} />
@@ -62,7 +62,7 @@ export function ProductDetails({
                         <div>商品库存:{product.stock}</div>
                     </div>
                 </div>
-                <div className="cudrBtnsOnDetail">
+                <div className="modal-footer">
                     {
                         canManageProduct && (
                             <>
@@ -81,7 +81,7 @@ export function ProductDetails({
                                 </button>
 
                                 <button
-                                    className="delBtnOnDetail"
+                                    className="modal-deleteBtn"
                                     onClick={() => setShowDelProduct(true)}
                                 >
                                     删除商品
