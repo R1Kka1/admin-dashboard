@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./AddUser.css";
+import "../styles/modal.css";
 import { postObject } from "../api/api";
 import { addLog } from "../untils/log";
 import { 
@@ -108,14 +108,14 @@ export function AddUser({
     }
 
     return (
-        <div className="add-user-modal">
-            <div className="add-user-pop">
-                <div className="add-user-header">
+        <div className="modal">
+            <div className="modal-pop">
+                <div className="modal-header">
                     <h2>新增用户</h2>
-                    <button className="add-user-closeBtn" onClick={close}>X</button>
+                    <button className="modal-closeBtn" onClick={close}>X</button>
                 </div>
-                <div className="add-user-main">
-                    <div className="add-user-form-item">
+                <div className="modal-content">
+                    <div className="modal-form-item">
                         <label>用户名</label>
                         <input type="text" value={formData.newUserName} placeholder="请输入账号" onChange={(e) => {
                             setFormData({
@@ -128,7 +128,7 @@ export function AddUser({
                             <span className="error">{errors.newUserName}</span>
                         )}
                     </div>
-                    <div className="add-user-form-item">
+                    <div className="modal-form-item">
                         <label>用户密码</label>
                         <input type="text" value={formData.newUserPassword} placeholder="请输入密码" onChange={(e) => {
                              setFormData({
@@ -141,7 +141,7 @@ export function AddUser({
                             <span className="error">{errors.newUserPassword}</span>
                         )}
                     </div>
-                    <div className="add-user-form-item">
+                    <div className="modal-form-item">
                         <label>用户邮箱</label>
                         <input type="text" value={formData.newUserEmail} placeholder="请输入邮箱" onChange={(e) => {
                              setFormData({
@@ -154,7 +154,7 @@ export function AddUser({
                             <span className="error">{errors.newUserEmail}</span>
                         )}
                     </div>
-                    <div className="add-user-form-item">
+                    <div className="modal-form-item">
                          <label>用户角色</label>
                         <select value={formData.newUserRole} onChange={(e) => {
                             setFormData({
@@ -169,10 +169,10 @@ export function AddUser({
                     
                    
                 </div>
-                <div className="add-user-bottom">
-                        <button className="add-user-addBtn" onClick={handleAddUser}>添加</button>
-                        <button className="add-user-resetBtn" onClick={handleReset}>重置</button>
-                        <button className="add-user-cancelBtn" onClick={close}>取消</button>
+                <div className="modal-footer">
+                        <button className="modal-addBtn" onClick={handleAddUser}>添加</button>
+                        <button className="modal-resetBtn" onClick={handleReset}>重置</button>
+                        <button className="modal-cancelBtn" onClick={close}>取消</button>
                 </div>
             </div>
         </div>

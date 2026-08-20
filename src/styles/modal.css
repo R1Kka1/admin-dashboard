@@ -1,4 +1,4 @@
-.product-edit-modal{
+.modal{
     position: fixed;
     inset:0;
 
@@ -10,7 +10,7 @@
     z-index: 1100;
 }
 
-.editModal {
+.modal-pop {
     width: 420px;
     max-width: calc(100% - 40px);
     
@@ -22,7 +22,7 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     
 }
-.product-edit-popHeader{
+.modal-header{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -30,13 +30,13 @@
     padding-bottom: 16px;
     border-bottom: 1px solid var(--border-color);
 }
-.product-edit-popHeader h2 {
+.modal-header h2 {
   margin: 0;
   font-size: 20px;
 }
 
 
-.product-edit-closeBtn{
+.modal-closeBtn{
     width: 32px;
     height: 32px;
 
@@ -50,43 +50,108 @@
 
     transition: 0.2s;
 }
-.product-edit-closeBtn:hover {
+.modal-closeBtn:hover {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
 
-.product-edit-closeBtn:active {
+.modal-closeBtn:active {
   transform: scale(0.95);
 }
 
-.product-edit-contentDetails{
+.modal-content{
   display: flex;
   flex-direction: column;
   gap: 12px;
 
   padding: 20px 0;
 }
-.product-edit-Input{
-  width: 100%;
-  box-sizing: border-box;
 
-  padding: 10px 14px;
+.modal-footer{
+    display: flex;
+    justify-content:flex-end;
+    gap:10px;
 
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
-
-  outline: none;
-
-  transition: 0.2s;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
 }
-.product-edit-Input:focus{
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+.modal-footer button{
+    padding:8px 16px;
+    border:  1px solid var(--border-color);
+    border-radius:6px;
+    
+    background-color: var(--card-color);
+    color: var(--text-color);
+    cursor:pointer;
+    transition: 0.2s;
+}
+.modal-footer button:hover{
+    opacity: 0.9;
+}
+.modal-footer button:active{
+    transform: scale(0.98);
 }
 
+.modal-footer .del-user-cancelBtn{
+    color: var(--text-secondary)
+}
+.modal-footer .modal-resetBtn{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.modal-footer .modal-saveBtn{
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: white;
+}
+.modal-footer .modal-addBtn{
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: white;
+}
+.modal-footer .modal-deleteBtn{
+    background-color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+    color: white;
+}
+
+
+
+.modal-form-item{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.modal-form-item label{
+    font-size:14px;
+    font-weight:600;
+    color: var(--text-color);
+}
+.modal-form-item input,
+.modal-form-item select {
+    width: 100%;
+    height: 38px;
+    box-sizing: border-box;
+
+    padding: 0 12px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+
+    background-color: var(--card-color);
+    color: var(--text-color);
+
+    outline: none;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+.modal-form-item input:focus,
+.modal-form-item select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
 .error{
-  color: var(--danger-color);
-  font-size: 13px;
+    color: var(--danger-color);
+    font-size: 13px;
 }
-
-
