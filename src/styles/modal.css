@@ -114,9 +114,15 @@
     border: 1px solid var(--danger-color);
     color: white;
 }
+.modal-footer .modal-reduceBtn{
+    background-color: var(--warning-color);
+    border: 1px solid var(--warning-color);
+    color: white;
+}
 
 
 
+/*表单css*/
 .modal-form-item{
     display: flex;
     flex-direction: column;

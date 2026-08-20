@@ -97,32 +97,34 @@ export function ChangeStockModal({product,close,loadProducts,showToast}:ChangeSt
     }
 
     return (
-        <div className="product-edit-modal">
-            <div className="editModal">
-                <div className="product-edit-popHeader">
+        <div className="modal">
+            <div className="modal-pop">
+                <div className="modal-header">
                     <h2>修改库存</h2>
-                    <button className="product-edit-closeBtn" onClick={close}>
+                    <button className="modal-closeBtn" onClick={close}>
                             X
                     </button>
                 </div>
-                <div className="product-edit-contentDetails">
+                <div className="modal-content change-stock-content">
                     <div>商品名称:{product.name}</div>
                     <div>商品库存:{product.stock}</div>
-                    <input type="number"className="product-edit-Input" placeholder="输入数量"
-                        value={formData.newStock}
-                        onChange={(e) => {setFormData({
-                            ...formData,
-                            newStock:e.target.value,
-                        })}}
-                    />
+                    <div className="modal-form-item">
+                        <input type="number" placeholder="输入数量"
+                            value={formData.newStock}
+                            onChange={(e) => {setFormData({
+                                ...formData,
+                                newStock:e.target.value,
+                            })}}
+                        />
+                    </div>
                     {errors.newStock && (
                         <span className="error">{errors.newStock}</span>
                     )}
                 </div>
-                <div className="product-edit-Btns">
-                    <button className="addStockBtn" onClick={handleAdd}>添加</button>
-                    <button className="reduceStockBtn" onClick={handleReduce}>减少</button>
-                    <button className="cancelStockBtn" onClick={close}>取消</button>
+                <div className="modal-footer">
+                    <button className="modal-addBtn" onClick={handleAdd}>添加</button>
+                    <button className="modal-reduceBtn" onClick={handleReduce}>减少</button>
+                    <button className="modal-cancelBtn" onClick={close}>取消</button>
                 </div>
             </div>
             <div>

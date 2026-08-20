@@ -1,40 +1,5 @@
-.product-edit-Btns {
+.modal-content.change-stock-content{
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border-color);
-}
-
-.product-edit-Btns button {
-  padding: 8px 16px;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  background-color: var(--card-color);
-  color: var(--text-color);
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.product-edit-Btns button:hover {
-  opacity: 0.9;
-}
-
-.product-edit-Btns button:active {
-  transform: scale(0.98);
-}
-
-.product-edit-Btns .addStockBtn {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: white;
-}
-
-
-.product-edit-Btns .reduceStockBtn {
-  color: var(--warning-color);
-}
-
-.product-edit-Btns .cancelStockBtn {
-  color: var(--text-secondary);
+  flex-direction: column;
+  gap: 12px;
 }
