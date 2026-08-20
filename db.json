@@ -908,14 +908,6 @@
       "email": "123456",
       "role": "普通用户",
       "status": "正常"
-    },
-    {
-      "id": "JN4Hy6_eoGM",
-      "username": "",
-      "password": "",
-      "email": "",
-      "role": "普通用户",
-      "status": "正常"
     }
   ],
   "salesData": [
@@ -2136,6 +2128,14 @@
       "detail": "修改了用户信息",
       "createdAt": "2026-08-20T02:18:56.483Z",
       "id": "GAvTUZUzbbk"
+    },
+    {
+      "operator": "admin",
+      "action": "删除用户",
+      "target": "",
+      "detail": "删除普通用户账号",
+      "createdAt": "2026-08-20T06:44:45.057Z",
+      "id": "E3gGvH0Gtks"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -34,21 +34,23 @@ export function DelUserPop ({
         }
     }    
     return (
-        <div className="product-del-modal">
-            <div className="delProduct">
-                <h2>确定要删除用户吗?</h2>
-                <div className="product-del-detail">
+        <div className="del-user-modal">
+            <div className="del-user-pop">
+                <div className="del-user-header">
+                        <h2>删除用户</h2>
+                        <button className="del-user-closeBtn" onClick={close}>
+                            X
+                        </button>
+                </div>
+                <div className="del-user-main">
                     <div>用户ID:{user.username}</div>
                     <div>用户密码:{user.password}</div>
                     <div>用户权限:{user.role}</div>
                 </div>
-                <div className="product-del-Btns">
-                    <button onClick={handleDelete} className="del-product-btn">确定</button>
-                    <button onClick={close}>取消</button>
+                <div className="del-user-bottom">
+                    <button className="del-user-deleteBtn" onClick={handleDelete}>确定</button>
+                    <button className="del-user-cancelBtn" onClick={close}>取消</button>
                 </div>
-            </div>
-            <div>
-
             </div>
         </div>
     );
