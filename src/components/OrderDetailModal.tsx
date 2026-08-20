@@ -89,7 +89,7 @@ export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrde
 
     return (
         <div className="modal">
-            <div className="modal-pop">
+            <div className="modal-pop order-detail-pop">
                 <div className="modal-header">
                     <div>订单详情</div>
                     <button className="modal-closeBtn" onClick={close}>X</button>

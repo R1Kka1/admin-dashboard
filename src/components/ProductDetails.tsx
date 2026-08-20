@@ -40,7 +40,7 @@ export function ProductDetails({
     return (
         <div className="modal">
 
-            <div className="modal-pop">
+            <div className="modal-pop product-detail-pop">
                 <div className="modal-header">
                     <h2>商品详情</h2>
 
@@ -50,16 +50,17 @@ export function ProductDetails({
 
                 </div>
 
-                <div className="modal-content product-details">
-
-                    <div className="leftPhoto">
-                        <img src={`/${product.image}`} />
-                    </div>
-                    <div className="rightInfo">
-                        <div>商品ID:{product.id}</div>
-                        <div>商品名称:{product.name}</div>
-                        <div>商品价格:{formatCurrency(product.priceCents)}</div>
-                        <div>商品库存:{product.stock}</div>
+                <div className="modal-content">
+                    <div className="product-details">
+                        <div className="leftPhoto">
+                            <img src={`/${product.image}`} />
+                        </div>
+                        <div className="rightInfo">
+                            <div>商品ID:{product.id}</div>
+                            <div>商品名称:{product.name}</div>
+                            <div>商品价格:{formatCurrency(product.priceCents)}</div>
+                            <div>商品库存:{product.stock}</div>
+                        </div>
                     </div>
                 </div>
                 <div className="modal-footer">

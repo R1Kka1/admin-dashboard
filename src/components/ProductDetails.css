@@ -1,3 +1,6 @@
+.modal-pop.product-detail-pop {
+    width: 600px;
+}
 .product-details {
     display: flex;
     gap: 24px;
