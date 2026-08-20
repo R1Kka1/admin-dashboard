@@ -93,14 +93,14 @@ export function ChangeUsersModal({
 
 
     return(
-        <div className="change-users-modal">
-            <div className="change-users-pop">
-                <div className="change-users-header">
+        <div className="change-user-modal">
+            <div className="change-user-pop">
+                <div className="change-user-header">
                     <h2>用户详情</h2>
-                    <button onClick={close}>X</button>
+                    <button className="change-user-closeBtn" onClick={close}>X</button>
                 </div>
-                <div className="change-users-main">
-                    <div className="change-users-details">
+                <div className="change-user-main">
+                    <div className="change-user-form-item">
                         <label>账号:</label>
                         <input type="text" value={formData.changeUserName} onChange={(e) => {
                             setFormData({
@@ -113,7 +113,7 @@ export function ChangeUsersModal({
                         <span className="error">{errors.changeUserName}</span>
                         )}
                     </div>
-                    <div className="change-users-details">
+                    <div className="change-user-form-item">
                         <label>密码:</label>
                          <input type="text" value={formData.changeUserPassword} onChange={(e) => {
                             setFormData({
@@ -126,7 +126,7 @@ export function ChangeUsersModal({
                         <span className="error">{errors.changeUserPassword}</span>
                         )}
                     </div>
-                    <div className="change-users-details">
+                    <div className="change-user-form-item">
                         <label>邮箱:</label>
                          <input type="text" value={formData.changeUserEmail} onChange={(e) => {
                             setFormData({
@@ -139,7 +139,7 @@ export function ChangeUsersModal({
                         <span className="error">{errors.changeUserEmail}</span>
                         )}
                     </div>
-                    <div className="change-users-details">
+                    <div className="change-user-form-item">
                         <label>权限:</label>
                         <select value={formData.changeUserRole} onChange={(e) => {
                             setFormData({
@@ -151,7 +151,7 @@ export function ChangeUsersModal({
                             <option value="管理员">管理员</option>
                         </select>
                     </div>
-                    <div className="change-users-details">
+                    <div className="change-user-form-item">
                         <label>状态:</label>
                         <select value={formData.changeUserStatus} onChange={(e) => {
                             setFormData({
@@ -165,10 +165,10 @@ export function ChangeUsersModal({
                         </select>
                     </div>
                 </div>
-                <div className="change-users-bottom">
-                        <button onClick={handleChangeUser}>保存</button>
-                        <button onClick={handleReset}>重置</button>
-                        <button onClick={close}>取消</button>
+                <div className="change-user-bottom">
+                        <button className= "change-user-saveBtn" onClick={handleChangeUser}>保存</button>
+                        <button className= "change-user-resetBtn" onClick={handleReset}>重置</button>
+                        <button className= "change-user-cancelBtn" onClick={close}>取消</button>
                 </div>
             </div>
         </div>

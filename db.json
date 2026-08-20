@@ -2128,6 +2128,14 @@
       "detail": "订单状态从 配送中 修改为 已取消",
       "createdAt": "2026-08-19T10:18:43.069Z",
       "id": "DD2Mjxe-dTc"
+    },
+    {
+      "operator": "admin",
+      "action": "修改用户",
+      "target": "tommmmm",
+      "detail": "修改了用户信息",
+      "createdAt": "2026-08-20T02:18:56.483Z",
+      "id": "GAvTUZUzbbk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
