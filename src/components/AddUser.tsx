@@ -112,7 +112,7 @@ export function AddUser({
             <div className="add-user-pop">
                 <div className="add-user-header">
                     <h2>新增用户</h2>
-                    <button onClick={close}>X</button>
+                    <button className="add-user-closeBtn" onClick={close}>X</button>
                 </div>
                 <div className="add-user-main">
                     <div className="add-user-form-item">
@@ -170,9 +170,9 @@ export function AddUser({
                    
                 </div>
                 <div className="add-user-bottom">
-                        <button onClick={handleAddUser}>添加</button>
-                        <button onClick={handleReset}>重置</button>
-                        <button onClick={close}>取消</button>
+                        <button className="add-user-addBtn" onClick={handleAddUser}>添加</button>
+                        <button className="add-user-resetBtn" onClick={handleReset}>重置</button>
+                        <button className="add-user-cancelBtn" onClick={close}>取消</button>
                 </div>
             </div>
         </div>
