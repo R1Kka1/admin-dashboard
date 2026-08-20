@@ -3,6 +3,7 @@ import { formatCurrency } from "../untils/money";
 import { useState, useEffect } from "react";
 import { getList, patchObject, delObject } from "../api/api";
 import "./OrderDetailModal.css";
+import "../styles/modal.css";
 import { addLog } from "../untils/log";
 import type { Order } from "../types/order";
 import type { Dispatch, SetStateAction } from "react";
@@ -87,13 +88,13 @@ export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrde
     }
 
     return (
-        <div className="product-edit-modal">
-            <div className="editModal">
-                <div className="product-edit-popHeader">
+        <div className="modal">
+            <div className="modal-pop">
+                <div className="modal-header">
                     <div>订单详情</div>
-                    <button className="product-edit-closeBtn" onClick={close}>X</button>
+                    <button className="modal-closeBtn" onClick={close}>X</button>
                 </div>
-                <div className="product-edit-contentDetails">
+                <div className="modal-content">
                     <div className="order-detail-infoList">
                         <div className="order-detail-info">
                             <div>OrderId: {selectOrder.id}</div>
@@ -140,7 +141,7 @@ export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrde
 
                     </div>
                 </div>
-                <div className="product-edit-Btns">
+                <div className="modal-footer">
                     {
                         canManageOrder && (
                             <>
@@ -156,8 +157,8 @@ export function OrderDetailModal({ close, selectOrder, loadOrders, setSelectOrde
                                     </select>
                                 </div>
 
-                                <button className="saveOrderBtn"onClick={handleOrderStatus}>保存订单</button>
-                                <button className="deleteOrderBtn" onClick={handleOrderDelete}>删除订单</button>
+                                <button className="modal-saveBtn"onClick={handleOrderStatus}>保存订单</button>
+                                <button className="modal-deleteBtn" onClick={handleOrderDelete}>删除订单</button>
                             </>
                         )
                     }

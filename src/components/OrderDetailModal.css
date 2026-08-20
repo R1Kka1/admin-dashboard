@@ -53,17 +53,6 @@
     gap: 12px;
 }
 
-.product-edit-Btns{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 10px;
-
-    padding-top: 16px;
-
-    border-top: 1px solid var(--border-color);
-}
-
 .statusOptions select {
   padding: 8px 12px;
 
@@ -79,41 +68,4 @@
 
 .statusOptions select:focus {
   border-color: var(--primary-color);
-}
-
-.product-edit-Btns button {
-  padding: 8px 14px;
-
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-
-  background-color: var(--card-color);
-  color: var(--text-color);
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-
-.product-edit-Btns .saveOrderBtn:hover {
-  background-color: var(--bg-color);
-}
-
-.product-edit-Btns .saveOrderBtn:active {
-  transform: scale(0.98);
-}
-
-
-/* 删除订单按钮 */
-.product-edit-Btns .deleteOrderBtn{
-  background-color: var(--danger-color);
-  border-color: var(--danger-color);
-  color: white;
-}
-.product-edit-Btns .deleteOrderBtn:hover {
-  opacity: 0.9;
-}
-.product-edit-Btns .deleteOrderBtn:active {
-  transform: scale(0.98);
 }

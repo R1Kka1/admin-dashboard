@@ -900,14 +900,6 @@
       "email": "1111111111",
       "role": "普通用户",
       "status": "正常"
-    },
-    {
-      "id": "yyTN5UTqJWs",
-      "username": "text1",
-      "password": "123456",
-      "email": "123456",
-      "role": "普通用户",
-      "status": "正常"
     }
   ],
   "salesData": [
@@ -979,7 +971,7 @@
       "id": "b6b6c212-d30e-4d4a-805d-90b52ce6b37d",
       "orderTimeMs": 1718013600000,
       "totalCostCents": 4190,
-      "status": "待付款",
+      "status": "待发货",
       "products": [
         {
           "productId": "15b6fc6f-327a-4ec4-896f-486349e85a3d",
@@ -2136,6 +2128,22 @@
       "detail": "删除普通用户账号",
       "createdAt": "2026-08-20T06:44:45.057Z",
       "id": "E3gGvH0Gtks"
+    },
+    {
+      "operator": "admin",
+      "action": "删除用户",
+      "target": "text1",
+      "detail": "删除普通用户账号",
+      "createdAt": "2026-08-20T07:26:02.029Z",
+      "id": "ROZuPces7MY"
+    },
+    {
+      "operator": "admin",
+      "action": "修改订单",
+      "target": "b6b6c212-d30e-4d4a-805d-90b52ce6b37d",
+      "detail": "订单状态从 待付款 修改为 待发货",
+      "createdAt": "2026-08-20T07:30:59.217Z",
+      "id": "oEGmz77VInE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
