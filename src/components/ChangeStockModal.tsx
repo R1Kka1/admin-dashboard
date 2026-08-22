@@ -102,7 +102,7 @@ export function ChangeStockModal({product,close,loadProducts,showToast}:ChangeSt
                 <div className="modal-header">
                     <h2>修改库存</h2>
                     <button className="modal-closeBtn" onClick={close}>
-                            X
+                        X
                     </button>
                 </div>
                 <div className="modal-content change-stock-content">

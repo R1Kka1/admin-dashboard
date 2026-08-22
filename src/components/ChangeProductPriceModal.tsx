@@ -60,29 +60,33 @@ export function ChangeProductPriceModal({product,close,loadProducts,showToast}:C
     }
 
     return (
-        <div className="product-edit-modal">
-            <div className="editModal">
-                <div className="product-edit-popHeader">
+        <div className="modal">
+            <div className="modal-pop">
+                <div className="modal-header">
                     <h2>修改价格</h2>
+                    <button className="modal-closeBtn" onClick={close}>
+                        X
+                    </button>
                 </div>
-                <div className="product-edit-contentDetails">
+                <div className="modal-content">
                     <div>商品名称:{product.name}</div>
                     <div>商品价格:{formatCurrency(product.priceCents)}</div>
-                    <input type="number" className="product-edit-Input" placeholder="输入价格"
+                    <div className="modal-form-item">
+                        <input type="number" placeholder="输入价格"
                         value={formData.newPrice}
                         onChange={(e) => {setFormData({
                             ...formData,
                             newPrice:e.target.value,
                         })}}
                     />
-
+                    </div>
                     {errors.newPrice && (
                         <span className="error">{errors.newPrice}</span>
                     )}
                 </div>
-                <div className="product-edit-Btns">
-                    <button className="changePriceBtn" onClick={handleChangePrice}>修改</button>
-                    <button className="cancelPriceBtn" onClick={close}>取消</button>
+                <div className="modal-footer">
+                    <button className="modal-saveBtn" onClick={handleChangePrice}>修改</button>
+                    <button className="modal-cancelBtn" onClick={close}>取消</button>
                 </div>
             </div>
         </div>

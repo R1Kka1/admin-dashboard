@@ -2144,6 +2144,30 @@
       "detail": "订单状态从 待付款 修改为 待发货",
       "createdAt": "2026-08-20T07:30:59.217Z",
       "id": "oEGmz77VInE"
+    },
+    {
+      "operator": "admin",
+      "action": "登录系统",
+      "target": "-",
+      "detail": "管理员登录后台",
+      "createdAt": "2026-08-20T10:43:13.362Z",
+      "id": "78-nYqVD1_c"
+    },
+    {
+      "operator": "bob",
+      "action": "登录系统",
+      "target": "-",
+      "detail": "管理员登录后台",
+      "createdAt": "2026-08-21T04:14:28.384Z",
+      "id": "NxvjOWL1im4"
+    },
+    {
+      "operator": "admin",
+      "action": "登录系统",
+      "target": "-",
+      "detail": "管理员登录后台",
+      "createdAt": "2026-08-21T05:47:41.454Z",
+      "id": "LErYruy-BZ0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
