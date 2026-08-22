@@ -32,16 +32,18 @@ export function DelProductPop ({product,close,loadProducts,setSelectProduct,show
         }
     }    
     return (
-        <div className="product-edit-modal">
-            <div className="editModal">
-                <h2>确定要删除商品吗?</h2>
-                <div className="product-edit-contentDetails">
+        <div className="modal">
+            <div className="modal-pop">
+                <div className="modal-header">
+                    <h2>确定要删除商品吗?</h2>
+                </div>
+                <div className="modal-content">
                     <div>商品ID:{product.id}</div>
                     <div>商品名称:{product.name}</div>
                 </div>
-                <div className="product-edit-Btns">
-                    <button className="delProductBtn" onClick={handleDelete}>确定</button>
-                    <button className="cancelDelBtn" onClick={close}>取消</button>
+                <div className="modal-footer">
+                    <button className="modal-deleteBtn" onClick={handleDelete}>确定</button>
+                    <button className="modal-cancelBtn" onClick={close}>取消</button>
                 </div>
             </div>
             <div>
