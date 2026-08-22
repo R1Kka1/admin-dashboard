@@ -11,19 +11,19 @@ export function OperationLog() {
     }
     
     return (
-        <div className="operationLog-Page-Total">
-            <div className="operationLog-Page-Title">
+        <div className="logsTotal">
+            <div className="logsTitles">
                 <div>时间</div>
                 <div>操作人</div>
                 <div>操作</div>
                 <div>对象</div>
                 <div>详情</div>
             </div>
-            <div className="operationLog-Page-Main">
+            <div className="logDetails">
                 {
                     logs.map((eachLog) => {
                         return (
-                            <div key={eachLog.id} className="eachLog-row">
+                            <div key={eachLog.id} className="logRow">
                                 <div>{dayjs(eachLog.createdAt).format("YYYY-MM-DD HH:mm:ss")}</div>
                                 <div>{eachLog.operator}</div>
                                 <div>{eachLog.action}</div>

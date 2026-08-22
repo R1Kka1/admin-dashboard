@@ -1,18 +1,28 @@
-.operationLog-Page-Title{
-    display: flex;
-    font-size: 20px;
+.logsTotal{
+    width: 100%;
 }
-.operationLog-Page-Title > div{
-    flex: 1;
+.logsTitles{
+    display: grid;
+
+    grid-template-columns: 1fr 100px 1fr 1fr 1fr;
+
+    align-items: center;
+    text-align: center;
+    padding: 12px 16px;
+    background-color: var(--card-color);
+    border-bottom: 1px solid var(--border-color);
 }
-.operationLog-Page-Main{
-    margin-top: 15px;
+.logRow{
+    display: grid;
+
+    grid-template-columns: 1fr 100px 1fr 1fr 1fr;
+
+    align-items: center;
+    text-align: center;
+    padding: 12px 16px;
+    background-color: var(--card-color);
+    border-bottom: 1px solid var(--border-color); 
 }
-.eachLog-row{
-    display: flex;
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-}
-.eachLog-row > div{
-    flex: 1;
+.logRow:hover {
+    background-color: var(--bg-color);
 }
