@@ -11,7 +11,7 @@ export function Header({collapsed,setCollapsed}:HeaderProps) {
     return (
         <div className="header-content">
             <button onClick={() => setCollapsed(!collapsed)}>
-                {collapsed ? "展开" : "收起"}
+                {collapsed ? "»" : "«"}
             </button>
             <div className="header-title">
             ADMIN DASHBOARD
