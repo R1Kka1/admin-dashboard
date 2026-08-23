@@ -1,8 +1,11 @@
 import './Sidebar.css';
 import { getCurrentUser } from "../untils/auth";
 import { NavLink } from "react-router-dom";
+interface SideBarProps {
+    collapsed: boolean;
+}
 
-export function SideBar() {
+export function SideBar({collapsed}:SideBarProps) {
     const user = getCurrentUser();
 
     if (!user) {
@@ -10,28 +13,46 @@ export function SideBar() {
     }
     
     return (
-        <div className="sidebar">
-            <NavLink to="/homepage" end>主  页</NavLink>
+        <div className={`sidebar ${collapsed ? "collapsed" : ""}`}>
+            <NavLink to="/homepage" end>
+                <span className='sidebar-icon'>🏠</span>
+                <span className='sidebar-text'>主  页</span>
+            </NavLink>
             
 
-            <NavLink to="products">商品管理</NavLink>
+            <NavLink to="products">
+                <span className='sidebar-icon'>📦</span>
+                <span className='sidebar-text'>商品管理</span>
+            </NavLink>
             
 
-            <NavLink to="orders">订单管理</NavLink>
+            <NavLink to="orders">
+                <span className='sidebar-icon'>🛒</span>
+                <span className='sidebar-text'>订单管理</span>
+            </NavLink>
             
 
              {user.role === "超级管理员" && (
-                <NavLink to="users">用户管理</NavLink>
+                <NavLink to="users">
+                    <span className='sidebar-icon'>👤</span>
+                    <span className='sidebar-text'>用户管理</span>
+                </NavLink>
             )}
 
 
             {(user.role === "管理员" || user.role === "超级管理员") && (
-                <NavLink to="data">数据统计</NavLink>
+                <NavLink to="data">
+                    <span className='sidebar-icon'>📊</span>
+                    <span className='sidebar-text'>数据统计</span>
+                </NavLink>
             )}
              
 
             {user.role === "超级管理员" && (
-               <NavLink to="log">操作日志</NavLink>
+               <NavLink to="log">
+                    <span className='sidebar-icon'>📝</span>
+                    <span className='sidebar-text'>操作日志</span>
+                </NavLink>
             )}
              
         </div>
