@@ -65,7 +65,7 @@ export function Products() {
                         }}/>
 
 
-                        <select value={sortBy} onChange={(e) => setSortBy(e.target.value as 'default' | 'priceAsc' | 'priceDesc' | 'stockAsc')}>
+                        <select className = "sortedProductsSelect"value={sortBy} onChange={(e) => setSortBy(e.target.value as 'default' | 'priceAsc' | 'priceDesc' | 'stockAsc')}>
                             <option value="default">默认排序</option>
                             <option value="priceAsc">价格从低到高</option>
                             <option value="priceDesc">价格从高到低</option>

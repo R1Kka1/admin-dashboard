@@ -8,7 +8,9 @@
     margin-bottom: 20px;
 }
 .searchProduct{
+    display: flex;
     flex:1;
+    gap: 14px;
 }
 /*搜索框*/
 .searchInput{
@@ -22,6 +24,20 @@
     transition: 0.2s;
 }
 .searchInput:focus{
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37,99,235, 0.12);
+}
+.sortedProductsSelect{
+    
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--card-color);
+    color: var(--text-color);
+    outline: none;
+    transition: 0.2s;
+}
+.sortedProductsSelect:focus{
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(37,99,235, 0.12);
 }
