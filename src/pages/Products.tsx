@@ -17,6 +17,8 @@ export function Products() {
     const [selectProduct,setSelectProduct] = useState<Product | null>(null);
     const [showDetail,setShowDetail] = useState(false);
     const [showAddNewProductPop,setShowAddNewProductPop] = useState(false);
+    const [sortBy,setSortBy] = useState<'default' | 'priceAsc' | 'priceDesc' | 'stockAsc'>('default');
+
 
     if (!user) {
         return null;
@@ -40,6 +42,13 @@ export function Products() {
     const warningProducts = products.filter((product) => {
         return product.stock < 10;
     });
+
+    const sortedProducts = [...filteredProducts].sort((a,b) => {
+        if(sortBy === 'priceAsc') return a.priceCents-b.priceCents;
+        if (sortBy === 'priceDesc') return b.priceCents - a.priceCents;
+        if (sortBy === 'stockAsc') return a.stock - b.stock;
+        return 0;
+    });
    
     if(loading){
         return <Loading />
@@ -54,7 +63,16 @@ export function Products() {
                         <input className="searchInput" placeholder="搜索商品" value={keyword} onChange={(e) => {
                             setKeyword(e.target.value);
                         }}/>
+
+
+                        <select value={sortBy} onChange={(e) => setSortBy(e.target.value as 'default' | 'priceAsc' | 'priceDesc' | 'stockAsc')}>
+                            <option value="default">默认排序</option>
+                            <option value="priceAsc">价格从低到高</option>
+                            <option value="priceDesc">价格从高到低</option>
+                            <option value="stockAsc">库存从低到高</option>
+                        </select>
                     </div>
+                    
                     
 
                     <div className='warningProducts'>
@@ -79,7 +97,7 @@ export function Products() {
 
                 <div className="productsDetails">
                     
-                    {filteredProducts.map((product) => {
+                    {sortedProducts.map((product) => {
                         
                         return (
                             <div key={product.id} className="productRow">
