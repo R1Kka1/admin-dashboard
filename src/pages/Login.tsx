@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { addLog } from "../untils/log";
 import { required,minLength,validate,type ValidationRule } from "../untils/validate";
 import { useUsers } from "../hooks/useUsers";
+import axios from "axios";
 interface LoginErrors{
     username?:string;
     password?:string;
@@ -29,7 +30,7 @@ export function Login() {
     };
     
 
-    function handleLogin() {
+    async function handleLogin() {
 
         const formData = {
             username: username,
@@ -42,29 +43,20 @@ export function Login() {
         return;
         }
         
-        const user = users.find((user) => {
+        try{
+            const res = await axios.post('http://localhost:3002/api/auth/login',formData);
+            const {token,user} = res.data;
 
-            return (
-                username.trim() === user.username &&
-                password === user.password
-            );
-
-        });
-        if (user) {
-            const { password: _ , ...safeUser} = user;
-            localStorage.setItem("user", JSON.stringify(safeUser));
-            localStorage.setItem(
-                "token",
-                Math.random().toString(36).substring(2)
-            );
+            localStorage.setItem("user", JSON.stringify(user));
+            localStorage.setItem("token", token);
             addLog({
                 action: "登录系统",
                 target: "-",
                 detail: "管理员登录后台"
             });
             navigate("/homepage");
-        } else {
-            alert("登录失败");
+        }catch(err){
+            alert("登陆失败");
         }
     }
 
