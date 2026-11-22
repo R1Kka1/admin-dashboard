@@ -8,6 +8,24 @@ const bcrypt = require('bcryptjs');
 const app = express();
 const JWT_SECRET = 'dev-secret-please-change';
 
+const authMiddleware = (req,res,next) => {
+  const authHeader = req.headers.authorization;
+  if(!authHeader){
+    return res.status(401).json({ message: '未登录' });
+  }
+  const token = authHeader.split(' ')[1];
+
+  try{
+    const payload = jwt.verify(token,JWT_SECRET);
+    req.user = payload;
+    next();
+  }catch(err){
+    return res.status(401).json({message : 'token 无效或过期'});
+  }
+}
+  
+
+
 app.use(cors());
 app.use(express.json());
 
@@ -40,6 +58,10 @@ app.post('/api/auth/login', async (req, res) => {
     token,
     user: { id: user.id, username: user.username, email: user.email, role: user.role },
   });
+});
+
+app.get('/api/me', authMiddleware, (req, res) => {
+  res.json({ user: req.user });
 });
 
 app.listen(3002, () => {
