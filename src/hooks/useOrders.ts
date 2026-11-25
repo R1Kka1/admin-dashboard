@@ -8,7 +8,10 @@ export function useOrders() {
 
     const loadOrders = async () => {
         try {
-            const response = await getList<Order[]>("/orders");
+            const token = localStorage.getItem("token");
+            const response = await getList<Order[]>("http://localhost:3002/api/orders",{
+                headers: { Authorization: `Bearer ${token}` }
+            });
             setOrders(response.data);
         } catch (error) {
             console.error("获取订单失败", error);

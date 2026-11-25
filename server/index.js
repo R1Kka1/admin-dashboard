@@ -70,6 +70,13 @@ app.get('/api/products', authMiddleware, (req, res) => {
   res.json(db.products);
 });
 
+
+
+//读取orders
+app.get('/api/orders', authMiddleware, (req, res) => {
+  res.json(db.orders);
+});
+
 app.listen(3002, () => {
   console.log('server on 3002');
 });
