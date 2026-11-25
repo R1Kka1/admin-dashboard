@@ -64,6 +64,12 @@ app.get('/api/me', authMiddleware, (req, res) => {
   res.json({ user: req.user });
 });
 
+
+//读取products
+app.get('/api/products', authMiddleware, (req, res) => {
+  res.json(db.products);
+});
+
 app.listen(3002, () => {
   console.log('server on 3002');
 });

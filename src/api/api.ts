@@ -49,8 +49,8 @@ request.interceptors.response.use(
     }
 );
 
-export function getList<T>(url: string) {
-    return request.get<T>(url);
+export function getList<T>(url: string, config ?: {headers: { Authorization: string}}) {
+    return request.get<T>(url,config);
 }
 
 export function delObject<T>(url: string) {
