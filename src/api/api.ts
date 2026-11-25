@@ -57,8 +57,8 @@ export function delObject<T>(url: string) {
     return request.delete<T>(url);
 }
 
-export function postObject<T>(url: string, object: T) {
-    return request.post<T>(url, object);
+export function postObject<T>(url: string, object: T, config?: { headers: { Authorization: string } }) {
+    return request.post<T>(url, object,config);
 }
 
 export function patchObject<T>(url: string, object: T) {

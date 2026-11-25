@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const { start } = require('repl');
 
 const app = express();
 const JWT_SECRET = 'dev-secret-please-change';
@@ -64,10 +65,35 @@ app.get('/api/me', authMiddleware, (req, res) => {
   res.json({ user: req.user });
 });
 
-
+//Products
 //读取products
 app.get('/api/products', authMiddleware, (req, res) => {
   res.json(db.products);
+});
+app.post('/api/products', authMiddleware, (req, res) => {
+  const { name, priceCents, image, rating, stock, keywords } = req.body;
+  if (!name || !priceCents) {
+    return res.status(400).json({ message: '商品名称和价格不能为空' });
+  }
+  const newProduct = {
+    id:Date.now().toString(),
+    name,
+    priceCents,
+    image: image || '',
+    rating: rating || { stars: 0, count: 0 },
+    stock: stock ?? 0,
+    keywords: keywords || [],
+
+  }
+  db.products.push(newProduct);
+  fs.writeFileSync(
+    path.join(__dirname, '..', 'db.json'),
+    JSON.stringify(db, null, 2),
+    'utf-8'
+  );
+
+  res.status(201).json(newProduct);
+  
 });
 
 

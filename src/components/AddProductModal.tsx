@@ -62,7 +62,10 @@ export function AddProductModal({ close, loadProducts,showToast}:AddProductProps
             keywords: []
         };
         try {
-            await postObject("/products",product);  
+            const token = localStorage.getItem("token");
+            await postObject("http://localhost:3002/api/products",product,{
+                headers: { Authorization: `Bearer ${token}` }
+            });  
             await addLog({
                 action: "新增商品",
                 target: formData.newProductName,
