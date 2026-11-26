@@ -113,6 +113,13 @@ app.get('/api/users', authMiddleware, (req, res) => {
   res.json(safeUsers);
 });
 
+
+//读取logs
+app.get('/api/logs', authMiddleware, (req, res) => {
+  res.json(db.logs);
+});
+
+
 app.listen(3002, () => {
   console.log('server on 3002');
 });

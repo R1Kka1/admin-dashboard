@@ -8,7 +8,10 @@ export function useLogs() {
 
     const loadLogs = async () => {
         try {
-            const response = await getList<Log[]>("/logs");
+            const token = localStorage.getItem('token');
+            const response = await getList<Log[]>("http://localhost:3002/api/orders",{
+                headers: {Authorization: `Bearer ${token}` }
+            });
             setLogs(response.data);
         } catch (error) {
             console.error("获取日志失败", error);
