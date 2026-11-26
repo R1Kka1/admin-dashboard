@@ -70,6 +70,7 @@ app.get('/api/me', authMiddleware, (req, res) => {
 app.get('/api/products', authMiddleware, (req, res) => {
   res.json(db.products);
 });
+//新增product
 app.post('/api/products', authMiddleware, (req, res) => {
   const { name, priceCents, image, rating, stock, keywords } = req.body;
   if (!name || !priceCents) {
@@ -83,7 +84,6 @@ app.post('/api/products', authMiddleware, (req, res) => {
     rating: rating || { stars: 0, count: 0 },
     stock: stock ?? 0,
     keywords: keywords || [],
-
   }
   db.products.push(newProduct);
   fs.writeFileSync(
@@ -91,9 +91,7 @@ app.post('/api/products', authMiddleware, (req, res) => {
     JSON.stringify(db, null, 2),
     'utf-8'
   );
-
   res.status(201).json(newProduct);
-  
 });
 
 
@@ -101,6 +99,18 @@ app.post('/api/products', authMiddleware, (req, res) => {
 //读取orders
 app.get('/api/orders', authMiddleware, (req, res) => {
   res.json(db.orders);
+});
+
+//读取users
+app.get('/api/users', authMiddleware, (req, res) => {
+  const safeUsers = db.users.map((u) => ({
+    id: u.id,
+    username: u.username,
+    email: u.email,
+    role: u.role,
+    status: u.status,
+  }))
+  res.json(safeUsers);
 });
 
 app.listen(3002, () => {

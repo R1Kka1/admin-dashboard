@@ -8,7 +8,10 @@ export function useUsers() {
 
     const loadUsers = async () => {
         try {
-            const response = await getList<User[]>("/users");
+            const token = localStorage.getItem("token");
+            const response = await getList<User[]>("http://localhost:3002/api/users",{
+                headers: { Authorization: `Bearer ${token}` }
+            });
             setUsers(response.data);
         } catch (error) {
             console.error("获取用户失败", error);
