@@ -94,14 +94,14 @@ export function AddProductModal({ close, loadProducts,showToast}:AddProductProps
 
 
     return (
-        <div className="product-edit-modal">
-            <div className="editModal">
-                <div className="product-edit-popHeader">
+        <div className="modal">
+            <div className="modal-pop">
+                <div className="modal-header">
                     <h2>添加新商品</h2>
-                    <button className="product-edit-closeBtn" onClick={close}>X</button>
+                    <button className="modal-closeBtn" onClick={close}>X</button>
                 </div>
-                <div className="product-edit-contentDetails">
-                    <div className="form-item">
+                <div className="modal-content">
+                    <div className="modal-form-item">
 
                         <label>商品名称</label>
                         <input
@@ -123,7 +123,7 @@ export function AddProductModal({ close, loadProducts,showToast}:AddProductProps
                     </div>
 
 
-                    <div className="form-item">
+                    <div className="modal-form-item">
                         <label>商品价格</label>
                         <input
                             placeholder="请输入商品价格"
@@ -144,7 +144,7 @@ export function AddProductModal({ close, loadProducts,showToast}:AddProductProps
                     </div>
 
 
-                    <div className="form-item">
+                    <div className="modal-form-item">
                         <label>商品库存</label>
                         <input
                             placeholder="请输入商品库存"
@@ -164,10 +164,10 @@ export function AddProductModal({ close, loadProducts,showToast}:AddProductProps
                         )}
                     </div>
                 </div>
-                <div className="product-edit-Btns">
-                    <button className="addProductBtn" onClick={handleAddProduct}>添加</button>
-                    <button className="resetProductBtn" onClick={handleReset}>重置</button>
-                    <button className="cancelAddBtn" onClick={close}>取消</button>
+                <div className="modal-footer">
+                    <button className="modal-saveBtn" onClick={handleAddProduct}>添加</button>
+                    <button className="modal-resetBtn" onClick={handleReset}>重置</button>
+                    <button className="modal-cancelBtn" onClick={close}>取消</button>
                 </div>
             </div>
             {
